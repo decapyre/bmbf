@@ -1,0 +1,9 @@
+{
+  "name": "home",
+  "private": true,
+  "dependencies": {
+    "foundation": "zurb/bower-foundation#~5.4.6",
+    "font-awesome": "~4.2.0"
+  },
+  "devDependencies": {}
+}
