@@ -1,4 +1,5 @@
 'use strict';
+/*global $*/
 
 $(function(){
 	function noop(){}
@@ -45,14 +46,19 @@ $(function(){
 		}
 	});
 
-	// fix for dynamic height change on the 'orbit' container
+	// fix for dynamic height change on the 'orbit' container, yesh a ton of listeners :/
 	$('form')
-		.on('invalid.fndtn.abide', function () {
+		.on('valid.fndtn.abide invalid.fndtn.abide', function () {
 			$(document).foundation('orbit', 'reflow');
+			console.log('invalid reflow');
 		})
-		.on('valid.fndtn.abide', function () {
-			$(document).foundation('orbit', 'reflow');
-		});
+		.find('input, textarea, select')
+			.on('keydown.fndtn.abide blur.fndtn.abide change.fndtn.abide', function () {
+				setTimeout(function(){
+					$(document).foundation('orbit', 'reflow');
+				}, 300);
+			});
+
 
 	// reset error messages when modal is closed
 	$('#reg-dropdown').on('closed.fndtn.dropdown', function() {
