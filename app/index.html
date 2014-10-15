@@ -5,8 +5,14 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
+        <!-- build:css(.tmp) styles/fonts.css -->
+        <link rel="stylesheet" href="styles/fonts.css">
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/core.css -->
+        <link rel="stylesheet" href="styles/core.css">
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/plugins.css -->
+        <link rel="stylesheet" href="styles/plugins.css">
         <!-- endbuild -->
     </head>
     <body>
@@ -35,17 +41,19 @@
                                 </div>
                             </div>
 
-                            <form class="data-abide">
+                            <form data-abide>
                                 <div class="row">
                                     <div class="small-12 columns">
                                         <div class="row collapse">
                                             <div class="small-12 email-wrapper columns">
                                                 <input id="email" name="email" type="email" placeholder="Email" required />
+                                                <small class="error">A valid email address is required.</small>
                                             </div>
                                         </div>
                                         <div class="row collapse">
                                             <div class="small-12 password-wrapper columns">
-                                                <input id="password" name="password" type="password" placeholder="Password" required />
+                                                <input id="password" name="password" type="password" placeholder="Password" pattern="^.{2,255}$" required />
+                                                <small class="error">A password of atleast 2 characters is required.</small>
                                             </div>
                                         </div>
                                         <div class="row collapse">
@@ -79,12 +87,13 @@
                         <div id="signup">
                             <h2>Signup</h2>
 
-                            <form class="data-abide">
+                            <form data-abide>
                                 <div class="row">
                                     <div class="small-12 columns">
                                         <div class="row collapse">
                                             <div class="small-12 email-wrapper columns">
                                                 <input id="email" name="email" type="email" placeholder="Email" required />
+                                                <small class="error">A valid email address is required.</small>
                                             </div>
                                         </div>
                                         <div class="row collapse">
@@ -92,16 +101,19 @@
                                                 <div class="row collapse">
                                                     <div class="small-6 user-wrapper columns">
                                                         <input id="firstname" name="firstname" type="text" placeholder="First Name" required />
+                                                        <small class="error">Please provide your First Name.</small>
                                                     </div>
                                                     <div class="small-6 columns">
                                                         <input id="lastname" name="lastname" type="text" placeholder="Last Name" required />
+                                                        <small class="error">Please provide your Last Name.</small>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row collapse">
                                             <div class="small-12 password-wrapper columns">
-                                                <input id="password" name="password" type="password" placeholder="Password" required />
+                                                <input id="password" name="password" type="password" placeholder="Password" pattern="^.{2,255}$" required />
+                                                <small class="error">A password of atleast 2 characters is required.</small>
                                             </div>
                                         </div>
                                         <div class="row collapse">
@@ -141,10 +153,10 @@
     <script src="../bower_components/jquery.cookie/jquery.cookie.js"></script>
     <script src="../bower_components/jquery-placeholder/jquery.placeholder.js"></script>
     <script src="../bower_components/foundation/js/foundation/foundation.js"></script>
+    <!-- endbower -->
     <script src="../bower_components/foundation/js/foundation/foundation.abide.js"></script>
     <script src="../bower_components/foundation/js/foundation/foundation.dropdown.js"></script>
     <script src="../bower_components/foundation/js/foundation/foundation.orbit.js"></script>
-    <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({app,.tmp}) scripts/main.js -->

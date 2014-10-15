@@ -38,6 +38,34 @@ $(function(){
 			swipe: false,
 			before_slide_change: noop, // Execute a function before the slide changes
 			after_slide_change: noop // Execute a function after the slide changes
+		},
+		abide : {
+			live_validate : true,
+			timeout : 300
 		}
 	});
+
+	// fix for dynamic height change on the 'orbit' container
+	$('form')
+		.on('invalid.fndtn.abide', function () {
+			$(document).foundation('orbit', 'reflow');
+		})
+		.on('valid.fndtn.abide', function () {
+			$(document).foundation('orbit', 'reflow');
+		});
+
+	// reset error messages when modal is closed
+	$('#reg-dropdown').on('closed.fndtn.dropdown', function() {
+		var abideForms = $(this).find('form');
+
+		$(abideForms).children('div').removeClass('error');
+		$(abideForms).each(function(){
+			this.reset();
+		});
+
+		// reflow
+		$(document).foundation('orbit', 'reflow');
+	});
 });
+
+

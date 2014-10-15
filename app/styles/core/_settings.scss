@@ -55,7 +55,7 @@
 // $rem-base: 16px;
 
 // Allows the use of rem-calc() or lower-bound() in your settings
-@import "../../bower_components/foundation/scss/foundation/functions";
+@import "../../../bower_components/foundation/scss/foundation/functions";
 //@import "foundation/functions";
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
@@ -100,7 +100,7 @@ $font-weight-bold: bold !default;
 $primary-color: #333333;
 //$primary-color: #72B424;
 // $secondary-color: #e7e7e7;
-// $alert-color: #f04124;
+$alert-color: #cc4521;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
@@ -667,7 +667,7 @@ $f-dropdown-content-padding: rem-calc(20);
 // $input-error-message-top: -1px;
 // $input-error-message-font-size: rem-calc(12);
 // $input-error-message-font-weight: $font-weight-normal;
-// $input-error-message-font-style: italic;
+$input-error-message-font-style: normal;
 // $input-error-message-font-color: $white;
 // $input-error-message-font-color-alt: $oil;
 
