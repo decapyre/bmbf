@@ -26,7 +26,7 @@ div#signup {
 		margin: rem-calc(20) 0;
 
 		.line {
-			background: url(../images/pattern.png) 0 8px repeat-x;
+			background: url(/static-assets/images/pattern.png) 0 8px repeat-x;
 			text-align: center;
 
 			span {
@@ -51,7 +51,7 @@ div#signup {
 		height: 40px; //57px;
 		padding-left: 70px; //77px;
 		background-size: 100% 100%;
-		background-image: url(../images/facebook_line.png);
+		background-image: url(/static-assets/images/facebook_line.png);
 		background-position: 20px 0px; //25px 0px;
 		background-size: 27px 40px; //38px 57px;
 		background-repeat: no-repeat;
