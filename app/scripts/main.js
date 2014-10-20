@@ -1,5 +1,5 @@
 'use strict';
-/*global $*/
+/*global $, Foundation*/
 
 $(function(){
 	function noop(){}
@@ -45,12 +45,27 @@ $(function(){
 			timeout : 300
 		}
 	});
+	
+
+	// Open the dropdown and slider on the supplied hash, default to login (#slide=login, #slide=signup, #slide=reset, #slide=forgot)
+	if(location.hash.indexOf('#slide') !== -1) {
+		// turn animations off
+		$.fx.off = true;
+
+		// go to hashed slide
+		$('#reg-dropdown [data-orbit-link="'+location.hash.substr(7)+'"]').click();
+
+		// Force open dropdown (dropdown content, dropdown trigger (button))
+		Foundation.libs.dropdown.open($('#reg-dropdown'), $('#reg-btn-dropdown'));
+		
+		// turn animations back on
+		$.fx.off = false;
+	}
 
 	// fix for dynamic height change on the 'orbit' container, yesh a ton of listeners :/
-	$('form')
+	$('#reg-dropdown form')
 		.on('valid.fndtn.abide invalid.fndtn.abide', function () {
 			$(document).foundation('orbit', 'reflow');
-			console.log('invalid reflow');
 		})
 		.find('input, textarea, select')
 			.on('keydown.fndtn.abide blur.fndtn.abide change.fndtn.abide', function () {
@@ -71,7 +86,10 @@ $(function(){
 
 		// reflow
 		$(document).foundation('orbit', 'reflow');
+
+		// go back to the (login) slide
+		$.fx.off = true;
+		$('#reg-dropdown [data-orbit-link="login"]').click();
+		$.fx.off = false;
 	});
 });
-
-
