@@ -15,14 +15,14 @@
 	text-transform: uppercase;
 }
 
-div#login,
-div#signup {
+
+div.slide {
 
 	h2 {
 		text-transform: uppercase;
 	}
 
-	.divider {
+	div.divider.row.collapse {
 		margin: rem-calc(20) 0;
 
 		.line {
@@ -35,6 +35,10 @@ div#signup {
 				vertical-align: middle;
 			}
 		}
+	}
+
+	div.divider.row.collapse.divider:last-child {
+		margin-bottom: 0;
 	}
 
 	.btn-facebook {
@@ -128,7 +132,7 @@ div#signup {
 		text-decoration: underline;
 	}
 
-	a.page {
+	a.slide-nav {
 		margin-top: 5px;
 		text-align: center;
 		font-size: rem-calc(20);
@@ -142,17 +146,20 @@ div#signup {
 		}
 	}
 
-	a.page:hover,
+	a.slide-nav:hover,
 	a.forgot:hover {
 		text-decoration: none;
 	}
-
-	.divider:last-child {
-		margin-bottom: 0;
+	
+	div.row.message {
+		margin-bottom: 8px;
 	}
 	
-	.server-error {
-		padding-bottom: .5rem;
+	div.row.success {
+		color: #6aac39;
+	}
+	
+	div.row.error {
 		color: #cc4521;
 	}
 }

@@ -1,5 +1,5 @@
 'use strict';
-/*global $*/
+/*global $, Foundation*/
 
 $(function(){
 	function noop(){}
@@ -45,12 +45,27 @@ $(function(){
 			timeout : 300
 		}
 	});
+	
+
+	// Open the dropdown and slider on the supplied hash, default to login (#slide=login, #slide=signup, #slide=reset, #slide=forgot)
+	if(location.hash.indexOf('#slide=') !== -1) {
+		// turn animations off
+		$.fx.off = true;
+
+		// go to hashed slide
+		$('#reg-dropdown [data-orbit-link="'+location.hash.substr(7)+'"]').click();
+
+		// Force open dropdown (dropdown content, dropdown trigger (button))
+		Foundation.libs.dropdown.open($('#reg-dropdown'), $('#reg-btn-dropdown'));
+		
+		// turn animations back on
+		$.fx.off = false;
+	}
 
 	// fix for dynamic height change on the 'orbit' container, yesh a ton of listeners :/
-	$('form')
+	$('#reg-dropdown form')
 		.on('valid.fndtn.abide invalid.fndtn.abide', function () {
 			$(document).foundation('orbit', 'reflow');
-			console.log('invalid reflow');
 		})
 		.find('input, textarea, select')
 			.on('keydown.fndtn.abide blur.fndtn.abide change.fndtn.abide', function () {
@@ -61,21 +76,47 @@ $(function(){
 
 
 	// reset error messages when modal is closed
-	$('#reg-dropdown').on('closed.fndtn.dropdown', function() { 
-        var abideForms = $(this).find('form');
+	$('#reg-dropdown').on('closed.fndtn.dropdown', function() {
+		var abideForms = $(this).find('form');
 
 		$(abideForms).children('div').removeClass('error');
 		$(abideForms).each(function(){
 			this.reset();
 		});
-        
-        $('.server-error').hide();
-        $('.server-error span').text('');
+		
+		// reset server errors
+        $('.message span').text('');
+		$('.message').removeClass('success').removeClass('error').hide();
 
 		// reflow
 		$(document).foundation('orbit', 'reflow');
+
+		// go back to the (login) slide
+		$.fx.off = true;
+		$('#reg-dropdown [data-orbit-link="login"]').click();
+		$.fx.off = false;
 	});
     
+	var displaySuccess = function(messageSelector, data) {
+		if (data && data.message) {
+        	$(messageSelector+' span').text(data.message);
+    	} else {
+        	$(messageSelector+' span').text('Operation successful');                	
+    	}
+        
+    	$(messageSelector).removeClass('error').addClass('success').show();
+    }
+    
+    var displayError = function(messageSelector, data) {
+        if (data && data.message) {
+        	$(messageSelector+' span').text(data.message);
+    	} else {
+        	$(messageSelector+' span').text('An unexpected error ocurred. Please try again later');                	
+    	}
+    
+    	$(messageSelector).removeClass('success').addClass('error').show();
+    }
+	
     $('#login-btn').click(function(e) {
     	e.preventDefault();
         
@@ -87,12 +128,7 @@ $(function(){
             	window.location = '/new-home';
             },
             error: function(jqXHR) {
-				$('#login-error').show();
-                if (jqXHR.responseJSON && jqXHR.responseJSON.message) {
-        			$('#login-error span').text(jqXHR.responseJSON.message);
-                } else {
-					$('#login-error span').text('An unexpected error ocurred. Please try again later.');                	
-                }
+            	displayError('#login-message', jqXHR.responseJSON);
             }
 		});
     });
@@ -110,18 +146,49 @@ $(function(){
   			type: 'POST',
   			url: '/api/1/services/registration.json',
   			data: $('#signup-form').serialize(),
-  			success: function() {
-            	window.location = '/new-home';
+  			success: function(data) {
+            	displaySuccess('#signup-message', data);
             },
             error: function(jqXHR) {
-				$('#signup-error').show();
-                if (jqXHR.responseJSON && jqXHR.responseJSON.message) {
-        			$('#signup-error span').text(jqXHR.responseJSON.message);
-                } else {
-					$('#signup-error span').text('An unexpected error ocurred. Please try again later.');                	
-                }
+            	displayError('#signup-message', jqXHR.responseJSON);
+            }
+		});
+    });
+    
+    $('#forgot-btn').click(function(e) {
+		e.preventDefault();     
+        
+        $.ajax({
+  			type: 'POST',
+  			url: '/api/1/services/forgotpswd.json',
+  			data: $('#forgot-form').serialize(),
+  			success: function(data) {
+            	displaySuccess('#forgot-message', data);
+            },
+            error: function(jqXHR) {
+            	displayError('#forgot-message', jqXHR.responseJSON);
+            }
+		});
+    });
+    
+	$('#reset-btn').click(function(e) {
+		e.preventDefault();
+        
+		var token = '';
+		if (location.search.indexOf('?token=') !== -1) {
+        	token = location.search.substr(7);
+		}  
+        
+        $.ajax({
+  			type: 'POST',
+  			url: '/api/1/services/resetpswd.json?token='+token,
+  			data: $('#reset-form').serialize(),
+  			success: function(data) {
+            	displaySuccess('#reset-message', data);
+            },
+            error: function(jqXHR) {
+                displayError('#reset-message', jqXHR.responseJSON); 
             }
 		});
     });
 });
-
