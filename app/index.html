@@ -26,14 +26,16 @@
                     <div data-orbit-slide="login">
                         <div id="login">
                             <h2>Login</h2>
-                            <div class="row">
-                                <div class="large-12 columns">
-                                    <a href="#" class="btn btn-facebook" data-js="facebook-connect">
-                                        <span class="">Connect with Facebook</span>
-                                    </a>
-                                    <p class="recommended">(Recommended)</p>
+                            <form id="facebook-connect-form" action="/connect/facebook" method="POST"> 
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <a id="facebook-connect-btn" href="#" class="btn btn-facebook" data-js="facebook-connect">
+                                            <span class="">Connect with Facebook</span>
+                                        </a>
+                                        <p class="recommended">(Recommended)</p>
+                                    </div>
                                 </div>
-                            </div> 
+                            </form>
 
                             <div class="divider row collapse">
                                 <div class="large-12 columns">
@@ -41,12 +43,12 @@
                                 </div>
                             </div>
 
-                            <form data-abide>
+                            <form id="login-form" data-abide>
                                 <div class="row">
                                     <div class="small-12 columns">
                                         <div class="row collapse">
                                             <div class="small-12 email-wrapper columns">
-                                                <input id="email" name="email" type="email" placeholder="Email" required />
+                                                <input id="email" name="username" type="email" placeholder="Email" required />
                                                 <small class="error">A valid email address is required.</small>
                                             </div>
                                         </div>
@@ -56,12 +58,17 @@
                                                 <small class="error">A password of atleast 2 characters is required.</small>
                                             </div>
                                         </div>
+										<div id="login-error" class="row collapse server-error">
+                                            <div class="small-12 columns">
+                                                <span></span>
+                                            </div>
+                                        </div>
                                         <div class="row collapse">
                                             <div class="small-6 columns">
                                                 <input id="remember" name="remember" type="checkbox" value="1"> Remember Me
                                             </div>
                                             <div class="small-6 columns">
-                                                <button type="submit" class="submit small right radius">Login</button>
+                                                <button id="login-btn" type="submit" class="submit small right radius">Login</button>
                                             </div>
                                         </div>                                                    
                                     </div>
@@ -87,7 +94,7 @@
                         <div id="signup">
                             <h2>Signup</h2>
 
-                            <form data-abide>
+                            <form id="signup-form" data-abide>
                                 <div class="row">
                                     <div class="small-12 columns">
                                         <div class="row collapse">
@@ -116,9 +123,14 @@
                                                 <small class="error">A password of atleast 2 characters is required.</small>
                                             </div>
                                         </div>
+										<div id="signup-error" class="row collapse server-error">
+                                            <div class="small-12 columns">
+                                                <span></span>
+                                            </div>
+                                        </div>
                                         <div class="row collapse">
                                             <div class="small-12 columns">
-                                                <button type="submit" class="submit small right radius">Sign Up</button>
+                                                <button id="signup-btn" type="submit" class="submit small right radius">Sign Up</button>
                                             </div>
                                         </div>                                                    
                                     </div>
@@ -143,7 +155,7 @@
                 </div>
             </div>
         </div>
-    </div>        
+    </div>       
 
     <!-- build:js static-assets/js/vendor.js -->
     <!-- bower:js -->

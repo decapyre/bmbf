@@ -61,17 +61,67 @@ $(function(){
 
 
 	// reset error messages when modal is closed
-	$('#reg-dropdown').on('closed.fndtn.dropdown', function() {
-		var abideForms = $(this).find('form');
+	$('#reg-dropdown').on('closed.fndtn.dropdown', function() { 
+        var abideForms = $(this).find('form');
 
 		$(abideForms).children('div').removeClass('error');
 		$(abideForms).each(function(){
 			this.reset();
 		});
+        
+        $('.server-error').hide();
+        $('.server-error span').text('');
 
 		// reflow
 		$(document).foundation('orbit', 'reflow');
 	});
+    
+    $('#login-btn').click(function(e) {
+    	e.preventDefault();
+        
+        $.ajax({
+  			type: 'POST',
+  			url: '/crafter-security-rest-login',
+  			data: $('#login-form').serialize(),
+  			success: function() {
+            	window.location = '/new-home';
+            },
+            error: function(jqXHR) {
+				$('#login-error').show();
+                if (jqXHR.responseJSON && jqXHR.responseJSON.message) {
+        			$('#login-error span').text(jqXHR.responseJSON.message);
+                } else {
+					$('#login-error span').text('An unexpected error ocurred. Please try again later.');                	
+                }
+            }
+		});
+    });
+    
+    $('#facebook-connect-btn').click(function(e) {
+    	e.preventDefault();
+        
+        $('#facebook-connect-form').submit();
+    });
+    
+	$('#signup-btn').click(function(e) {
+    	e.preventDefault();
+        
+        $.ajax({
+  			type: 'POST',
+  			url: '/api/1/services/registration.json',
+  			data: $('#signup-form').serialize(),
+  			success: function() {
+            	window.location = '/new-home';
+            },
+            error: function(jqXHR) {
+				$('#signup-error').show();
+                if (jqXHR.responseJSON && jqXHR.responseJSON.message) {
+        			$('#signup-error span').text(jqXHR.responseJSON.message);
+                } else {
+					$('#signup-error span').text('An unexpected error ocurred. Please try again later.');                	
+                }
+            }
+		});
+    });
 });
-
 
