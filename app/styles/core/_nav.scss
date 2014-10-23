@@ -1,0 +1,63 @@
+#brand {
+    margin: 0 auto;
+    width: 100%;
+    max-width: $row-width;
+    position: relative;
+
+    .logo_container {
+        position: absolute;
+        z-index: 54;
+        -webkit-border-radius: 0px 0px 25px 0px;
+        -moz-border-radius: 0px 0px 25px 0px;
+        -ms-border-radius: 0px 0px 25px 0px;
+        -o-border-radius: 0px 0px 25px 0px;
+        border-radius: 0px 0px 25px 0px;
+        width: 88px;
+        height: 166px;
+        margin-left: rem-calc(20);
+        background: url(../images/pattern.png);
+        background-repeat: repeat;
+        line-height: 230px;
+
+        .logo {
+            width: 62px;
+            height: 144px;
+            margin: 11px auto;
+            background-size: 62px 144px;
+            background-image: url(../images/logo.png);
+        }
+    }
+}
+
+nav {
+    .title-area {
+        .name {
+            font-family: "Didot 06 7r", "Didot 06 A", "Didot 06 B";
+            font-weight: 700;
+            margin-left: rem-calc(105);
+            font-size: rem-calc(20);
+            text-transform: uppercase;
+
+            a {
+                color: $black;
+            }
+
+            span {
+                font-family: "Didot 06 5i", "Didot 06 A", "Didot 06 B";
+                font-weight: 500;
+                text-transform: none;
+            }
+        }
+    }
+
+    .top-bar-section {
+        z-index: 55;
+
+        li {
+            a{
+                font-family: "futura-pt", "helvetica-neue", helvetica, sans-serif;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

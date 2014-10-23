@@ -1,8 +1,10 @@
 'use strict';
-/*global $, Foundation*/
+/*global $, Foundation, Typekit*/
 
 $(function(){
 	function noop(){}
+
+	Typekit.load();
 
 	$(document).foundation({
 		orbit: {

@@ -10,7 +10,7 @@
 module.exports = function (grunt) {
 
     // Load grunt tasks automatically
-    require('load-grunt-tasks')(grunt);
+    require('load-grunt-tasks')(grunt, {pattern: ['grunt-*', 'assemble']});
 
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
@@ -60,10 +60,19 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
+                    '.tmp/*.html',
                     '<%= config.app %>/{,*/}*.html',
                     '.tmp/styles/{,*/}*.css',
                     '<%= config.app %>/images/{,*/}*'
                 ]
+            },
+            assemble: {
+                files: [
+                    '<%= config.app %>/templates/layouts/*.hbs',
+                    '<%= config.app %>/templates/pages/*.hbs',
+                    '<%= config.app %>/templates/partials/*.hbs'
+                ],
+                tasks: ['assemble:server']
             }
         },
 
@@ -223,7 +232,8 @@ module.exports = function (grunt) {
             options: {
                 dest: '<%= config.dist %>'
             },
-            html: '<%= config.app %>/index.html'
+            html: '.tmp/{,*/}*.html'
+           // html: '.tmp/index.html'
         },
 
         // Performs rewrites based on rev and the useminPrepare configuration
@@ -231,7 +241,7 @@ module.exports = function (grunt) {
             options: {
                 assetsDirs: ['<%= config.dist %>', '<%= config.dist %>/images']
             },
-            html: ['<%= config.dist %>/{,*/}*.html'],
+            html: ['<%= config.dist %>/{,*/}*.html', '.tmp/{,*/}*.html'],
             css: ['<%= config.dist %>/styles/{,*/}*.css']
         },
 
@@ -331,11 +341,32 @@ module.exports = function (grunt) {
             }
         },
 
+        assemble: {
+            options: {
+                flatten: true,
+                layout: 'master.hbs',
+                layoutdir: '<%= config.app %>/templates/layouts',
+                assets: '<%=config.dist %>/images',
+                partials: ['<%= config.app %>/templates/partials/*.hbs']
+            },
+            server: {
+                files: {
+                    '.tmp/': ['<%= config.app %>/templates/pages/*.hbs']
+                }
+            },
+            dist: {
+                files: {
+                    '<%=config.dist %>': ['<%= config.app %>/templates/pages/*.hbs']
+                }
+            }
+        },
+
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
                 'sass:server',
-                'copy:styles'
+                'copy:styles',
+                'assemble'
             ],
             test: [
                 'copy:styles'
@@ -343,6 +374,7 @@ module.exports = function (grunt) {
             dist: [
                 'sass',
                 'copy:styles',
+                'assemble',
                 'imagemin',
                 'svgmin'
             ]
@@ -386,22 +418,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'useminPrepare',
         'concurrent:dist',
-        'autoprefixer',
-        'concat',
-        'cssmin',
-        'uglify',
-        'copy:dist',
-        //'rev',
-        'usemin',
-        //'htmlmin'
-    ]);
-
-    grunt.registerTask('min', [
-        'clean:dist',
         'useminPrepare',
-        'concurrent:dist',
         'autoprefixer',
         'concat',
         'cssmin',

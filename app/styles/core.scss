@@ -1,10 +1,17 @@
 // bower:scss
 // endbower
 
-// core sass
+// deps
 @import "core/settings";
 @import "core/foundation";
 @import "core/variables";
-//@import "mixins";
+@import "core/mixins";
+
+// layout
 @import "core/document";
-//@import "media";
+@import "core/nav";
+@import "core/footer";
+@import "core/home";
+
+// media
+@import "core/media";

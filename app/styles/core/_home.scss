@@ -1,0 +1,74 @@
+#hero {
+	
+	.slide {
+		padding: 0 rem-calc(60);
+
+		background-image: url(../images/hero1.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: rem-calc(640);
+
+		.pick {
+			margin-bottom: rem-calc(10);
+			padding-top: rem-calc(275);
+
+			.headline,
+			.category  {
+				font-family: $futura;
+				font-weight: bold;
+				text-transform: uppercase;
+				color: #fff;
+				padding: 0;
+				margin: 0;
+			}
+
+			.headline {
+				font-size: rem-calc(26);
+			}
+
+			.category {
+				font-size: rem-calc(20);
+			}
+		}
+
+		.title {
+			border-top: 2px solid #d7d7d7;
+			border-bottom: 2px solid #d7d7d7;
+			padding: rem-calc(20) 0;
+
+			h2 {
+				font-size: rem-calc(140);
+				line-height: 1.2;
+				color: #fff;
+			}
+
+			button {
+
+			}
+		}
+	}
+
+}
+
+#slogan {
+	text-align: center;
+	padding: rem-calc(50) 0;
+}
+
+#articles {
+	img.featured {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.recent {
+		li {
+			h4 {
+				font-family: $futura;
+				font-size: rem-calc(16);
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+		}
+	}
+}

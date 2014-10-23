@@ -1,15 +1,35 @@
 body {
 	font-family: georgia, serif;
 	color: $oil;
+	background: url(../images/pattern.jpg);
+    background-repeat: repeat;
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Didot 06 7r','Didot 06 A','Didot 06 B';
+    font-family: $didot;
     font-style: normal;
     font-variant: normal;
     font-weight: bold;	
 }
 
 small {
-	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	font-family: $helvetica;
+}
+
+#wrapper {
+    background: #fff;
+}
+
+.divider-lines {
+	display: block;
+	height: rem-calc(7);
+	background-image: url("../images/pattern.jpg");
+	background-repeat: repeat;
+	//border-top: 1px solid $steel;
+}
+
+button {
+	font-family: $futura;
+	font-weight: bold;
+	text-transform: uppercase;
 }

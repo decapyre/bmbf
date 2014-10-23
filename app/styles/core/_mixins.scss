@@ -1,0 +1,15 @@
+@mixin gradient-bg() {
+	background: #333;
+	background-image: -o-linear-gradient(-89deg, #333333 13%, rgba(0,0,0,0.90) 74%);
+	background-image: -moz-linear-gradient(-89deg, #333333 13%, rgba(0,0,0,0.90) 74%);
+	background-image: -ms-linear-gradient(-89deg, #333333 13%, rgba(0,0,0,0.90) 74%);
+	background-image: linear-gradient(-179deg, #333333 13%, rgba(0,0,0,0.90) 74%);
+}
+
+@mixin border-radius($amount) {
+		 border-radius: $amount;
+	-moz-border-radius: $amount;
+ -webkit-border-radius: $amount;
+	 -ms-border-radius: $amount;
+	  -o-border-radius: $amount;
+}
