@@ -1,74 +1,191 @@
 #hero {
-	
+	margin-bottom: rem-calc(50);
+
+	.vignette {
+		//pointer-events: none;
+		position: relative;
+
+		&:after {
+			@include box-shadow(inset 0 0 265px 80px $black);
+			background-image: url(../images/pattern-trans.png);
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+			content: "";
+		}
+	}
+
 	.slide {
 		padding: 0 rem-calc(60);
 
 		background-image: url(../images/hero1.jpg);
 		background-size: cover;
 		background-repeat: no-repeat;
-		height: rem-calc(640);
+		background-position: 30% center;
 
-		.pick {
-			margin-bottom: rem-calc(10);
-			padding-top: rem-calc(275);
+		.content {
+			z-index: 3; // to go above box-shadow
 
-			.headline,
-			.category  {
-				font-family: $futura;
-				font-weight: bold;
-				text-transform: uppercase;
-				color: #fff;
-				padding: 0;
-				margin: 0;
+			.pick {
+				margin-bottom: rem-calc(10);
+				padding-top: rem-calc(250);
+
+				.headline,
+				.category  {
+					font-family: $futura;
+					font-weight: bold;
+					text-transform: uppercase;
+					color: #fff;
+					padding: 0;
+					margin: 0;
+				}
+
+				.headline {
+					font-size: rem-calc(26);
+				}
+
+				.category {
+					font-size: rem-calc(20);
+				}
 			}
 
-			.headline {
-				font-size: rem-calc(26);
-			}
+			.title {
+				border-top: 2px solid #d7d7d7;
+				border-bottom: 2px solid #d7d7d7;
+				padding: rem-calc(20) 0;
+				margin-bottom: rem-calc(80);
 
-			.category {
-				font-size: rem-calc(20);
-			}
-		}
+				.button-container {
+					line-height: 10;
+					text-align: right;
+				}
 
-		.title {
-			border-top: 2px solid #d7d7d7;
-			border-bottom: 2px solid #d7d7d7;
-			padding: rem-calc(20) 0;
+				h2 {
+					margin: 0;
+					line-height: 1.2;
+					font-size: rem-calc(140);
+					color: #fff;
+				}
 
-			h2 {
-				font-size: rem-calc(140);
-				line-height: 1.2;
-				color: #fff;
-			}
-
-			button {
-
+				a {
+					font-size: rem-calc(22);
+					background-color: $white;
+					color: $primary-color;
+					margin: 0;
+				}
 			}
 		}
 	}
-
 }
 
 #slogan {
 	text-align: center;
-	padding: rem-calc(50) 0;
+
+	h2 {
+		font-size: rem-calc(40);
+	}
 }
 
 #articles {
-	img.featured {
-		width: 100%;
-		max-width: 100%;
+	img {
+		&.featured {
+			width: 100%;
+		}
+	}
+
+	.today {
+		margin-bottom: rem-calc(25);
+
+		.story {
+			padding-top: rem-calc(34);
+
+			h2 {
+				line-height: 1.2;
+			}
+
+			.authored {
+				color: $steel;
+				font-style: italic;
+				margin-bottom: rem-calc(10);
+			}
+		}
 	}
 
 	.recent {
 		li {
-			h4 {
-				font-family: $futura;
-				font-size: rem-calc(16);
-				font-weight: bold;
-				text-transform: uppercase;
+			a {
+				display: block;
 			}
+
+			h3 {
+				margin-bottom: rem-calc(30);
+			}
+
+			h4 {
+				margin-top: rem-calc(8);
+				font-family: $futura;
+				font-size: rem-calc(18);
+				font-weight: normal;
+				//text-transform: uppercase;
+			}
+		}
+	}
+}
+
+#trending {
+	font-family: $futura;
+
+	h3 {
+		margin-bottom: rem-calc(30);
+	}
+
+	h4 {		
+		margin: rem-calc(12) 0 0 0;
+		font-family: $futura;
+		font-size: rem-calc(16);
+		font-weight: normal;
+	}
+
+	.year {
+		font-size: rem-calc(12);
+		margin: 0;
+	}
+}
+
+#filter-choices {
+	h3 {
+		text-align: center;
+		margin: 0 0 rem-calc(60) 0;	
+	}
+
+	ul {
+		li {
+			text-align: center;
+
+			.content {
+				border: 1px solid $aluminum;
+				padding: rem-calc(32) rem-calc(12);
+				display: block;
+
+				.icon-container {
+					margin: 0 0 rem-calc(25) 0;
+				}
+
+				.button {
+					@include button(
+						rem-calc(8),
+						$primary-color,
+						$global-radius,
+						false,
+						false,
+						false
+					);
+					margin: 0;
+				}
+			}			
 		}
 	}
 }

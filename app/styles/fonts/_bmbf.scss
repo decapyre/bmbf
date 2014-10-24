@@ -1,0 +1,106 @@
+// Icon font created at http://app.fontastic.me/ for free with user account netglory@gmail.com
+@charset "UTF-8";
+
+// Variables
+// -------------------------
+$bmbf-font-path:        "../../fonts" !default;
+$bmbf-css-prefix:       bmbf !default;
+$bmbf-border-color:     #eee !default;
+$bmbf-inverse:          #fff !default;
+$bmbf-li-width:         (30em / 14) !default;
+$bmbf-vert-offset:      -7%;
+
+// Path
+// -------------------------
+@font-face {
+  font-family: "bmbf";
+  src:url('#{$bmbf-font-path}/bmbf.eot');
+  src:url('#{$bmbf-font-path}/bmbf.eot?#iefix') format("embedded-opentype"),
+    url('#{$bmbf-font-path}/bmbf.woff') format("woff"),
+    url('#{$bmbf-font-path}/bmbf.ttf') format("truetype"),
+    url('#{$bmbf-font-path}/bmbf.svg#bmbf') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Core
+// -------------------------
+.#{$bmbf-css-prefix} {
+  display: inline-block;
+  font: normal normal normal 16px/1 bmbf; // shortening font declaration
+  font-size: inherit; // can't have font-size inherit on line above, so need to override
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  // text-transform: none;
+  //speak: none;
+  vertical-align: $bmbf-vert-offset; // custom adjustment for this particular site
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Icon Sizes
+// -------------------------
+
+/* makes the font 33% larger relative to the icon container */
+.#{$bmbf-css-prefix}-lg {
+  font-size: (4em / 3);
+  //line-height: (3em / 4);
+  vertical-align: -15%;
+}
+
+.#{$bmbf-css-prefix}-2x { font-size: 2em; }
+.#{$bmbf-css-prefix}-3x { font-size: 3em; }
+.#{$bmbf-css-prefix}-4x { font-size: 4em; }
+.#{$bmbf-css-prefix}-5x { font-size: 5em; }
+
+// Fixed Width Icons
+// -------------------------
+.#{$bmbf-css-prefix}-fw {
+  width: (18em / 14);
+  text-align: center;
+}
+
+// Vertical Align Middle
+// -------------------------
+.#{$bmbf-css-prefix}-middle {
+  vertical-align: middle;
+}
+
+
+
+// Content
+// -----------------------------------------------------------------------------------------------------------
+/* Edit Below Only When adding fonts from fontastic.me, make sure the prefix is the same as $fa-css-prefix and you export as PUA */
+
+.bmbf-genre:before {
+  content: "\e000";
+}
+.bmbf-user:before {
+  content: "\e001";
+}
+.bmbf-lock:before {
+  content: "\e002";
+}
+.bmbf-search:before {
+  content: "\e003";
+}
+.bmbf-arrow-right:before {
+  content: "\e004";
+}
+.bmbf-arrow-left:before {
+  content: "\e005";
+}
+.bmbf-email:before {
+  content: "\e006";
+}
+.bmbf-globe:before {
+  content: "\e007";
+}
+.bmbf-smile:before {
+  content: "\e008";
+}
+.bmbf-dice:before {
+  content: "\e009";
+}
+.bmbf-clock:before {
+  content: "\e00a";
+}

@@ -1,63 +1,95 @@
 @media #{$small-to-medium-only} {
 
 	#brand {
-	    .logo_container {
-	        -webkit-border-radius: 0px 0px 12px 0px;
-	        -moz-border-radius: 0px 0px 12px 0px;
-	        -ms-border-radius: 0px 0px 12px 0px;
-	        -o-border-radius: 0px 0px 12px 0px;
-	        border-radius: 0px 0px 12px 0px;
-	        width: 44px;
-	        height: 83px;
-	        margin-left: rem-calc(8);
-
-	        .logo {
-	            width: 31px;
-	            height: 72px;
-	            margin: 3px auto;
-	            background-size: 31px 72px;
-	        }
-	    }
+		@include border-radius(0px 0px 12px 0px);
+		width: (88/$med-logo-divisor) * 1px;
+		height: (166/$med-logo-divisor) * 1px;
+		margin-left: rem-calc(10);
+		a {
+			img {
+				width: (62/$med-logo-divisor) * 1px;
+				height: (144/$med-logo-divisor) * 1px;
+				margin: rem-calc(5) auto;
+			}
+		}
 	}
 
 	nav {
 		.title-area {
-        	.name {
-	        	margin-left: rem-calc(50);
-        	}
-    	}
+			.name {
+				margin-left: rem-calc(60);
+			}
+		}
+	}
+
+	#hero {
+		.slide {
+			.content {
+				.title {
+					.button-container {
+						text-align: left;
+					}
+				}
+			}	
+		}
 	}
 
 	#copyright-wrap {
-        text-align: center;
-        margin-bottom: rem-calc(30);
-    }
+		text-align: center;
+		margin-bottom: rem-calc(30);
+	}
 
-    footer {
-    	.nav-small {
-    		margin-top: rem-calc(20);
-    		text-align: center;
-    	}
+	footer {
+		.nav-small {
+			margin-top: rem-calc(20);
+			text-align: center;
+		}
 
-    	.copyright-terms {
-    		text-align: center;
-    	}
-    }
+		.copyright-terms {
+			text-align: center;
+		}
+	}
 }
 
 @media #{$small-only} {
+	#brand {
+		@include border-radius(0px);
+		width: (88/$small-logo-divisor) * 1px;
+		height: $topbar-height - 1;
+		margin-left: 0;
+		// background-image: none;
+
+		a {
+			img {
+				width: (62/$small-logo-divisor) * 1px;
+				height: (144/$small-logo-divisor) * 1px;
+				margin: rem-calc(5) auto;
+			}
+		}
+	}
+
+	nav {
+		.title-area {
+			.name {
+				margin-left: rem-calc(20);
+			}
+		}
+	}
+
 	#hero {
 		.slide {
 			padding: 0;
 
-			.pick {
-				padding-top: rem-calc(100);
-			}
-
-			.title {
-				h2 {
-					font-size: rem-calc(72);
+			.content {
+				.pick {
+					padding-top: rem-calc(100);
 				}
+
+				.title {
+					h2 {
+						font-size: rem-calc(72);
+					}
+				}	
 			}
 		}
 	}

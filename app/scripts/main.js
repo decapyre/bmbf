@@ -42,12 +42,19 @@ $(function(){
 			before_slide_change: noop, // Execute a function before the slide changes
 			after_slide_change: noop // Execute a function after the slide changes
 		},
-		abide : {
+		abide: {
 			live_validate : true,
 			timeout : 300
+		},
+		topbar: {
+			sticky_class : 'sticky',
+			custom_back_text: true, // Set this to false and it will pull the top level link name as the back text
+			back_text: 'Back', // Define what you want your custom back text to be if custom_back_text: true
+			is_hover: false,
+			mobile_show_parent_link: false, // will copy parent links into dropdowns for mobile navigation
+			scrolltop : false // jump to top when sticky nav menu toggle is clicked
 		}
 	});
-	
 
 	// Open the dropdown and slider on the supplied hash, default to login (#slide=login, #slide=signup, #slide=reset, #slide=forgot)
 	if(location.hash.indexOf('#slide') !== -1) {

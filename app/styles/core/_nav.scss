@@ -1,40 +1,42 @@
+#nav-container {
+    &.contain-to-grid {
+        background: none;
+    }
+}
+
 #brand {
-    margin: 0 auto;
-    width: 100%;
-    max-width: $row-width;
-    position: relative;
+    @include border-radius(0px 0px 25px 0px);
+    top: 0;
+    position: fixed;
+    width: (88/$logo-divisor) * 1px;
+    height: (166/$logo-divisor) * 1px;
+    margin-left: rem-calc(20);
+    background-image: url(../images/pattern.jpg);
+    background-repeat: repeat;
+    z-index: 100; // 1 higher then the fixed top-bar
 
-    .logo_container {
-        position: absolute;
-        z-index: 54;
-        -webkit-border-radius: 0px 0px 25px 0px;
-        -moz-border-radius: 0px 0px 25px 0px;
-        -ms-border-radius: 0px 0px 25px 0px;
-        -o-border-radius: 0px 0px 25px 0px;
-        border-radius: 0px 0px 25px 0px;
-        width: 88px;
-        height: 166px;
-        margin-left: rem-calc(20);
-        background: url(../images/pattern.png);
-        background-repeat: repeat;
-        line-height: 230px;
+    a {
+        display: block;
 
-        .logo {
-            width: 62px;
-            height: 144px;
-            margin: 11px auto;
-            background-size: 62px 144px;
-            background-image: url(../images/logo.png);
+        img {
+            display: block;
+            width: (62/$logo-divisor) * 1px;
+            height: (144/$logo-divisor) * 1px;
+            margin: rem-calc(10) auto;
         }
     }
 }
 
 nav {
+    // so we can have a nice border on the bottom and not have it be included in the height/line-height
+    box-sizing: content-box;
+    border-bottom: 1px solid $black;
+
     .title-area {
         .name {
-            font-family: "Didot 06 7r", "Didot 06 A", "Didot 06 B";
+            font-family: $didot5i;
             font-weight: 700;
-            margin-left: rem-calc(105);
+            margin-left: rem-calc(95);
             font-size: rem-calc(20);
             text-transform: uppercase;
 
@@ -43,21 +45,25 @@ nav {
             }
 
             span {
-                font-family: "Didot 06 5i", "Didot 06 A", "Didot 06 B";
+                font-family: $didot5i;
                 font-weight: 500;
                 text-transform: none;
             }
         }
     }
 
-    .top-bar-section {
-        z-index: 55;
+    .top-bar-section {      
+        ul {
+            li {
+                a {
+                    font-family: $futura;
+                    text-transform: uppercase;
 
-        li {
-            a{
-                font-family: "futura-pt", "helvetica-neue", helvetica, sans-serif;
-                text-transform: uppercase;
+                    &.button {
+                        font-family: $body-font;
+                    }
+                }
             }
-        }
+        }          
     }
 }

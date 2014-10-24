@@ -1,5 +1,5 @@
 body {
-	font-family: georgia, serif;
+	font-family: $body-font;
 	color: $oil;
 	background: url(../images/pattern.jpg);
     background-repeat: repeat;
@@ -20,15 +20,17 @@ small {
     background: #fff;
 }
 
-.divider-lines {
+.lines {
 	display: block;
+	margin: rem-calc(50) 0;
 	height: rem-calc(7);
 	background-image: url("../images/pattern.jpg");
 	background-repeat: repeat;
 	//border-top: 1px solid $steel;
 }
 
-button {
+button,
+.button {
 	font-family: $futura;
 	font-weight: bold;
 	text-transform: uppercase;

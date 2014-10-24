@@ -6,10 +6,17 @@
 	background-image: linear-gradient(-179deg, #333333 13%, rgba(0,0,0,0.90) 74%);
 }
 
-@mixin border-radius($amount) {
+@mixin border-radius($amount...) {
 		 border-radius: $amount;
 	-moz-border-radius: $amount;
  -webkit-border-radius: $amount;
 	 -ms-border-radius: $amount;
 	  -o-border-radius: $amount;
+}
+
+
+@mixin box-shadow($amount...) {
+	   -moz-box-shadow: $amount; 
+	-webkit-box-shadow: $amount;  
+			box-shadow: $amount;
 }
