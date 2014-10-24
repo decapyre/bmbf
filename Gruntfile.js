@@ -70,7 +70,7 @@ module.exports = function (grunt) {
                 files: [
                     '<%= config.app %>/templates/layouts/*.hbs',
                     '<%= config.app %>/templates/pages/*.hbs',
-                    '<%= config.app %>/templates/partials/*.hbs'
+                    '<%= config.app %>/templates/partials/{,*/}*.hbs'
                 ],
                 tasks: ['assemble:server']
             }
@@ -328,6 +328,7 @@ module.exports = function (grunt) {
                         '.htaccess',
                         'images/{,*/}*.webp',
                         '{,*/}*.html',
+                        'fonts/{,*/}*.*'
                         //'styles/fonts/{,*/}*.*'
                     ]
                 }]
@@ -347,7 +348,7 @@ module.exports = function (grunt) {
                 layout: 'master.hbs',
                 layoutdir: '<%= config.app %>/templates/layouts',
                 assets: '<%=config.dist %>/images',
-                partials: ['<%= config.app %>/templates/partials/*.hbs']
+                partials: ['<%= config.app %>/templates/partials/{,*/}*.hbs']
             },
             server: {
                 files: {

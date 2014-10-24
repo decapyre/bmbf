@@ -31,7 +31,7 @@ nav {
     // so we can have a nice border on the bottom and not have it be included in the height/line-height
     box-sizing: content-box;
     border-bottom: 1px solid $black;
-    @include box-shadow(0 0 10px 0px $black);
+    @include box-shadow(0 7px 25px -15px $black);
 
     .title-area {
         .name {
