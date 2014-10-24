@@ -4,9 +4,17 @@
 $(function(){
 	function noop(){}
 
+	// typekit
 	Typekit.load();
 
+	// fit text
+	$('.slide .title h2').fitText(0.9, {maxFontSize: '100px'});
+
+	// show slides
+	$('.slide').show();
+
 	$(document).foundation({
+		// Orbit is set to be deprecated, use https://github.com/kenwheeler/slick in the future
 		orbit: {
 			animation: 'slide', // Sets the type of animation used for transitioning between slides, can also be 'fade'
 			timer_speed: 0, // Sets the amount of time in milliseconds before transitioning a slide
@@ -43,16 +51,16 @@ $(function(){
 			after_slide_change: noop // Execute a function after the slide changes
 		},
 		abide: {
-			live_validate : true,
-			timeout : 300
+			live_validate: true,
+			timeout: 300
 		},
 		topbar: {
-			sticky_class : 'sticky',
+			sticky_class: 'sticky',
 			custom_back_text: true, // Set this to false and it will pull the top level link name as the back text
 			back_text: 'Back', // Define what you want your custom back text to be if custom_back_text: true
 			is_hover: false,
 			mobile_show_parent_link: false, // will copy parent links into dropdowns for mobile navigation
-			scrolltop : false // jump to top when sticky nav menu toggle is clicked
+			scrolltop: false // jump to top when sticky nav menu toggle is clicked
 		}
 	});
 

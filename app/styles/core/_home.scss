@@ -1,40 +1,50 @@
+%text-shadow {
+	text-shadow: 0 1px 3px rgba($black, 0.4), 0 0 30px rgba($black, 0.75);
+}
+
 header {
 	margin-bottom: rem-calc(50);
 
-	.vignette {
-		//pointer-events: none;
-		position: relative;
-
-		&:after {
-			@include box-shadow(inset 0 0 265px 80px $black);
-			background-image: url(../images/pattern-trans.png);
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: 2;
-			content: "";
-		}
-	}
-
 	.slide {
-		padding: 0 rem-calc(60);
+		// Hide slides until JS loads.
+		display: none;
 
-		background-image: url(../images/hero1.jpg);
+		padding: 0 rem-calc(60);
+		max-height: 617px;
+
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: 30% center;
 
+		// CSS3 Effects
+		@include box-shadow(inset 0 0 265px 80px $black);
+		//@include grayscale-bg();
+		zoom: 1;
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-image: url(../images/pattern-trans.png);
+			@include transparent($black, 0.5);
+			opacity: 1;
+		}
+
 		.content {
-			z-index: 3; // to go above box-shadow
+			z-index: 1; // to go above :after pattern
+			position: relative; // to go above box-shadow
 
 			.pick {
 				margin-bottom: rem-calc(10);
-				padding-top: rem-calc(250);
+				padding-top: rem-calc(175);
 
 				.headline,
 				.category  {
+					@extend %text-shadow;
 					font-family: $futura;
 					font-weight: bold;
 					text-transform: uppercase;
@@ -49,6 +59,12 @@ header {
 
 				.category {
 					font-size: rem-calc(20);
+
+					span {
+						font-size: rem-calc(21);
+						font-style: italic;
+						color: darken($white, 20%);
+					}
 				}
 			}
 
@@ -65,9 +81,10 @@ header {
 
 				h2 {
 					margin: 0;
-					line-height: 1.2;
-					font-size: rem-calc(140);
+					//line-height: 1.2;
+					font-size: rem-calc(100);
 					color: #fff;
+					@extend %text-shadow;
 				}
 
 				a {
