@@ -1,5 +1,8 @@
 // import settings file
 @import "core/settings";
 
+// import our variable
+@import "core/variables";
+
 // import all plugins below
 @import "plugins/registration";

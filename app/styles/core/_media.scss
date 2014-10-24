@@ -82,10 +82,12 @@
 
 			.content {
 				.pick {
-					padding-top: rem-calc(100);
+					padding-top: rem-calc(35);
 				}
 
 				.title {
+					margin-bottom: rem-calc(40);
+
 					h2 {
 						font-size: rem-calc(72);
 					}

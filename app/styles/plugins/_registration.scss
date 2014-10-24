@@ -15,139 +15,143 @@
 	text-transform: uppercase;
 }
 
+#reg-dropdown {
+	position: fixed;
+}
 
-#registration .slide {
+#registration {
+	.slide {
+		h2 {
+			text-transform: uppercase;
+		}
 
-	h2 {
-		text-transform: uppercase;
-	}
+		div.divider.row.collapse {
+			margin: rem-calc(20) 0;
 
-	div.divider.row.collapse {
-		margin: rem-calc(20) 0;
+			.line {
+				background: url(../images/pattern.jpg) 0 10px repeat-x;
+				text-align: center;
 
-		.line {
-			background: url(../images/pattern.png) 0 8px repeat-x;
-			text-align: center;
-
-			span {
-				background-color: $white;
-				padding: 4px 10px;
-				vertical-align: middle;
+				span {
+					background-color: $white;
+					padding: 4px 10px;
+					vertical-align: middle;
+				}
 			}
 		}
-	}
 
-	div.divider.row.collapse.divider:last-child {
-		margin-bottom: 0;
-	}
+		div.divider.row.collapse.divider:last-child {
+			margin-bottom: 0;
+		}
 
-	.btn-facebook {
-		display: block;
-		text-transform: uppercase;
-		border-radius: 3px;
-		outline: none;
-		font-family: 'Helvetica Neue', Helvetica, sans-serif;
-		font-size: 14px;
-		font-size: rem-calc(14);
-		line-height: 3;//4.2;
-		border-color: #5d7eb6;
-		background-color: #5172ab;
-		height: 40px; //57px;
-		padding-left: 70px; //77px;
-		background-size: 100% 100%;
-		background-image: url(../images/facebook_line.png);
-		background-position: 20px 0px; //25px 0px;
-		background-size: 27px 40px; //38px 57px;
-		background-repeat: no-repeat;
-		width: 100%;
-		color: #fff;
-	}
+		.btn-facebook {
+			display: block;
+			text-transform: uppercase;
+			border-radius: 3px;
+			outline: none;
+			font-family: $helvetica;
+			font-size: 14px;
+			font-size: rem-calc(14);
+			line-height: 3;//4.2;
+			border-color: #5d7eb6;
+			background-color: #5172ab;
+			height: 40px; //57px;
+			padding-left: 70px; //77px;
+			background-size: 100% 100%;
+			background-image: url(../images/facebook_line.png);
+			background-position: 20px 0px; //25px 0px;
+			background-size: 27px 40px; //38px 57px;
+			background-repeat: no-repeat;
+			width: 100%;
+			color: #fff;
+		}
 
-	input {
-		position: relative; 
-		padding-left: rem-calc(30);
-	}
+		input {
+			position: relative; 
+			padding-left: rem-calc(30);
+		}
 
-	.email-wrapper:before,
-	.password-wrapper:before,
-	.user-wrapper:before {
-		font-family: FontAwesome;
-		font-style: normal;
-		font-weight: normal;
-		text-decoration: inherit;
+		.email-wrapper:before,
+		.password-wrapper:before,
+		.user-wrapper:before {
+			font-family: bmbf;
+			font-style: normal;
+			font-weight: normal;
+			text-decoration: inherit;
 
-		/* adjust as necessary */
-		content: "\f0e0";
-		position: absolute;
-		top: 9px;
-		left: 8px;
-		color: $oil;
-		z-index: 2;	
-		// font-size: 18px;
-		// padding-right: 0.5em;	
-	}
+			/* adjust as necessary */
+			content: "\e006";
+			position: absolute;
+			top: 9px;
+			left: 8px;
+			color: $oil;
+			z-index: 2;	
+			// font-size: 18px;
+			// padding-right: 0.5em;	
+		}
 
-	.password-wrapper:before {
-		content: "\f023";
-		left: 10px;
-	}
+		.password-wrapper:before {
+			content: "\e002";
+			left: 10px;
+		}
 
-	.user-wrapper:before {
-		content: "\f007";
-		left: 9px;
-	}
+		.user-wrapper:before {
+			content: "\e001";
+			left: 9px;
+		}
 
-	.recommended {
-		color: #6aac39;
-		margin: 5px 0 0 0;
-		padding: 0;
-		font-size: rem-calc(14);
-	}
+		.recommended {
+			color: #6aac39;
+			margin: 5px 0 0 0;
+			padding: 0;
+			font-size: rem-calc(14);
+		}
 
-	.disclaimer {
-		font-size: rem-calc(12);
-		color: #a8a8a8;
-
-		a {
+		.disclaimer {
+			font-size: rem-calc(12);
 			color: #a8a8a8;
+
+			a {
+				color: #a8a8a8;
+				text-decoration: underline;
+			}
+
+			 a:hover {
+			 	text-decoration: none;
+			 }
+		}
+
+		button.submit {
+			text-transform: uppercase;
+		}
+
+		input#remember {
+			margin-top: 16px;
+			color: $steel;
+		}
+
+		a.forgot {
+			color: $steel;
 			text-decoration: underline;
 		}
 
-		 a:hover {
-		 	text-decoration: none;
-		 }
-	}
+		a.slide-nav {
+			margin-top: 5px;
+			text-align: center;
+			font-size: rem-calc(20);
+			color: $black;
+			text-decoration: underline;
+			display: block;
 
-	button.submit {
-		text-transform: uppercase;
-	}
-
-	input#remember {
-		margin-top: 16px;
-		color: $steel;
-	}
-
-	a.forgot {
-		color: $steel;
-		text-decoration: underline;
-	}
-
-	a.slide-nav {
-		margin-top: 5px;
-		text-align: center;
-		font-size: rem-calc(20);
-		color: $black;
-		text-decoration: underline;
-		display: block;
-
-		i {
-			font-size: rem-calc(12px);
-			vertical-align: middle;
+			i {
+				font-size: rem-calc(12px);
+				vertical-align: middle;
+			}
 		}
-	}
 
-	a.slide-nav:hover,
-	a.forgot:hover {
-		text-decoration: none;
+		a.slide-nav:hover,
+		a.forgot:hover {
+			text-decoration: none;
+		}
 	}
 }
