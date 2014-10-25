@@ -1,8 +1,7 @@
-// import settings file
+// Sharable core stuff, hopefully not styles as to not duplicate them (mixins, functions, variables, etc only)
 @import "core/settings";
-
-// import our variables
 @import "core/variables";
+@import "core/mixins";
 
-// import all plugins below
+// Import all plugins below
 @import "plugins/registration";
