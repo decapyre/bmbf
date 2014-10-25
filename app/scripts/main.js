@@ -10,7 +10,7 @@ $(function(){
 	// fit text
 	$('.slide .title h2').fitText(0.9, {maxFontSize: '100px'});
 
-	// show slides
+	// show slides, prevents some flickering from happening
 	$('.slide').show();
 
 	$(document).foundation({
@@ -63,6 +63,13 @@ $(function(){
 			scrolltop: false // jump to top when sticky nav menu toggle is clicked
 		}
 	});
+
+	// force close the topbar expanded view on small/med when the Login / Signup button is pressed.
+	$('#reg-btn-dropdown')
+		.on('click.fndtn.dropdown', function () {
+		Foundation.libs.topbar.toggle($('.top-bar'));
+	});
+
 
 	// Open the dropdown and slider on the supplied hash, default to login (#slide=login, #slide=signup, #slide=reset, #slide=forgot)
 	if(location.hash.indexOf('#slide') !== -1) {

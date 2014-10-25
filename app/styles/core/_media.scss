@@ -34,6 +34,8 @@
 		}
 	}
 
+
+
 	#copyright-wrap {
 		text-align: center;
 		margin-bottom: rem-calc(30);
@@ -47,6 +49,30 @@
 
 		.copyright-terms {
 			text-align: center;
+		}
+	}
+}
+
+@media #{$topbar-media-query-down} {
+	#brand {
+		@include border-radius(0px 0px 12px 0px);
+		width: (88/$topbar-down-logo-divisor) * 1px;
+		height: (166/$topbar-down-logo-divisor) * 1px;
+		margin-left: rem-calc(10);
+		a {
+			img {
+				width: (62/$topbar-down-logo-divisor) * 1px;
+				height: (144/$topbar-down-logo-divisor) * 1px;
+				margin: rem-calc(5) auto;
+			}
+		}
+	}
+
+	#reg-dropdown {
+		&.open {
+			width: 100% !important;
+			max-width: 100% !important;
+			left: 0 !important; 
 		}
 	}
 }
