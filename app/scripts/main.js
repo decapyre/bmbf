@@ -8,7 +8,7 @@ $(function(){
 	Typekit.load();
 
 	// fit text
-	$('.slide .title h2').fitText(0.9, {maxFontSize: '100px'});
+	$('.slide .title h2').fitText(0.9, {minFontSize: '40px', maxFontSize: '100px'});
 
 	// show slides, prevents some flickering from happening
 	$('.slide').show();
