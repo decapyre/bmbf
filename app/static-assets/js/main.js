@@ -48,7 +48,7 @@ $(function(){
 	
 
 	// Open the dropdown and slider on the supplied hash, default to login (#slide=login, #slide=signup, #slide=reset, #slide=forgot)
-	if(location.hash.indexOf('#slide') !== -1) {
+	if(location.hash.indexOf('#slide=') !== -1) {
 		// turn animations off
 		$.fx.off = true;
 
@@ -83,6 +83,10 @@ $(function(){
 		$(abideForms).each(function(){
 			this.reset();
 		});
+		
+		// reset server errors
+        $('.message span').text('');
+		$('.message').removeClass('success').removeClass('error').hide();
 
 		// reflow
 		$(document).foundation('orbit', 'reflow');
@@ -92,4 +96,99 @@ $(function(){
 		$('#reg-dropdown [data-orbit-link="login"]').click();
 		$.fx.off = false;
 	});
+    
+	var displaySuccess = function(messageSelector, data) {
+		if (data && data.message) {
+        	$(messageSelector+' span').text(data.message);
+    	} else {
+        	$(messageSelector+' span').text('Operation successful');                	
+    	}
+        
+    	$(messageSelector).removeClass('error').addClass('success').show();
+    }
+    
+    var displayError = function(messageSelector, data) {
+        if (data && data.message) {
+        	$(messageSelector+' span').text(data.message);
+    	} else {
+        	$(messageSelector+' span').text('An unexpected error ocurred. Please try again later');                	
+    	}
+    
+    	$(messageSelector).removeClass('success').addClass('error').show();
+    }
+	
+    $('#login-btn').click(function(e) {
+    	e.preventDefault();
+        
+        $.ajax({
+  			type: 'POST',
+  			url: '/crafter-security-rest-login',
+  			data: $('#login-form').serialize(),
+  			success: function() {
+            	window.location = '/new-home';
+            },
+            error: function(jqXHR) {
+            	displayError('#login-message', jqXHR.responseJSON);
+            }
+		});
+    });
+    
+    $('#facebook-connect-btn').click(function(e) {
+    	e.preventDefault();
+        
+        $('#facebook-connect-form').submit();
+    });
+    
+	$('#signup-btn').click(function(e) {
+    	e.preventDefault();
+        
+        $.ajax({
+  			type: 'POST',
+  			url: '/api/1/services/registration.json',
+  			data: $('#signup-form').serialize(),
+  			success: function(data) {
+            	displaySuccess('#signup-message', data);
+            },
+            error: function(jqXHR) {
+            	displayError('#signup-message', jqXHR.responseJSON);
+            }
+		});
+    });
+    
+    $('#forgot-btn').click(function(e) {
+		e.preventDefault();     
+        
+        $.ajax({
+  			type: 'POST',
+  			url: '/api/1/services/forgotpswd.json',
+  			data: $('#forgot-form').serialize(),
+  			success: function(data) {
+            	displaySuccess('#forgot-message', data);
+            },
+            error: function(jqXHR) {
+            	displayError('#forgot-message', jqXHR.responseJSON);
+            }
+		});
+    });
+    
+	$('#reset-btn').click(function(e) {
+		e.preventDefault();
+        
+		var token = '';
+		if (location.search.indexOf('?token=') !== -1) {
+        	token = location.search.substr(7);
+		}  
+        
+        $.ajax({
+  			type: 'POST',
+  			url: '/api/1/services/resetpswd.json?token='+token,
+  			data: $('#reset-form').serialize(),
+  			success: function(data) {
+            	displaySuccess('#reset-message', data);
+            },
+            error: function(jqXHR) {
+                displayError('#reset-message', jqXHR.responseJSON); 
+            }
+		});
+    });
 });
