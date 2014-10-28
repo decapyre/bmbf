@@ -89,12 +89,12 @@ $(function(){
 	// fix for dynamic height change on the 'orbit' container, yesh a ton of listeners :/
 	$('#reg-dropdown form')
 		.on('valid.fndtn.abide invalid.fndtn.abide', function () {
-			$(document).foundation('orbit', 'reflow');
+			$('#reg-dropdown').foundation('orbit', 'reflow');
 		})
 		.find('input, textarea, select')
 			.on('keydown.fndtn.abide blur.fndtn.abide change.fndtn.abide', function () {
 				setTimeout(function(){
-					$(document).foundation('orbit', 'reflow');
+					$('#reg-dropdown').foundation('orbit', 'reflow');
 				}, 300);
 			});
 
@@ -113,7 +113,7 @@ $(function(){
 		$('.message').removeClass('success').removeClass('error').hide();
 
 		// reflow
-		$(document).foundation('orbit', 'reflow');
+		$('#reg-dropdown').foundation('orbit', 'reflow');
 
 		// go back to the (login) slide
 		$.fx.off = true;
@@ -131,7 +131,7 @@ $(function(){
 		$(messageSelector).removeClass('error').addClass('success').show();
 
 		// reflow
-		$(document).foundation('orbit', 'reflow');
+		$('#reg-dropdown').foundation('orbit', 'reflow');
 	};
 	
 	var displayError = function(messageSelector, data) {
@@ -144,7 +144,7 @@ $(function(){
 		$(messageSelector).removeClass('success').addClass('error').show();
 
 		// reflow
-		$(document).foundation('orbit', 'reflow');
+		$('#reg-dropdown').foundation('orbit', 'reflow');
 	};
 
 	$('#login-btn').click(function(e) {
