@@ -25,7 +25,7 @@ footer {
         width: 62px;
         height: 62px;
         margin-right: rem-calc(6);
-        background: url(../images/pattern.jpg);
+        background: url(#{$image-path}/pattern.jpg);
         background-repeat: repeat;
         font-size: rem-calc(40);
         line-height: rem-calc(68);

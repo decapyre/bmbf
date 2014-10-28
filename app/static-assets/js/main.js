@@ -109,7 +109,7 @@ $(function(){
 		});
 		
 		// reset server errors
-        $('.message span').text('');
+		$('.message small').text('');
 		$('.message').removeClass('success').removeClass('error').hide();
 
 		// reflow
@@ -120,99 +120,105 @@ $(function(){
 		$('#reg-dropdown [data-orbit-link="login"]').click();
 		$.fx.off = false;
 	});
-    
+	
 	var displaySuccess = function(messageSelector, data) {
 		if (data && data.message) {
-        	$(messageSelector+' span').text(data.message);
-    	} else {
-        	$(messageSelector+' span').text('Operation successful');                	
-    	}
-        
-    	$(messageSelector).removeClass('error').addClass('success').show();
-    }
-    
-    var displayError = function(messageSelector, data) {
-        if (data && data.message) {
-        	$(messageSelector+' span').text(data.message);
-    	} else {
-        	$(messageSelector+' span').text('An unexpected error ocurred. Please try again later');                	
-    	}
-    
-    	$(messageSelector).removeClass('success').addClass('error').show();
-    }
+			$(messageSelector+' small').text(data.message);
+		} else {
+			$(messageSelector+' small').text('Operation successful');
+		}
+		
+		$(messageSelector).removeClass('error').addClass('success').show();
+
+		// reflow
+		$(document).foundation('orbit', 'reflow');
+	};
 	
-    $('#login-btn').click(function(e) {
-    	e.preventDefault();
-        
-        $.ajax({
-  			type: 'POST',
-  			url: '/crafter-security-rest-login',
-  			data: $('#login-form').serialize(),
-  			success: function() {
-            	window.location = '/new-home';
-            },
-            error: function(jqXHR) {
-            	displayError('#login-message', jqXHR.responseJSON);
-            }
+	var displayError = function(messageSelector, data) {
+		if (data && data.message) {
+			$(messageSelector+' small').text(data.message);
+		} else {
+			$(messageSelector+' small').text('An unexpected error ocurred. Please try again later.');
+		}
+	
+		$(messageSelector).removeClass('success').addClass('error').show();
+
+		// reflow
+		$(document).foundation('orbit', 'reflow');
+	};
+
+	$('#login-btn').click(function(e) {
+		e.preventDefault();
+		
+		$.ajax({
+			type: 'POST',
+			url: '/crafter-security-rest-login',
+			data: $('#login-form').serialize(),
+			success: function() {
+				window.location = '/new-home';
+			},
+			error: function(jqXHR) {
+				displayError('#login-message', jqXHR.responseJSON);
+			}
 		});
-    });
-    
-    $('#facebook-connect-btn').click(function(e) {
-    	e.preventDefault();
-        
-        $('#facebook-connect-form').submit();
-    });
-    
+	});
+	
+	$('#facebook-connect-btn').click(function(e) {
+		e.preventDefault();
+
+		$('#facebook-connect-form').submit();
+	});
+	
 	$('#signup-btn').click(function(e) {
-    	e.preventDefault();
-        
-        $.ajax({
-  			type: 'POST',
-  			url: '/api/1/services/registration.json',
-  			data: $('#signup-form').serialize(),
-  			success: function(data) {
-            	displaySuccess('#signup-message', data);
-            },
-            error: function(jqXHR) {
-            	displayError('#signup-message', jqXHR.responseJSON);
-            }
+		e.preventDefault();
+		
+		$.ajax({
+			type: 'POST',
+			url: '/api/1/services/registration.json',
+			data: $('#signup-form').serialize(),
+			success: function(data) {
+				displaySuccess('#signup-message', data);
+			},
+			error: function(jqXHR) {
+				displayError('#signup-message', jqXHR.responseJSON);
+			}
 		});
-    });
-    
-    $('#forgot-btn').click(function(e) {
-		e.preventDefault();     
-        
-        $.ajax({
-  			type: 'POST',
-  			url: '/api/1/services/forgotpswd.json',
-  			data: $('#forgot-form').serialize(),
-  			success: function(data) {
-            	displaySuccess('#forgot-message', data);
-            },
-            error: function(jqXHR) {
-            	displayError('#forgot-message', jqXHR.responseJSON);
-            }
+	});
+	
+	$('#forgot-btn').click(function(e) {
+		e.preventDefault();
+
+		$.ajax({
+			type: 'POST',
+			url: '/api/1/services/forgotpswd.json',
+			data: $('#forgot-form').serialize(),
+			success: function(data) {
+				displaySuccess('#forgot-message', data);
+			},
+			error: function(jqXHR) {
+				displayError('#forgot-message', jqXHR.responseJSON);
+			}
 		});
-    });
-    
+	});
+	
 	$('#reset-btn').click(function(e) {
 		e.preventDefault();
-        
+		
 		var token = '';
 		if (location.search.indexOf('?token=') !== -1) {
-        	token = location.search.substr(7);
-		}  
-        
-        $.ajax({
-  			type: 'POST',
-  			url: '/api/1/services/resetpswd.json?token='+token,
-  			data: $('#reset-form').serialize(),
-  			success: function(data) {
-            	displaySuccess('#reset-message', data);
-            },
-            error: function(jqXHR) {
-                displayError('#reset-message', jqXHR.responseJSON); 
-            }
+			token = location.search.substr(7);
+		}
+		
+		$.ajax({
+			type: 'POST',
+			url: '/api/1/services/resetpswd.json?token='+token,
+			data: $('#reset-form').serialize(),
+			success: function(data) {
+				displaySuccess('#reset-message', data);
+			},
+			error: function(jqXHR) {
+				displayError('#reset-message', jqXHR.responseJSON);
+			}
 		});
-    });
+	});
 });

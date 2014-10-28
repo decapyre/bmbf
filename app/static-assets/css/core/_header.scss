@@ -33,7 +33,7 @@ header {
 			right: 0;
 			bottom: 0;
 			left: 0;
-			background-image: url(../images/pattern-trans.png);
+			background-image: url(#{$image-path}/pattern-trans.png);
 			@include transparent($black, 0.5);
 			opacity: 1;
 		}

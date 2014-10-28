@@ -11,7 +11,7 @@
     width: (88/$logo-divisor) * 1px;
     height: (166/$logo-divisor) * 1px;
     margin-left: rem-calc(20);
-    background-image: url(../images/pattern.jpg);
+    background-image: url(#{$image-path}/pattern.jpg);
     background-repeat: repeat;
     z-index: 100; // 1 higher then the fixed top-bar
 

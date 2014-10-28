@@ -1,7 +1,7 @@
 body {
 	font-family: $body-font;
 	color: $oil;
-	background: url(../images/pattern.jpg);
+	background: url(#{$image-path}/pattern.jpg);
     background-repeat: repeat;
 }
 
@@ -24,7 +24,7 @@ small {
 	display: block;
 	margin: rem-calc(50) 0;
 	height: rem-calc(7);
-	background-image: url("../images/pattern.jpg");
+	background-image: url(#{$image-path}/pattern.jpg);
 	background-repeat: repeat;
 	//border-top: 1px solid $steel;
 }
@@ -34,4 +34,8 @@ button,
 	font-family: $futura;
 	font-weight: bold;
 	text-transform: uppercase;
+}
+
+.server-error {
+	@extend .error;
 }
