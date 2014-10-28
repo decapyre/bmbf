@@ -13,7 +13,7 @@ h1, h2, h3, h4 {
 }
 
 small {
-	font-family: $helvetica;
+	font-family: $helvetica !important;
 }
 
 #wrapper {
@@ -22,11 +22,37 @@ small {
 
 .lines {
 	display: block;
+	position: relative;
 	margin: rem-calc(50) 0;
 	height: rem-calc(7);
 	background-image: url(#{$image-path}/pattern.jpg);
 	background-repeat: repeat;
 	//border-top: 1px solid $steel;
+
+	&.more {
+		// double bottom margin if containing a more btn
+		margin: rem-calc(50) 0 rem-calc(100) 0;
+
+		// more btn containing div
+		div {
+			@include clearfix();
+			padding: 0 0 0 18px;
+			position: absolute;
+			right: 0;
+			top: -21px;
+			background: $white;
+
+			@media #{$small-only} {
+				right: auto;
+				padding: 0 10px 0 0;
+			}
+
+			a {
+				margin: 0;
+				float: right;
+			}
+		}
+	}
 }
 
 button,
