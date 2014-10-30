@@ -52,7 +52,7 @@ $(function(){
 		},
 		abide: {
 			live_validate: true,
-			timeout: 300
+			timeout: 1000
 		},
 		topbar: {
 			sticky_class: 'sticky',
@@ -95,7 +95,7 @@ $(function(){
 			.on('keydown.fndtn.abide blur.fndtn.abide change.fndtn.abide', function () {
 				setTimeout(function(){
 					$('#reg-dropdown').foundation('orbit', 'reflow');
-				}, 300);
+				}, 1000);
 			});
 
 

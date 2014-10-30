@@ -1,0 +1,59 @@
+---
+title: 'Best Movies by Farr - Edit User Profile'
+layout: 'page.hbs'
+hero-class: 'profile'
+---
+<section id="profile" class="row">
+	<div class="small-12 medium-10 medium-centered large-9 columns">
+		<div class="row">
+			<div class="medium-3 columns">
+				<h3>Options</h3>
+				<div class="lines"></div>
+				<ul id="options" class="side-nav" role="navigation" title="Link List">
+					<li role="menuitem"><a href="#">Your Wish List</a></li>
+					<li class="active" role="menuitem"><a href="#">Edit Profile</a></li>
+					<li role="menuitem"><a href="#">Change Password</a></li>
+					<li class="divider"></li>
+					<li role="menuitem"><a href="#">Logout</a></li>
+				</ul>
+			</div>
+			<div class="medium-9 columns">
+				<h3>Edit Profile</h3>
+				<div class="lines"></div>
+				<section id="edit-content" class="row">
+					<div class="small-12 medium-8 large-6 columns">
+						<form id="form-edit-profile" data-abide>
+							<div class="row collapse">
+								<div class="small-12 columns">
+									<label>First Name
+										<input name="firstname" type="text" />
+									</label>
+								</div>
+							</div>
+							<div class="row collapse">
+								<div class="small-12 columns">
+									<label>Last Name
+										<input name="lastname" type="text" />
+									</label>
+								</div>
+							</div>
+							<div class="row collapse">
+								<div class="small-12 columns">
+									<label>Email Address
+										<input name="lastname" type="email" />
+									</label>
+									<small class="error">A valid email address is required.</small>
+								</div>
+							</div>
+							<div class="row collapse">
+								<div class="small-12 columns">
+									<input class="button right round" name="submit" type="submit" value="Update" />
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</section>

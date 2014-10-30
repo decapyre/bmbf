@@ -1,17 +1,94 @@
 ---
 title: 'Best Movies by Farr - User Profile'
 layout: 'page.hbs'
+hero-class: 'profile'
 ---
 <section id="profile" class="row">
-	<div class="small-12 medium-9 medium-centered columns">
+	<div class="small-12 medium-10 medium-centered large-9 columns">
 		<div class="row">
-			<div class="large-4 columns">
-				placeholder
+			<div class="medium-3 columns">
+				<h3>Options</h3>
+				<div class="lines"></div>
+				<ul id="options" class="side-nav" role="navigation" title="Link List">
+					<li class="active" role="menuitem"><a href="#">Your Wish List</a></li>
+					<li role="menuitem"><a href="#">Edit Profile</a></li>
+					<li role="menuitem"><a href="#">Change Password</a></li>
+					<li class="divider"></li>
+					<li role="menuitem"><a href="#">Logout</a></li>
+				</ul>
 			</div>
-			<div class="large-8 columns">
-				placeholder
+			<div class="medium-9 columns">
+				<h3>Your Wish List</h3>
+				<div class="lines"></div>
+				<section id="wishlist" class="row album-art-grid">
+					<div class="small-12 columns">
+						<ul class="small-block-grid-3 large-block-grid-6">
+							<li>
+								<a href="#"><img class="th" src="http://www.bestmoviesbyfarr.com/movies/tt0031762/images/w5eM1oWByOXBSbi4j7fDEkDnC44.jpg" alt=""></a>
+								<h4>Movie Title 1</h4>
+								<p class="year">&bull; 1971</p>
+							</li>
+							<li>
+								<a href="#"><img class="th" src="http://www.bestmoviesbyfarr.com/movies/tt0031762/images/w5eM1oWByOXBSbi4j7fDEkDnC44.jpg" alt=""></a>
+								<h4>Movie Title 2</h4>
+								<p class="year">&bull; 1961</p>
+							</li>
+							<li>
+								<a href="#"><img class="th" src="http://www.bestmoviesbyfarr.com/movies/tt0031762/images/w5eM1oWByOXBSbi4j7fDEkDnC44.jpg" alt=""></a>
+								<h4>Movie Title 3</h4>
+								<p class="year">&bull; 1957</p>
+							</li>
+							<li>
+								<a href="#"><img class="th" src="http://www.bestmoviesbyfarr.com/movies/tt0031762/images/w5eM1oWByOXBSbi4j7fDEkDnC44.jpg" alt=""></a>
+								<h4>Movie Title 4</h4>
+								<p class="year">&bull; 2013</p>
+							</li>
+							<li>
+								<a href="#"><img class="th" src="http://www.bestmoviesbyfarr.com/movies/tt0031762/images/w5eM1oWByOXBSbi4j7fDEkDnC44.jpg" alt=""></a>
+								<h4>Movie Title 5</h4>
+								<p class="year">&bull; 2010</p>
+							</li>
+							<li>
+								<a href="#"><img class="th" src="http://www.bestmoviesbyfarr.com/movies/tt0031762/images/w5eM1oWByOXBSbi4j7fDEkDnC44.jpg" alt=""></a>
+								<h4>Movie Title 6</h4>
+								<p class="year">&bull; 2006</p>
+							</li>
+							<li>
+								<a href="#"><img class="th" src="http://www.bestmoviesbyfarr.com/movies/tt0031762/images/w5eM1oWByOXBSbi4j7fDEkDnC44.jpg" alt=""></a>
+								<h4>Movie Title 1</h4>
+								<p class="year">&bull; 1971</p>
+							</li>
+							<li>
+								<a href="#"><img class="th" src="http://www.bestmoviesbyfarr.com/movies/tt0031762/images/w5eM1oWByOXBSbi4j7fDEkDnC44.jpg" alt=""></a>
+								<h4>Movie Title 2</h4>
+								<p class="year">&bull; 1961</p>
+							</li>
+							<li>
+								<a href="#"><img class="th" src="http://www.bestmoviesbyfarr.com/movies/tt0031762/images/w5eM1oWByOXBSbi4j7fDEkDnC44.jpg" alt=""></a>
+								<h4>Movie Title 3</h4>
+								<p class="year">&bull; 1957</p>
+							</li>
+							<li>
+								<a href="#"><img class="th" src="http://www.bestmoviesbyfarr.com/movies/tt0031762/images/w5eM1oWByOXBSbi4j7fDEkDnC44.jpg" alt=""></a>
+								<h4>Movie Title 4</h4>
+								<p class="year">&bull; 2013</p>
+							</li>
+							<li>
+								<a href="#"><img class="th" src="http://www.bestmoviesbyfarr.com/movies/tt0031762/images/w5eM1oWByOXBSbi4j7fDEkDnC44.jpg" alt=""></a>
+								<h4>Movie Title 5</h4>
+								<p class="year">&bull; 2010</p>
+							</li>
+							<li>
+								<a href="#"><img class="th" src="http://www.bestmoviesbyfarr.com/movies/tt0031762/images/w5eM1oWByOXBSbi4j7fDEkDnC44.jpg" alt=""></a>
+								<h4>Movie Title 6</h4>
+								<p class="year">&bull; 2006</p>
+							</li>
+						</ul>
+						{{> pagination }}
+					</div>
+				</section>		
 			</div>
 		</div>
-		<div class="lines"></div>
+		{{!-- <div class="lines"></div> --}}
 	</div>
 </section>

@@ -88,8 +88,8 @@ $row-width: rem-calc(1480);
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // We use these to define default font stacks
-// $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-// $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+$font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 // $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
 // We use these to define default font weights
@@ -128,7 +128,7 @@ $black       : #000000;
 // We use these to control various global styles
 // $body-bg: $white;
 // $body-font-color: $jet;
-// $body-font-family: $font-family-sans-serif;
+$body-font-family: $font-family-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
 
@@ -1123,7 +1123,7 @@ $input-error-message-font-style: normal;
 // $include-html-nav-classes: $include-html-classes;
 
 // We use this to control padding.
-// $side-nav-padding: rem-calc(14 0);
+$side-nav-padding: rem-calc(0 0 10 0);
 
 // We use these to control list styles.
 // $side-nav-list-type: none;
@@ -1131,15 +1131,15 @@ $input-error-message-font-style: normal;
 // $side-nav-list-margin: rem-calc(0 0 7 0);
 
 // We use these to control link styles.
-// $side-nav-link-color: $primary-color;
-// $side-nav-link-color-active: scale-color($side-nav-link-color, $lightness: 30%);
-// $side-nav-link-color-hover: scale-color($side-nav-link-color, $lightness: 30%);
-// $side-nav-link-bg-hover: hsla(0, 0, 0, 0.025);
+$side-nav-link-color: $primary-color;
+$side-nav-link-color-active: $side-nav-link-color;
+$side-nav-link-color-hover: scale-color($side-nav-link-color, $lightness: 50%);
+$side-nav-link-bg-hover: hsla(0, 0, 0, 0.025);
 // $side-nav-link-margin: 0;
-// $side-nav-link-padding: rem-calc(7 14);
+$side-nav-link-padding: rem-calc(0 0 10 0);
 // $side-nav-font-size: rem-calc(14);
-// $side-nav-font-weight: $font-weight-normal;
-// $side-nav-font-weight-active: $side-nav-font-weight;
+$side-nav-font-weight: $font-weight-normal;
+$side-nav-font-weight-active: $font-weight-bold;
 // $side-nav-font-family: $body-font-family;
 // $side-nav-active-font-family: $side-nav-font-family;
 
@@ -1152,7 +1152,7 @@ $input-error-message-font-style: normal;
 // We use these to control border styles
 // $side-nav-divider-size: 1px;
 // $side-nav-divider-style: solid;
-// $side-nav-divider-color: scale-color($white, $lightness: 10%);
+$side-nav-divider-color: scale-color($iron, $lightness: 10%);
 
 // 27. Split Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -

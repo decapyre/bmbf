@@ -1,0 +1,40 @@
+header {
+	&.profile {
+		padding: rem-calc(82 0);
+		background-image: url(#{$image-path}/bgProfile.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		max-height: 304px;
+		text-align: center;
+		color: #fff;
+
+		@media #{$small-only} {
+			padding: rem-calc(36 0);
+		}
+
+		h2 {
+			color: #fff;
+			font-size: rem-calc(60);
+			margin: 0;
+			text-transform: uppercase;
+		}
+
+		p {
+			margin: 0;
+			font-size: rem-calc(18);
+		}
+	}
+}
+
+.lines {
+	#profile & {
+		margin: rem-calc(14 0 36 0);
+	}
+}
+
+#wishlist {
+	ul {
+		margin-bottom: rem-calc(36);
+	}
+}

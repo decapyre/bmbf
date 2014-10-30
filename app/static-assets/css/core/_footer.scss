@@ -5,7 +5,7 @@ footer {
     padding: rem-calc(20) 0;
 
     .blurb {
-        font-family: $body-font;
+        font-family: $font-family-serif;
         font-size: rem-calc(11);
         line-height: rem-calc(15);
         margin: 0;
@@ -61,7 +61,7 @@ footer {
 
     .copyright-terms {
         padding-top: rem-calc(30);
-        font-family: $body-font;
+        font-family: $font-family-serif;
         font-style: italic;
         font-size: rem-calc(11);
         text-align: right;
