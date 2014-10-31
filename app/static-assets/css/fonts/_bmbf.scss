@@ -104,3 +104,21 @@ $bmbf-vert-offset:      -7%;
 .bmbf-clock:before {
   content: "\e00a";
 }
+.bmbf-play-open:before {
+  content: "\e00b";
+}
+.bmbf-filmstrip:before {
+  content: "\e00c";
+}
+.bmbf-file-text:before {
+  content: "\e00d";
+}
+.bmbf-comment:before {
+  content: "\e00e";
+}
+.bmbf-plus:before {
+  content: "\e00f";
+}
+.bmbf-play:before {
+  content: "\e010";
+}
