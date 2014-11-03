@@ -155,7 +155,7 @@ $(function(){
 			url: '/crafter-security-rest-login',
 			data: $('#login-form').serialize(),
 			success: function() {
-				window.location = '/new-home';
+				window.location = '/';
 			},
 			error: function(jqXHR) {
 				displayError('#login-message', jqXHR.responseJSON);
