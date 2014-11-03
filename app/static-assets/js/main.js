@@ -51,7 +51,7 @@ $(function(){
 			after_slide_change: noop // Execute a function after the slide changes
 		},
 		abide: {
-			live_validate: true,
+			live_validate: false,
 			timeout: 1000
 		},
 		topbar: {
@@ -95,7 +95,7 @@ $(function(){
 			.on('keydown.fndtn.abide blur.fndtn.abide change.fndtn.abide', function () {
 				setTimeout(function(){
 					$('#reg-dropdown').foundation('orbit', 'reflow');
-				}, 1000);
+				}, 0); // 0 or same value as the abide timeout
 			});
 
 
