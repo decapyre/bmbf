@@ -80,12 +80,15 @@ header {
 				position: relative;
 
 				.button-container {
+
+					@media #{$large-up} {
+						position: absolute;
+						top: 50%;
+						right: 0;
+						transform: translateY(-50%);
+						text-align: right;
+					}
 					//line-height: 10;
-					position: absolute;
-					top: 50%;
-					right: 0;
-					transform: translateY(-50%);
-					text-align: right;
 				}
 
 				h2 {
