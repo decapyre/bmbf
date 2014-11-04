@@ -77,9 +77,14 @@ header {
 				border-bottom: 2px solid #d7d7d7;
 				padding: rem-calc(20) 0;
 				margin-bottom: rem-calc(80);
+				position: relative;
 
 				.button-container {
-					line-height: 10;
+					//line-height: 10;
+					position: absolute;
+					top: 50%;
+					right: 0;
+					transform: translateY(-50%);
 					text-align: right;
 				}
 
