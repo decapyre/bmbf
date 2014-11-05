@@ -26,6 +26,13 @@
 
 			h2 {
 				line-height: 1.2;
+
+				a {
+					text-decoration: none;
+					&:hover {
+						text-decoration: underline;
+					}
+				}
 			}
 
 			.authored {
