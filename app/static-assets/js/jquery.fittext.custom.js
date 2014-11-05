@@ -32,6 +32,12 @@
 
 			// Resizer() resizes items based on the object width divided by the compressor * 10
 			var resizer = function () {
+
+				// re-calculate based on single line length
+				$this.css({
+					'white-space': 'pre'
+				});
+
 				// get proportional size of text to fit in its parent
 				var size = ( parseInt( $this.css('font-size'), 10 ) / $this.width() ) * $this.parent().width();
 				size = Math.max( parseFloat( settings.minFontSize ), size );

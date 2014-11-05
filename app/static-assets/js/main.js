@@ -1,6 +1,11 @@
 'use strict';
 /*global $, Foundation, Typekit*/
 
+// FitText after fonts have loaded.
+$(window).load(function(){
+	$('.slide h2').fitText(1, {minFontSize: '40px', maxFontSize: '80px'});
+});
+
 $(function(){
 	function noop(){}
 
@@ -61,8 +66,7 @@ $(function(){
 		}
 	});
 
-	// fit text
-	$('.slide .title h2').fitText(1, {minFontSize: '40px', maxFontSize: '80px'});
+
 
 	// force close the topbar expanded view on small/med when the Login / Signup button is pressed.
 	$('#reg-btn-dropdown')

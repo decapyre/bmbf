@@ -3,7 +3,8 @@
 }
 
 header {
-	margin-bottom: rem-calc(50);
+	position: relative;
+	margin-bottom: rem-calc(25);
 
 	.slide {
 		// Hide slides until JS loads.
@@ -94,7 +95,7 @@ header {
 				h2 {
 					margin: 0;
 					//line-height: 1.2;
-					font-size: rem-calc(100);
+					font-size: rem-calc(80);
 					color: #fff;
 					@extend %text-shadow;
 				}
