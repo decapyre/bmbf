@@ -137,7 +137,11 @@ $(function(){
 	
 	var displayError = function(messageSelector, data) {
 		if (data && data.message) {
-			$(messageSelector+' small').text(data.message);
+			if (data.message === "User is disabled") {
+				$(messageSelector+' small').text('Sorry, we were unable to log you in');
+			} else {
+				$(messageSelector+' small').text(data.message);
+			}
 		} else {
 			$(messageSelector+' small').text('An unexpected error ocurred. Please try again later.');
 		}
