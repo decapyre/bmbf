@@ -64,6 +64,17 @@ nav {
                         font-family: $font-family-serif;
                     }
                 }
+
+                &.has-form {
+                    button {
+                        height: 1.8rem;
+                        padding-top: rem-calc(7);
+
+                        @media #{$small-only} {
+                            top: 0;
+                        }
+                    }
+                }
             }
         }          
     }

@@ -76,6 +76,10 @@
 		input {
 			position: relative; 
 			padding-left: rem-calc(30);
+
+			&#lastname {
+				padding-left: 0.5rem;
+			}
 		}
 
 		.email-wrapper:before,

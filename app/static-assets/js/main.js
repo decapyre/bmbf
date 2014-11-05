@@ -1,19 +1,16 @@
 'use strict';
-/*global $, Foundation, Typekit*/
+/*global $, Foundation*/
 
 // FitText after fonts have loaded.
 $(window).load(function(){
-	$('.slide h2').fitText(1, {minFontSize: '40px', maxFontSize: '80px'});
+	$('#header-slider .slide h2').fitText(1, {minFontSize: '40px', maxFontSize: '80px'});
 });
 
 $(function(){
 	function noop(){}
 
-	// typekit
-	Typekit.load();
-
 	// show slides, prevents some flickering from happening
-	$('.slide').show();
+	$('#header-slider .slide').show();
 
 	$(document).foundation({
 		// Orbit is set to be deprecated, use https://github.com/kenwheeler/slick in the future
@@ -224,5 +221,15 @@ $(function(){
 				displayError('#reset-message', jqXHR.responseJSON);
 			}
 		});
+	});
+
+	// search form
+	$('#search-form').submit(function() {
+		var query = $('#search').val();
+		if(query) {
+			window.location.href = 'http://'+window.location.host+'/search?q='+encodeURIComponent(query);
+		}
+		
+		return false;
 	});
 });
