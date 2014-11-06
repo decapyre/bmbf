@@ -32,6 +32,12 @@
 			text-transform: uppercase;
 		}
 
+		&.confirm {
+			.bmbf-check {
+				color: $green-check-color;
+			}
+		}
+
 		div.divider.row.collapse {
 			margin: rem-calc(20) 0;
 

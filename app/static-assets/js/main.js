@@ -78,7 +78,7 @@ $(function(){
 		$.fx.off = true;
 
 		// go to hashed slide
-		$('#reg-dropdown [data-orbit-link="'+location.hash.substr(7)+'"]').click();
+		$('#registration').trigger('goto.fndtn.orbit', [location.hash.substr(7)]);
 
 		// Force open dropdown (dropdown content, dropdown trigger (button))
 		Foundation.libs.dropdown.open($('#reg-dropdown'), $('#reg-btn-dropdown'));
@@ -118,26 +118,32 @@ $(function(){
 
 		// go back to the (login) slide
 		$.fx.off = true;
-		$('#reg-dropdown [data-orbit-link="login"]').click();
+		$('#registration').trigger('goto.fndtn.orbit', ['login']);
 		$.fx.off = false;
 	});
-	
-	var displaySuccess = function(messageSelector, data) {
-		if (data && data.message) {
-			$(messageSelector+' small').text(data.message);
-		} else {
-			$(messageSelector+' small').text('Operation successful');
-		}
-		
-		$(messageSelector).removeClass('error').addClass('success').show();
 
-		// reflow
-		$('#reg-dropdown').foundation('orbit', 'reflow');
-	};
+	$('#registration .close').click(function() {
+		$('#registration').trigger('goto.fndtn.orbit', ['login']);
+		Foundation.libs.dropdown.close($('#reg-dropdown'));
+	});
+
+	
+	// var displaySuccess = function(messageSelector, data) {
+	// 	if (data && data.message) {
+	// 		$(messageSelector+' small').text(data.message);
+	// 	} else {
+	// 		$(messageSelector+' small').text('Operation successful');
+	// 	}
+		
+	// 	$(messageSelector).removeClass('error').addClass('success').show();
+
+	// 	// reflow
+	// 	$('#reg-dropdown').foundation('orbit', 'reflow');
+	// };
 	
 	var displayError = function(messageSelector, data) {
 		if (data && data.message) {
-			if (data.message === "User is disabled") {
+			if (data.message === 'User is disabled') {
 				$(messageSelector+' small').text('Sorry, we were unable to log you in');
 			} else {
 				$(messageSelector+' small').text(data.message);
@@ -150,6 +156,21 @@ $(function(){
 
 		// reflow
 		$('#reg-dropdown').foundation('orbit', 'reflow');
+	};
+
+	var displayConfirmSlide = function(title, msg, showLoginBtn) {
+		var $slide = $('#reg-dropdown .confirm');
+		var $btn = $slide.find('.login-btn-container');
+		$slide.find('h2').text(title);
+		$slide.find('.msg').text(msg);
+
+		if(showLoginBtn) {
+			$btn.show();
+		} else {
+			$btn.hide();
+		}
+
+		$('#registration').trigger('goto.fndtn.orbit', ['confirm']);
 	};
 
 	$('#login-btn').click(function(e) {
@@ -176,13 +197,17 @@ $(function(){
 	
 	$('#signup-btn').click(function(e) {
 		e.preventDefault();
-		
+	
+		var email = $('#signup-form [type="email"]').val();
+
 		$.ajax({
 			type: 'POST',
 			url: '/api/1/services/registration.json',
 			data: $('#signup-form').serialize(),
-			success: function(data) {
-				displaySuccess('#signup-message', data);
+			success: function() {
+				displayConfirmSlide('Email Sent','Thanks for signing up! An email has been sent to ' +
+					email + '. Please follow the instructions to activate your new account.');
+				//displaySuccess('#signup-message', data);
 			},
 			error: function(jqXHR) {
 				displayError('#signup-message', jqXHR.responseJSON);
@@ -197,8 +222,9 @@ $(function(){
 			type: 'POST',
 			url: '/api/1/services/forgotpswd.json',
 			data: $('#forgot-form').serialize(),
-			success: function(data) {
-				displaySuccess('#forgot-message', data);
+			success: function() {
+				displayConfirmSlide('Email Sent','We sent you an email with a link for you to reset your password.');
+				//displaySuccess('#forgot-message', data);
 			},
 			error: function(jqXHR) {
 				displayError('#forgot-message', jqXHR.responseJSON);
@@ -218,8 +244,9 @@ $(function(){
 			type: 'POST',
 			url: '/api/1/services/resetpswd.json?token='+token,
 			data: $('#reset-form').serialize(),
-			success: function(data) {
-				displaySuccess('#reset-message', data);
+			success: function() {
+				displayConfirmSlide('Success!','You have successfully changed your password. Please login by clicking the button below.', true);
+				//displaySuccess('#reset-message', data);
 			},
 			error: function(jqXHR) {
 				displayError('#reset-message', jqXHR.responseJSON);
