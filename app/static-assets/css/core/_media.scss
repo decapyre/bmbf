@@ -14,14 +14,6 @@
 		}
 	}
 
-	nav {
-		.title-area {
-			.name {
-				margin-left: rem-calc(60);
-			}
-		}
-	}
-
 	header {
 		.slide {
 			.content {
@@ -119,15 +111,6 @@
 					}
 				}	
 			}
-		}
-	}
-}
-
-@media #{$topbar-media-query} {
-	.top-bar-section {
-		li.divider {
-			height: 22px;
-			margin-top: 11px;
 		}
 	}
 }

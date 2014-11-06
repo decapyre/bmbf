@@ -13,7 +13,7 @@
     margin-left: rem-calc(20);
     background-image: url(#{$image-path}/pattern.jpg);
     background-repeat: repeat;
-    z-index: 100; // 1 higher then the fixed top-bar
+    z-index: 100; // 1 higher then top-bar
 
     a {
         display: block;
@@ -41,6 +41,10 @@ nav {
             font-size: rem-calc(20);
             text-transform: uppercase;
 
+            @media #{$small-to-medium-only} {
+                margin-left: rem-calc(60);
+            }
+
             a {
                 color: $black;
             }
@@ -53,9 +57,26 @@ nav {
         }
     }
 
-    .top-bar-section {      
+    &.expanded {
+        .top-bar-section {
+            z-index: 101;
+        }
+    }
+
+    &.fixed {
+        z-index: auto;
+    }
+
+    .top-bar-section {
         ul {
             li {
+                @media #{$topbar-media-query} {
+                    &.divider {
+                        height: 22px;
+                        margin-top: 11px;
+                    }
+                }
+
                 a {
                     font-family: $futura;
                     text-transform: uppercase;
@@ -75,7 +96,50 @@ nav {
                         }
                     }
                 }
+
+                &.has-dropdown {
+                    a:first-child {
+                        color: $black;
+
+                        &:hover {
+                            color: scale-color($primary-color, $lightness: 10%);
+                        }
+                    }
+                }
             }
-        }          
+        }   
+
+        .dropdown {
+            background: $white;
+            overflow: hidden !important;
+
+            &.logged-in-nav {
+                @media #{$large-up} {
+                    border: 1px solid $black;
+                    @include box-shadow(-3px 6px 19px -6px $black);
+                    @include border-radius(0px 0px 4px 4px);
+                }
+
+                .divider {
+                    margin: 0;
+                    height: auto;
+                }
+
+                li {
+
+                    a {
+                        font-size: 14px;
+                        font-size: rem-calc(14);
+                        font-family: $body-font-family;
+                        text-transform: capitalize;
+                        line-height: 38px;
+
+                        &.logout {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

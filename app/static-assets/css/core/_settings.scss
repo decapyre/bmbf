@@ -1375,12 +1375,12 @@ $topbar-height: 45px;
 
 // Style the top bar dropdown elements
 $topbar-dropdown-bg: $white;
-// $topbar-dropdown-link-color: $white;
+$topbar-dropdown-link-color: $oil;
 $topbar-dropdown-link-bg: $white;
 // $topbar-dropdown-link-weight: $font-weight-normal;
-// $topbar-dropdown-toggle-size: 5px;
-// $topbar-dropdown-toggle-color: $white;
-// $topbar-dropdown-toggle-alpha: 0.4;
+$topbar-dropdown-toggle-size: 5px;
+$topbar-dropdown-toggle-color: $black;
+$topbar-dropdown-toggle-alpha: 0.75;
 
 // Set the link colors and styles for top-level nav
 $topbar-link-color: $steel;
@@ -1389,7 +1389,7 @@ $topbar-link-color-active: $oil;
 $topbar-link-color-active-hover: $jet;
 $topbar-link-weight: $font-weight-bold;
 // $topbar-link-font-size: rem-calc(13);
-$topbar-link-hover-lightness: -10%; // Darken by 10%
+$topbar-link-hover-lightness: -50%; // Darken by 10%
 $topbar-link-bg: $topbar-bg;
 $topbar-link-bg-color-hover: $vapor;
 $topbar-link-bg-hover: $vapor;
@@ -1399,7 +1399,7 @@ $topbar-link-bg-active-hover: $primary-color;//scale-color($primary-color, $ligh
 // $topbar-link-text-transform: none;
 $topbar-link-padding: $topbar-height / 4;
 // $topbar-back-link-size: $h5-font-size;
-// $topbar-link-dropdown-padding: 20px;
+$topbar-link-dropdown-padding: 20px;
 
 // $topbar-button-font-size: 0.75rem;
 // $topbar-button-top: 7px;

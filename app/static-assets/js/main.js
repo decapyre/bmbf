@@ -181,12 +181,25 @@ $(function(){
 			url: '/crafter-security-rest-login',
 			data: $('#login-form').serialize(),
 			success: function() {
-				window.location = '/';
+				window.location.href = '/';
 			},
 			error: function(jqXHR) {
 				displayError('#login-message', jqXHR.responseJSON);
 			}
 		});
+	});
+
+	// logout buttons
+	$('.logout').click(function() {
+		$.ajax({
+			type: 'POST',
+			url: '/crafter-security-rest-logout',
+			complete: function() {
+				window.location.href = '/';
+			}
+		});
+
+		return false;
 	});
 	
 	$('#facebook-connect-btn').click(function(e) {
@@ -207,7 +220,6 @@ $(function(){
 			success: function() {
 				displayConfirmSlide('Email Sent','Thanks for signing up! An email has been sent to ' +
 					email + '. Please follow the instructions to activate your new account.');
-				//displaySuccess('#signup-message', data);
 			},
 			error: function(jqXHR) {
 				displayError('#signup-message', jqXHR.responseJSON);
@@ -224,7 +236,6 @@ $(function(){
 			data: $('#forgot-form').serialize(),
 			success: function() {
 				displayConfirmSlide('Email Sent','We sent you an email with a link for you to reset your password.');
-				//displaySuccess('#forgot-message', data);
 			},
 			error: function(jqXHR) {
 				displayError('#forgot-message', jqXHR.responseJSON);
@@ -246,7 +257,6 @@ $(function(){
 			data: $('#reset-form').serialize(),
 			success: function() {
 				displayConfirmSlide('Success!','You have successfully changed your password. Please login by clicking the button below.', true);
-				//displaySuccess('#reset-message', data);
 			},
 			error: function(jqXHR) {
 				displayError('#reset-message', jqXHR.responseJSON);
