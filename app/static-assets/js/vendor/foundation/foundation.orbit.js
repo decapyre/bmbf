@@ -8,7 +8,6 @@
     if (el.hasClass(settings.slides_container_class)) {
       return this;
     }
-
     var self = this,
         container,
         slides_container = el,

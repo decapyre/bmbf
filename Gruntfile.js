@@ -34,7 +34,7 @@ module.exports = function (grunt) {
                 tasks: ['bowerInstall']
             },
             js: {
-                files: ['<%= config.app %>/static-assets/js/{,*/}*.js'],
+                files: ['<%= config.app %>/static-assets/js/**/*.js'],
                 tasks: ['jshint'],
                 options: {
                     livereload: true
@@ -215,7 +215,7 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     src: [
-                        '<%= config.dist %>/static-assets/js/{,*/}*.js',
+                        '<%= config.dist %>/static-assets/js/**/*.js',
                         '<%= config.dist %>/static-assets/css/{,*/}*.css',
                         '<%= config.dist %>/static-assets/images/{,*/}*.*',
                         '<%= config.dist %>/static-assets/css/fonts/{,*/}*.*',
