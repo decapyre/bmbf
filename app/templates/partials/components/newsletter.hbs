@@ -7,7 +7,7 @@
             <div class="small-12 medium-12 large-5 columns">
                 <h3>Newsletter</h3>
                 <p>Subscribe to the newsletter to get great content like free Movie guides and Movie picks!</p>
-                <form id="newsletterform" data-abide="ajax">
+                <form id="newsletter-form" data-abide="ajax">
                     <div class="row">
                         <div class="large-12 columns">
                             <input type="email" name="email" placeholder="Email" required />
@@ -24,3 +24,16 @@
         </div>
     </div>
 </section>
+
+{{!-- Modals --}}
+<div id="successModal" class="reveal-modal tiny" data-reveal>
+    <h2>Thanks!</h2>
+    <p class="lead"><i class="fa fa-check fa-lg"></i> You have successfully subscribed.</p>
+    <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="errorModal" class="reveal-modal tiny" data-reveal>
+    <h2>Oops...</h2>
+    <p class="lead">We are sorry but it appears that your email is not valid. Please give it one more try.</p>
+    <a class="close-reveal-modal">&#215;</a>
+</div>

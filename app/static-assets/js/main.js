@@ -8,6 +8,10 @@ $(window).load(function(){
 
 $(function(){
 	function noop(){}
+	var modals = {
+		success: $('#successModal'),
+		error: $('#errorModal')
+	};
 
 	// show slides, prevents some flickering from happening
 	$('#header-slider .slide').show();
@@ -51,7 +55,7 @@ $(function(){
 		},
 		abide: {
 			live_validate: false,
-			timeout: 1000
+			timeout: 1200
 		},
 		topbar: {
 			sticky_class: 'sticky',
@@ -93,10 +97,17 @@ $(function(){
 			$('#reg-dropdown').foundation('orbit', 'reflow');
 		})
 		.find('input, textarea, select')
-			.on('keydown.fndtn.abide blur.fndtn.abide change.fndtn.abide', function () {
+			.on('keydown.fndtn.abide', function (e) {
+				resetAbideErrorsWhileTyping($(e.target));
+
+				setTimeout(function() {
+					$('#reg-dropdown').foundation('orbit', 'reflow');
+				}, 0);
+			})
+			.on('change.fndtn.abide blur.fndtn.abide', function() {
 				setTimeout(function(){
 					$('#reg-dropdown').foundation('orbit', 'reflow');
-				}, 0); // 0 or same value as the abide timeout
+				}, 0);
 			});
 
 
@@ -173,6 +184,14 @@ $(function(){
 		$('#registration').trigger('goto.fndtn.orbit', ['confirm']);
 	};
 
+	var resetAbideErrorsWhileTyping = function($el) {
+		//$form.removeAttr('data-invalid');
+		$el.parent().removeClass('error');
+		$el.removeAttr('data-invalid').removeClass('error');
+		//$('data-invalid', $form).removeAttr('data-invalid');
+		//$('.error', $form).not('small').removeClass('error');
+	};
+
 	$('#login-btn').click(function(e) {
 		e.preventDefault();
 		
@@ -191,14 +210,10 @@ $(function(){
 
 	// logout buttons
 	$('.logout').click(function() {
-		$.ajax({
-			type: 'POST',
-			url: '/crafter-security-rest-logout',
-			complete: function() {
-				window.location.href = '/';
-			}
+		$.get('/crafter-security-rest-logout', function() {
+			window.location.href = '/';
 		});
-
+		
 		return false;
 	});
 	
@@ -273,4 +288,24 @@ $(function(){
 		
 		return false;
 	});
+
+	// Simple email validation using Foundation Abide + jQuery Ajax Post returns
+	$('#newsletter-form').on('valid.fndtn.abide', function () {
+		var subscription = {
+			email: $(this).find('[type="email"]').val()
+		};
+
+		$.post('http://bmbf-cms.herokuapp.com/subscribe/', subscription)
+			.done(function() {
+				$('#errorModal').foundation('reveal', 'close');
+				modals.success.foundation('reveal', 'open');
+			})
+			.fail(function() {
+				modals.error.foundation('reveal', 'open');
+			});
+	}).find('input')
+			.on('keydown.fndtn.abide', function (e) {
+				var self = $(e.target);
+				resetAbideErrorsWhileTyping(self);
+			});
 });
