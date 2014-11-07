@@ -19,7 +19,7 @@
                 </div>  
             </div>
 
-            <form id="login-form" data-abide>
+            <form class="login-form bmbf-form" data-abide="ajax">
                 <div class="row">
                     <div class="small-12 columns">
                         <div class="row collapse">
@@ -30,21 +30,21 @@
                         </div>
                         <div class="row collapse">
                             <div class="small-12 password-wrapper columns">
-                                <input id="password" name="password" type="password" placeholder="Password" pattern="^.{2,255}$" required />
+                                <input name="password" type="password" placeholder="Password" pattern="^.{2,255}$" required />
                                 <small class="error">A password of atleast 2 characters is required.</small>
                             </div>
                         </div>
-                        <div id="login-message" class="row collapse message">
+                        <div class="row collapse server-message">
                             <div class="small-12 columns">
                                 <small class="server-error"></small>
                             </div>
                         </div>
                         <div class="row collapse">
                             <div class="small-6 columns">
-                                <input id="remember" name="remember" type="checkbox" value="1"> Remember Me
+                                <input class="remember" name="remember" type="checkbox" value="1"> Remember Me
                             </div>
                             <div class="small-6 columns">
-                                <button id="login-btn" type="submit" class="submit small right radius">Login</button>
+                                <button type="submit" class="submit small right radius">Login</button>
                             </div>
                         </div>                                                    
                     </div>
@@ -68,7 +68,7 @@
         <div data-orbit-slide="signup" class="slide">
             <h2>Signup</h2>
 
-            <form id="signup-form" data-abide>
+            <form class="signup-form bmbf-form" data-abide="ajax">
                 <div class="row">
                     <div class="small-12 columns">
                         <div class="row collapse">
@@ -81,11 +81,11 @@
                             <div class="small-12 columns">
                                 <div class="row collapse">
                                     <div class="small-6 user-wrapper columns">
-                                        <input id="firstname" name="firstname" type="text" placeholder="First Name" required />
+                                        <input name="firstname" type="text" placeholder="First Name" required />
                                         <small class="error">Please provide your First Name.</small>
                                     </div>
                                     <div class="small-6 columns">
-                                        <input id="lastname" name="lastname" type="text" placeholder="Last Name" required />
+                                        <input class="lastname" name="lastname" type="text" placeholder="Last Name" required />
                                         <small class="error">Please provide your Last Name.</small>
                                     </div>
                                 </div>
@@ -93,18 +93,18 @@
                         </div>
                         <div class="row collapse">
                             <div class="small-12 password-wrapper columns">
-                                <input id="password" name="password" type="password" placeholder="Password" pattern="^.{2,255}$" required />
+                                <input name="password" type="password" placeholder="Password" pattern="^.{2,255}$" required />
                                 <small class="error">A password of atleast 2 characters is required.</small>
                             </div>
                         </div>
-                        <div id="signup-message" class="row collapse message">
+                        <div class="row collapse server-message">
                             <div class="small-12 columns">
                                 <small class="server-error"></small>
                             </div>
                         </div>
                         <div class="row collapse">
                             <div class="small-12 columns">
-                                <button id="signup-btn" type="submit" class="submit small right radius">Sign Up</button>
+                                <button type="submit" class="submit small right radius">Sign Up</button>
                             </div>
                         </div>                                                    
                     </div>
@@ -132,7 +132,7 @@
                 <div class="large-12 columns">Let us know what email you use to login and we'll send you an email with instructions.</div>
             </div>
 
-            <form id="forgot-form" data-abide>
+            <form class="forgot-form bmbf-form" data-abide="ajax">
                 <div class="row">
                     <div class="small-12 columns">
                         <div class="row collapse">
@@ -141,7 +141,7 @@
                                 <small class="error">A valid email address is required.</small>
                             </div>
                         </div>
-                        <div id="forgot-message" class="row collapse message">
+                        <div class="row collapse server-message">
                             <div class="small-12 columns">
                                 <small class="server-error"></small>
                             </div>
@@ -166,7 +166,7 @@
         <div data-orbit-slide="reset" class="slide">
             <h2 data-orbit-link="reset">New Password</h2>
 
-            <form id="reset-form" data-abide>
+            <form class="reset-form bmbf-form" data-abide="ajax">
                 <div class="row">
                     <div class="small-12 columns">
                         <div class="row collapse">
@@ -181,7 +181,7 @@
                                 <small class="error">The password did not match.</small>
                             </div>
                         </div>
-                        <div id="reset-message" class="row collapse message">
+                        <div class="row collapse server-message">
                             <div class="small-12 columns">
                                 <small class="server-error"></small>
                             </div>
@@ -225,6 +225,5 @@
                 </div>
             </div>
         </div><!-- end confirm slide -->
-
     </div>
 </div>

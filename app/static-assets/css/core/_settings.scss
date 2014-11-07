@@ -100,7 +100,7 @@ $font-weight-bold: bold !default;
 $primary-color: #333333;
 //$primary-color: #72B424;
 // $secondary-color: #e7e7e7;
-$alert-color: #cc4521;
+//$alert-color: #cc4521;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
@@ -124,6 +124,8 @@ $steel       : #666666;
 $oil         : #333333;
 $jet         : #222222;
 $black       : #000000;
+// custom
+$alert-color: $aluminum;
 
 // We use these to control various global styles
 // $body-bg: $white;

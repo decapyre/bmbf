@@ -1,0 +1,50 @@
+---
+title: 'Best Movies by Farr - User Profile'
+layout: 'page.hbs'
+hero-class: 'login'
+---
+<section id="account-verified" class="row page">
+	<div class="small-12 medium-10 medium-centered large-9 columns">
+		<div class="row">
+			<div class="small-12 columns">
+				<h3>Your account has been verified. You may login below:</h3>
+				<div class="lines"></div>		
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 medium-7 large-6 columns">
+				<form class="login-form bmbf-form" data-abide="ajax">
+					<div class="row">
+						<div class="small-12 large-8 columns">
+							<div class="row collapse">
+								<div class="small-12 email-wrapper columns">
+									<input name="username" type="email" placeholder="Email" required />
+									<small class="error">A valid email address is required.</small>
+								</div>
+							</div>
+							<div class="row collapse">
+								<div class="small-12 password-wrapper columns">
+									<input name="password" type="password" placeholder="Password" pattern="^.{2,255}$" required />
+									<small class="error">A password of atleast 2 characters is required.</small>
+								</div>
+							</div>
+							<div class="row collapse server-message">
+								<div class="small-12 columns">
+									<small class="server-error"></small>
+								</div>
+							</div>
+							<div class="row collapse">
+								<div class="small-6 columns">
+									<input class="remember" name="remember" type="checkbox" value="1"> Remember Me
+								</div>
+								<div class="small-6 columns">
+									<button type="submit" class="submit small right radius">Login</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>

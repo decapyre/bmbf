@@ -1,10 +1,18 @@
-<header class="{{hero-class}}">
+<header class="page {{hero-class}}">
 	{{!-- Profile Hero --}}
 	{{#is hero-class 'profile'}}
 	<div class="row collapse">
 		<div class="small-12 columns">
 			<h2>Your Profile</h2>
 			<p>You joined on October 31st 2014</p>
+		</div>
+	</div>
+	{{/is}}
+
+	{{#is hero-class 'login'}}
+	<div class="row collapse">
+		<div class="small-12 columns">
+			<h2>Account Verified!</h2>
 		</div>
 	</div>
 	{{/is}}

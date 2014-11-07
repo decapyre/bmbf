@@ -24,6 +24,59 @@
 	}
 }
 
+form {
+	&.bmbf-form{
+		font-size: 0.875rem;
+		
+		input {
+			position: relative; 
+			padding-left: rem-calc(30);
+
+			&.lastname {
+				padding-left: 0.5rem;
+			}
+		}
+
+		.email-wrapper:before,
+		.password-wrapper:before,
+		.user-wrapper:before {
+			font-family: bmbf;
+			font-style: normal;
+			font-weight: normal;
+			text-decoration: inherit;
+
+			/* adjust as necessary */
+			content: "\e006";
+			position: absolute;
+			top: 9px;
+			left: 8px;
+			color: $oil;
+			z-index: 2;	
+			// font-size: 18px;
+			// padding-right: 0.5em;	
+		}
+
+		.password-wrapper:before {
+			content: "\e002";
+			left: 10px;
+		}
+
+		.user-wrapper:before {
+			content: "\e001";
+			left: 9px;
+		}
+
+		button.submit {
+			text-transform: uppercase;
+		}
+
+		input.remember {
+			margin-top: 16px;
+			color: $steel;
+		}
+	}
+}
+
 #registration {
 	background-color: $white;
 
@@ -79,44 +132,6 @@
 			color: #fff;
 		}
 
-		input {
-			position: relative; 
-			padding-left: rem-calc(30);
-
-			&#lastname {
-				padding-left: 0.5rem;
-			}
-		}
-
-		.email-wrapper:before,
-		.password-wrapper:before,
-		.user-wrapper:before {
-			font-family: bmbf;
-			font-style: normal;
-			font-weight: normal;
-			text-decoration: inherit;
-
-			/* adjust as necessary */
-			content: "\e006";
-			position: absolute;
-			top: 9px;
-			left: 8px;
-			color: $oil;
-			z-index: 2;	
-			// font-size: 18px;
-			// padding-right: 0.5em;	
-		}
-
-		.password-wrapper:before {
-			content: "\e002";
-			left: 10px;
-		}
-
-		.user-wrapper:before {
-			content: "\e001";
-			left: 9px;
-		}
-
 		.recommended {
 			color: #6aac39;
 			margin: 5px 0 0 0;
@@ -136,15 +151,6 @@
 			 a:hover {
 			 	text-decoration: none;
 			 }
-		}
-
-		button.submit {
-			text-transform: uppercase;
-		}
-
-		input#remember {
-			margin-top: 16px;
-			color: $steel;
 		}
 
 		a.forgot {

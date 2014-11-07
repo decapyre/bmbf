@@ -67,8 +67,6 @@ $(function(){
 		}
 	});
 
-
-
 	// force close the topbar expanded view on small/med when the Login / Signup button is pressed.
 	$('#reg-btn-dropdown')
 		.on('click.fndtn.dropdown', function () {
@@ -97,21 +95,14 @@ $(function(){
 			$('#reg-dropdown').foundation('orbit', 'reflow');
 		})
 		.find('input, textarea, select')
-			.on('keydown.fndtn.abide', function (e) {
-				resetAbideErrorsWhileTyping($(e.target));
-
-				setTimeout(function() {
-					$('#reg-dropdown').foundation('orbit', 'reflow');
-				}, 0);
-			})
-			.on('change.fndtn.abide blur.fndtn.abide', function() {
+			.on('keydown.fndtn.abide change.fndtn.abide blur.fndtn.abide', function() {
 				setTimeout(function(){
 					$('#reg-dropdown').foundation('orbit', 'reflow');
 				}, 0);
 			});
 
 
-	// reset error messages when modal is closed
+	// reset error messages when dropdown is closed
 	$('#reg-dropdown').on('closed.fndtn.dropdown', function() {
 		var abideForms = $(this).find('form');
 
@@ -121,8 +112,8 @@ $(function(){
 		});
 		
 		// reset server errors
-		$('.message small').text('');
-		$('.message').removeClass('success').removeClass('error').hide();
+		$('.server-message small').text('');
+		$('.server-message').removeClass('success').removeClass('error').hide();
 
 		// reflow
 		$('#reg-dropdown').foundation('orbit', 'reflow');
@@ -138,34 +129,25 @@ $(function(){
 		Foundation.libs.dropdown.close($('#reg-dropdown'));
 	});
 
-	
-	// var displaySuccess = function(messageSelector, data) {
-	// 	if (data && data.message) {
-	// 		$(messageSelector+' small').text(data.message);
-	// 	} else {
-	// 		$(messageSelector+' small').text('Operation successful');
-	// 	}
-		
-	// 	$(messageSelector).removeClass('error').addClass('success').show();
+	var displayError = function($target, data) {
+		var msg;
 
-	// 	// reflow
-	// 	$('#reg-dropdown').foundation('orbit', 'reflow');
-	// };
-	
-	var displayError = function(messageSelector, data) {
-		if (data && data.message) {
-			if (data.message === 'User is disabled') {
-				$(messageSelector+' small').text('Sorry, we were unable to log you in');
-			} else {
-				$(messageSelector+' small').text(data.message);
-			}
+		if(typeof data === 'undefined' || data && typeof data.message === 'undefined') {
+			msg = 'An unexpected error occured. Please try again.';
 		} else {
-			$(messageSelector+' small').text('An unexpected error ocurred. Please try again later.');
+			msg = data.message;
 		}
-	
-		$(messageSelector).removeClass('success').addClass('error').show();
 
-		// reflow
+		switch(msg) {
+			case 'User is disabled':
+				msg = 'Sorry, we were unable to log you in';
+				break;
+		}
+
+		$target.find('.server-message').removeClass('success').addClass('error').show();
+		$target.find('.server-error').text(msg).addClass('error').show();
+
+		// reflow just in case
 		$('#reg-dropdown').foundation('orbit', 'reflow');
 	};
 
@@ -192,20 +174,22 @@ $(function(){
 		//$('.error', $form).not('small').removeClass('error');
 	};
 
-	$('#login-btn').click(function(e) {
-		e.preventDefault();
-		
+	$('.login-form').on('valid.fndtn.abide', function () {
+		var $self = $(this);
+
 		$.ajax({
 			type: 'POST',
 			url: '/crafter-security-rest-login',
-			data: $('#login-form').serialize(),
+			data: $self.serialize(),
 			success: function() {
 				window.location.href = '/';
 			},
 			error: function(jqXHR) {
-				displayError('#login-message', jqXHR.responseJSON);
+				displayError($self, jqXHR.responseJSON);
 			}
 		});
+
+		return false;
 	});
 
 	// logout buttons
@@ -222,62 +206,68 @@ $(function(){
 
 		$('#facebook-connect-form').submit();
 	});
-	
-	$('#signup-btn').click(function(e) {
-		e.preventDefault();
-	
-		var email = $('#signup-form [type="email"]').val();
+
+	$('.signup-form').on('valid.fndtn.abide', function () {
+		var $self = $(this);
+		var email = $self.find('input[type="email"]').val();
 
 		$.ajax({
 			type: 'POST',
 			url: '/api/1/services/registration.json',
-			data: $('#signup-form').serialize(),
+			data: $self.serialize(),
 			success: function() {
 				displayConfirmSlide('Email Sent','Thanks for signing up! An email has been sent to ' +
 					email + '. Please follow the instructions to activate your new account.');
 			},
 			error: function(jqXHR) {
-				displayError('#signup-message', jqXHR.responseJSON);
+				displayError($self, jqXHR.responseJSON);
 			}
 		});
+
+		return false;
 	});
-	
-	$('#forgot-btn').click(function(e) {
-		e.preventDefault();
+
+	$('.forgot-form').on('valid.fndtn.abide', function () {
+		var $self = $(this);
 
 		$.ajax({
 			type: 'POST',
 			url: '/api/1/services/forgotpswd.json',
-			data: $('#forgot-form').serialize(),
+			data: $self.serialize(),
 			success: function() {
 				displayConfirmSlide('Email Sent','We sent you an email with a link for you to reset your password.');
 			},
 			error: function(jqXHR) {
-				displayError('#forgot-message', jqXHR.responseJSON);
+				displayError($self, jqXHR.responseJSON);
 			}
 		});
+
+		return false;
 	});
-	
-	$('#reset-btn').click(function(e) {
-		e.preventDefault();
-		
+
+	$('.reset-form').on('valid.fndtn.abide', function () {
+		var $self = $(this);
 		var token = '';
-		if (location.search.indexOf('?token=') !== -1) {
+
+		if(location.search.indexOf('?token=') !== -1) {
 			token = location.search.substr(7);
 		}
-		
+
 		$.ajax({
 			type: 'POST',
 			url: '/api/1/services/resetpswd.json?token='+token,
-			data: $('#reset-form').serialize(),
+			data: $self.serialize(),
 			success: function() {
 				displayConfirmSlide('Success!','You have successfully changed your password. Please login by clicking the button below.', true);
 			},
 			error: function(jqXHR) {
-				displayError('#reset-message', jqXHR.responseJSON);
+				displayError($self, jqXHR.responseJSON);
 			}
 		});
+
+		return false;
 	});
+	
 
 	// search form
 	$('#search-form').submit(function() {
@@ -303,9 +293,12 @@ $(function(){
 			.fail(function() {
 				modals.error.foundation('reveal', 'open');
 			});
-	}).find('input')
-			.on('keydown.fndtn.abide', function (e) {
-				var self = $(e.target);
-				resetAbideErrorsWhileTyping(self);
-			});
+	});
+
+	// reset abide while typing
+	$('form[data-abide]').find('input, textarea')
+	.on('keydown.fndtn.abide', function (e) {
+		var self = $(e.target);
+		resetAbideErrorsWhileTyping(self);
+	});
 });
