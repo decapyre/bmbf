@@ -75,18 +75,21 @@ $(function(){
 
 
 	// Open the dropdown and slider on the supplied hash, default to login (#slide=login, #slide=signup, #slide=reset, #slide=forgot)
-	if(location.hash.indexOf('#slide=') !== -1) {
+	var openRegistrationDropdownToSlide = function(slide) {
 		// turn animations off
 		$.fx.off = true;
 
 		// go to hashed slide
-		$('#registration').trigger('goto.fndtn.orbit', [location.hash.substr(7)]);
+		$('#registration').trigger('goto.fndtn.orbit', [slide]);
 
 		// Force open dropdown (dropdown content, dropdown trigger (button))
 		Foundation.libs.dropdown.open($('#reg-dropdown'), $('#reg-btn-dropdown'));
 		
 		// turn animations back on
 		$.fx.off = false;
+	};
+	if(location.hash.indexOf('#slide=') !== -1) {
+		openRegistrationDropdownToSlide(location.hash.substr(7));
 	}
 
 	// fix for dynamic height change on the 'orbit' container, yesh a ton of listeners :/
@@ -124,9 +127,19 @@ $(function(){
 		$.fx.off = false;
 	});
 
+	// close registration dropdown and go back to login
 	$('#registration .close').click(function() {
 		$('#registration').trigger('goto.fndtn.orbit', ['login']);
 		Foundation.libs.dropdown.close($('#reg-dropdown'));
+	});
+
+	// open registration dropdown to any slide
+	$('button.open-registration').click(function() {
+		var slide = $(this).data('slide');
+
+		openRegistrationDropdownToSlide(slide);
+
+		return false;
 	});
 
 	var displayError = function($target, data) {
@@ -141,6 +154,9 @@ $(function(){
 		switch(msg) {
 			case 'User is disabled':
 				msg = 'Sorry, we were unable to log you in';
+				break;
+			case 'The user already exists':
+				msg = 'Your email is already associated with an account.';
 				break;
 		}
 

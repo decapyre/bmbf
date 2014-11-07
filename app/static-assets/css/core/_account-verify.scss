@@ -1,5 +1,6 @@
 header {
-	&.login {
+	&.login,
+	&.token-invalid {
 		background-image: url(#{$image-path}/bgAccountVerify.jpg);
 	}
 }

@@ -27,7 +27,7 @@
 form {
 	&.bmbf-form{
 		font-size: 0.875rem;
-		
+
 		input {
 			position: relative; 
 			padding-left: rem-calc(30);
@@ -139,20 +139,6 @@ form {
 			font-size: rem-calc(14);
 		}
 
-		.disclaimer {
-			font-size: rem-calc(12);
-			color: #a8a8a8;
-
-			a {
-				color: #a8a8a8;
-				text-decoration: underline;
-			}
-
-			 a:hover {
-			 	text-decoration: none;
-			 }
-		}
-
 		a.forgot {
 			color: $steel;
 			text-decoration: underline;
@@ -177,4 +163,18 @@ form {
 			text-decoration: none;
 		}
 	}
+}
+
+.disclaimer {
+	font-size: rem-calc(12);
+	color: #a8a8a8;
+
+	a {
+		color: #a8a8a8;
+		text-decoration: underline;
+	}
+
+	 a:hover {
+	 	text-decoration: none;
+	 }
 }
