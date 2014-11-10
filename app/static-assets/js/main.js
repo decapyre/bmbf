@@ -18,7 +18,9 @@ $(function(){
 
 	// nlform init
 	var $nl_header_form = $('#nl-form-header').show();
-	new NLForm($nl_header_form[0]);
+	if($nl_header_form) {
+		new NLForm($nl_header_form[0]);
+	}
 
 	$(document).foundation({
 		// Orbit is set to be deprecated, use https://github.com/kenwheeler/slick in the future
@@ -333,7 +335,7 @@ $(function(){
 		var host ='http://'+window.location.host;
 
 		if(query) {
-			if(query === 'genreFilter=0&decadeFilter=0') {
+			if(query === 'genre=0&decade=0') {
 				window.location.href = host +'/movie_list?';
 			} else {
 				window.location.href = host +'/movie_list?'+query;
