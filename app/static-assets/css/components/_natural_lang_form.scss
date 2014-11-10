@@ -76,3 +76,23 @@ $nl-form-font-size: 34px;
 		color: $gainsboro;
 	}
 }
+
+.nl-field-toggle {
+	margin-right: 18px;
+}
+
+.nl-field-toggle:after {
+	font-family: "bmbf";
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+
+	content: "\e014";
+	padding-left: 2px;
+	position: absolute;
+	font-size: 50%;
+	line-height: 3.3;
+}
