@@ -18,7 +18,7 @@ $(function(){
 
 	// nlform init
 	var $nl_header_form = $('#nl-form-header').show();
-	if($nl_header_form) {
+	if($nl_header_form.length) {
 		new NLForm($nl_header_form[0]);
 	}
 
