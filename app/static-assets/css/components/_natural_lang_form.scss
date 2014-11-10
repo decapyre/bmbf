@@ -1,0 +1,78 @@
+// Overrides to bower_components/NaturalLanguageForm/css/component.css
+$nl-form-li-color: #07a4b6;
+$nl-form-font-size: 34px;
+
+#nl-form-search {
+	.movie-list-link {
+		margin-top: rem-calc(12);
+		
+		a {
+			text-decoration: underline;
+			font-family: $font-family-serif;
+			font-style: italic;
+			color: $base;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.nl-form {
+	display: none; // shown in document.ready to avoid flickering
+	margin: 0;
+	font-size: $nl-form-font-size;
+	font-size: rem-calc($nl-form-font-size);
+
+	@media #{$small-only} {
+		position: relative;
+	}
+
+	a.button {
+		margin: 0 0 0 10px;
+		padding: 12px 20px;
+	}
+}
+
+.nl-field-toggle,
+.nl-form input,
+.nl-form select  {
+	color: $nl-form-li-color;
+	border-bottom: 1px dashed $nl-form-li-color;
+}
+
+.nl-field {
+
+	@media #{$small-only} {
+		position: static;
+	}
+
+	ul {
+		background: $black;
+		left: -0.5em;
+		top: 0;
+		font-size: 80%;
+		transform: translateY(-50%) scale(0);
+		transition: visibility 0s 0.3s, opacity 0.3s, transform 0s;
+	}
+
+	&.nl-field-open ul {
+		@media #{$small-only} {
+			left: 50%;
+			z-index: 10000;
+			transform: translate(-50%,-50%) scale(1);
+			transition: visibility 0s 0s, opacity 0.3s, transform 0.3s;
+		}
+	}
+}
+
+.nl-dd ul li {
+	padding: rem-calc(4 25);
+	cursor: pointer;
+	white-space: nowrap;
+
+	&:hover {
+		color: $gainsboro;
+	}
+}
