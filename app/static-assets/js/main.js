@@ -166,29 +166,7 @@ $(function(){
 		// reflow just in case
 		$('#reg-dropdown').foundation('orbit', 'reflow');
 	};
-    
-    var getCookie = function(cookieName) {
-        var name = cookieName + '=';
-        var ca = document.cookie.split(';');
-        for(var i=0; i<ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0)===' ') {
-                c = c.substring(1);
-            }
-            if(c.indexOf(name) !== -1) {
-                return c.substring(name.length,c.length);
-            }
-        }
-        return '';
-    };
-    
-    var setCookie = function(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays*24*60*60*1000));
-        var expires = 'expires='+d.toUTCString();
-        document.cookie = cname + '=' + cvalue + '; ' + expires;
-    };
-
+	
 	var displayConfirmSlide = function(title, msg, showLoginBtn) {
 		var $slide = $('#reg-dropdown .confirm');
 		var $btn = $slide.find('.login-btn-container');
@@ -205,11 +183,8 @@ $(function(){
 	};
 
 	var resetAbideErrorsWhileTyping = function($el) {
-		//$form.removeAttr('data-invalid');
 		$el.parent().removeClass('error');
 		$el.removeAttr('data-invalid').removeClass('error');
-		//$('data-invalid', $form).removeAttr('data-invalid');
-		//$('.error', $form).not('small').removeClass('error');
 	};
 
 	$('.login-form').on('valid.fndtn.abide', function () {
@@ -220,12 +195,13 @@ $(function(){
 			url: '/crafter-security-rest-login',
 			data: $self.serialize(),
 			success: function() {
-                if($self.find('input.remember').get(0).checked){
-                    var ticket=getCookie('ticket');
-                    var profileLastUpdate=getCookie('profile-last-modified');
-                    setCookie('ticket',ticket,15/**Days**/);
-                    setCookie('profile-last-modified',profileLastUpdate,15/**Days**/);
-                }
+				if($self.find('input.remember').get(0).checked) {
+					var ticket = $.cookie('ticket');
+					var profileLastUpdate = $.cookie('profile-last-modified');
+
+					$.cookie('ticket', ticket, {expires: 15});
+					$.cookie('profile-last-modified', profileLastUpdate, {expires: 15});
+				}
 				window.location.href = '/';
 			},
 			error: function(jqXHR) {
@@ -238,8 +214,13 @@ $(function(){
 
 	// logout buttons
 	$('.logout').click(function() {
-		$.get('/crafter-security-rest-logout?random='+Math.random(), function() {
-			window.location.href = '/';
+		$.ajax({
+			type: 'GET',
+			url: '/crafter-security-rest-logout',
+			cache: false,
+			complete: function() {
+				window.location.href = '/';
+			}
 		});
 		
 		return false;
