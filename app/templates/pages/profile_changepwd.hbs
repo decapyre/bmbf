@@ -22,7 +22,8 @@ hero-class: 'profile'
 				<div class="lines"></div>
 				<section id="edit-content" class="row">
 					<div class="small-12 medium-8 large-6 columns">
-						<form id="form-change-password" data-abide>
+						<form id="change-password-form" data-abide="ajax">
+							<div data-alert class="alert-box success hide">You have successfully changed your password!<a href="#" class="close">&times;</a></div>
 							<div class="row collapse">
 								<div class="small-12 columns">
 									<label>New Password
@@ -36,6 +37,11 @@ hero-class: 'profile'
 										<input id="change-password-confirm" name="passwordConfirm" type="password" data-equalto="change-password-new" />
 									</label>
 									<small class="error">The password did not match the one above.</small>
+								</div>
+							</div>
+							<div class="row collapse server-message">
+								<div class="small-12 columns">
+									<small class="server-error"></small>
 								</div>
 							</div>
 							<div class="row collapse">

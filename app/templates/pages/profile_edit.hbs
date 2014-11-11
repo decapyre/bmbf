@@ -22,28 +22,36 @@ hero-class: 'profile'
 				<div class="lines"></div>
 				<section id="edit-content" class="row">
 					<div class="small-12 medium-8 large-6 columns">
-						<form id="form-edit-profile" data-abide>
+						<form id="edit-profile-form" data-abide="ajax">
+							<div data-alert class="alert-box success hide">You have successfully updated your profile!<a href="#" class="close">&times;</a></div>
 							<div class="row collapse">
 								<div class="small-12 columns">
 									<label>First Name
-										<input name="firstname" type="text" />
+										<input name="firstname" type="text" required/>
 									</label>
+									<small class="error">Please provide your firstname.</small>
 								</div>
 							</div>
 							<div class="row collapse">
 								<div class="small-12 columns">
 									<label>Last Name
-										<input name="lastname" type="text" />
+										<input name="lastname" type="text" required/>
 									</label>
+									<small class="error">Please provide your lastname.</small>
 								</div>
 							</div>
 							<div class="row collapse">
 								<div class="small-12 columns">
 									<label>Email Address
-										<input name="username" type="email" />
+										<input name="username" type="email" required/>
 									</label>
 									<small class="error">A valid email address is required.</small>
 									<p class="email-warning">Your email is used to log into this site. By changing it you will need to login with the new one.</p>
+								</div>
+							</div>
+							<div class="row collapse server-message">
+								<div class="small-12 columns">
+									<small class="server-error"></small>
 								</div>
 							</div>
 							<div class="row collapse">

@@ -134,6 +134,9 @@ $bmbf-vert-offset:      -7%;
 .bmbf-arrow-long-right:before {
   content: "\e013";
 }
-.bmbf-cart-down:before {
+.bmbf-caret-down:before {
   content: "\e014";
+}
+.bmbf-remove:before {
+  content: "\e015";
 }

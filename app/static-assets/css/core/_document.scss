@@ -65,3 +65,11 @@ button,
 .server-error {
 	@extend .error;
 }
+
+.alert-box {
+	font-family: $font-family-sans-serif;
+}
+
+.hide {
+	display: none;
+}

@@ -189,7 +189,7 @@ $(function(){
 	};
 
 	var resetAbideErrorsWhileTyping = function($el) {
-		$el.parent().removeClass('error');
+		$el.closest('div.columns').removeClass('error');
 		$el.removeAttr('data-invalid').removeClass('error');
 	};
 
@@ -298,6 +298,42 @@ $(function(){
 
 		return false;
 	});
+
+	$('#change-password-form').on('valid.fndtn.abide', function () {
+		var $self = $(this);
+
+		$.ajax({
+			type: 'POST',
+			url: '/api/1/services/profile/profile.json?action=changepassword',
+			data: $self.serialize(),
+			success: function() {
+				$self.find('.alert-box.success').show();
+			},
+			error: function(jqXHR) {
+				displayError($self, jqXHR.responseJSON);
+			}
+		});
+		
+		return false;
+	});
+
+	$('#edit-profile-form').on('valid.fndtn.abide', function () {
+		var $self = $(this);
+
+		$.ajax({
+			type: 'POST',
+			url: '/api/1/services/profile/profile.json?action=update',
+			data: $self.serialize(),
+			success: function() {
+				$self.find('.alert-box.success').show();
+			},
+			error: function(jqXHR) {
+				displayError($self, jqXHR.responseJSON);
+			}
+		});
+		
+		return false;
+	});
 	
 
 	// search form
@@ -343,6 +379,26 @@ $(function(){
 		}
 		return false;
 	});
+
+	// remove wish list items from profile page
+	$('.remove-watch-list-item').click(function() {
+		// grab the id of the movie for use in any AJAX calls.
+		var movieId = $(this).closest('li').data('id');
+		//var $self = $(this);
+
+		$.ajax({
+			type: 'POST',
+			url: '/api/1/services/profile/profile.json?action=removeMovie',
+			data: {movieId: movieId}
+		}).complete(function() {
+			//$self.parent().remove();
+			// reload page to get updated list and pagination
+			window.location.href = '/profile';
+		});
+
+		return false;
+	});
+
 
 	// reset abide while typing
 	$('form[data-abide]').find('input, textarea')
