@@ -376,7 +376,17 @@ $(function(){
 		return false;
 	});
 	$('.nl-form a.submit').click(function() {
-		var query = $(this).closest('.nl-form').serialize();
+		var $form = $(this).closest('.nl-form');
+
+		// disable empty values so they don't get serialized.
+		$form.find('select').each(function() {
+			this.disabled = (this.value === '') ? true : false;
+		});
+		var query = $form.serialize();
+
+		// re-enable disabled inputs
+		$form.find('select:disabled').prop('disabled', false);
+
 		window.location.href = '/movie_list?' + query;
 
 		return false;
