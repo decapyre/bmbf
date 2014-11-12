@@ -387,7 +387,7 @@ $(function(){
 		// re-enable disabled inputs
 		$form.find('select:disabled').prop('disabled', false);
 
-		window.location.href = '/movie_list?' + query;
+		window.location.href = (query === '') ? '/movie_list' : '/movie_list?' + query;
 
 		return false;
 	});
