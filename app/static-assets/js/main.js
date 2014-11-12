@@ -235,7 +235,18 @@ $(function(){
 	$('#facebook-connect-btn').click(function(e) {
 		e.preventDefault();
 
-		$('#facebook-connect-form').submit();
+		//$('#facebook-connect-form').submit();
+		
+		var top = (screen.height / 2) - (300/ 2);
+		var left = (screen.width / 2) - (500 / 2);						
+		var fbDialog = window.open('/connect/facebook_dialog', 'fbDialog', 'width=500, height=300, top=' + top + ', left=' + left);
+		var interval = setInterval(function() {
+			if (fbDialog == null || fbDialog.closed) {
+				clearInterval(interval);
+				
+				location.reload();
+			}						
+		}, 1000);
 	});
 
 	$('.signup-form').on('valid.fndtn.abide', function () {
