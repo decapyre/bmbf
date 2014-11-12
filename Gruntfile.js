@@ -348,7 +348,8 @@ module.exports = function (grunt) {
                 layout: 'master.hbs',
                 layoutdir: '<%= config.app %>/templates/layouts',
                 assets: '<%=config.dist %>/static-assets',
-                partials: ['<%= config.app %>/templates/partials/{,*/}*.hbs']
+                partials: ['<%= config.app %>/templates/partials/{,*/}*.hbs'],
+                helpers: ['helpers/{,*/}*.js']
             },
             server: {
                 files: {

@@ -1,5 +1,4 @@
 <header class="page {{hero-class}}">
-	{{!-- Profile Hero --}}
 	{{#is hero-class 'profile'}}
 	<div class="row collapse">
 		<div class="small-12 columns">
@@ -21,6 +20,14 @@
 	<div class="row collapse">
 		<div class="small-12 columns">
 			<h2>Token Invalid...</h2>
+		</div>
+	</div>
+	{{/is}}
+
+	{{#is hero-class 'stories'}}
+	<div class="row collapse">
+		<div class="small-12 columns">
+			<h2>Stories</h2>
 		</div>
 	</div>
 	{{/is}}
