@@ -316,7 +316,15 @@ $(function(){
 			url: '/api/1/services/profile/profile.json?action=changepassword',
 			data: $self.serialize(),
 			success: function() {
-				$self.find('.alert-box.success').show();
+				var msg = '<div data-alert class="alert-box success">You have successfully changed your password!<a href="#" class="close">&times;</a></div>';
+				if($self.find('.alert-box.success').length) {
+					$self.find('.alert-box.success').fadeOut(function() {
+						$(this).remove();
+						$(msg).foundation('alert').prependTo($self).hide().fadeIn();
+					});
+				} else {
+					$self.prepend(msg).foundation('alert');
+				}
 			},
 			error: function(jqXHR) {
 				displayError($self, jqXHR.responseJSON);
@@ -334,7 +342,15 @@ $(function(){
 			url: '/api/1/services/profile/profile.json?action=update',
 			data: $self.serialize(),
 			success: function() {
-				$self.find('.alert-box.success').show();
+				var msg = '<div data-alert class="alert-box success">You have successfully updated your profile!<a href="#" class="close">&times;</a></div>';
+				if($self.find('.alert-box.success').length) {
+					$self.find('.alert-box.success').fadeOut(function() {
+						$(this).remove();
+						$(msg).foundation('alert').prependTo($self).hide().fadeIn();
+					});
+				} else {
+					$self.prepend(msg).foundation('alert');
+				}
 			},
 			error: function(jqXHR) {
 				displayError($self, jqXHR.responseJSON);
@@ -403,9 +419,8 @@ $(function(){
 			url: '/api/1/services/profile/profile.json?action=removeMovie',
 			data: {movieId: movieId}
 		}).complete(function() {
-			//$self.parent().remove();
 			// reload page to get updated list and pagination
-			window.location.href = '/profile';
+			window.location.reload();
 		});
 
 		return false;
