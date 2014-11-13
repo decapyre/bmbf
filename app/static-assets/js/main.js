@@ -16,6 +16,11 @@ $(function(){
 	// show slides, prevents some flickering from happening
 	$('#header-slider .slide').show();
 
+	// placeholder polyfill for ie9
+	if(!Modernizr.input.placeholder) {
+		$('input, textarea').placeholder();
+	}
+
 	// nlform init
 	var $nl_header_form = $('#nl-form-header').show();
 	if($nl_header_form.length) {

@@ -9,7 +9,7 @@
 		var ver = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)));
 		
 		if(ver <= 9){
-			window.location = 'http://' + window.location.host + '/badbrowser/index.html';
+			window.location = 'http://www1.bestmoviesbyfarr.com/badbrowser/index.html';
 		}
 	}
 }());
