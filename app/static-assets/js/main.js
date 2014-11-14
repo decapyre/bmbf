@@ -370,7 +370,7 @@ $(function(){
 	$('#search-form').submit(function() {
 		var query = $('#search').val();
 		if(query) {
-			window.location.href = 'http://'+window.location.host+'/search?q='+encodeURIComponent(query);
+			window.location.href = '//'+window.location.host+'/search?q='+encodeURIComponent(query);
 		}
 		
 		return false;
@@ -382,7 +382,7 @@ $(function(){
 			email: $(this).find('[type="email"]').val()
 		};
 
-		$.post('http://bmbf-cms.herokuapp.com/subscribe/', subscription)
+		$.post('//bmbf-cms.herokuapp.com/subscribe/', subscription)
 			.done(function() {
 				$('#errorModal').foundation('reveal', 'close');
 				modals.success.foundation('reveal', 'open');
