@@ -1,0 +1,244 @@
+$section-top-margin: rem-calc(120);
+$small-to-medium-only: "#{$screen} and (min-width:#{lower-bound($small-range)}) and (max-width:#{upper-bound($medium-range)})" !default;
+// custom media queries to fix a few header issues around the medium-large breakpoints.
+$custom-large-banner-range: (upper-bound($medium-range)+0.063, 77.813em); // 1024 - 1245
+$custom-large-banner-only: "#{$screen} and (min-width:#{lower-bound($custom-large-banner-range)}) and (max-width:#{upper-bound($custom-large-banner-range)})" !default;
+
+
+.button {
+    @include border-radius(4px);
+    background: #72B424;
+    background-image: -o-linear-gradient(-89deg, rgba(255,255,255,0.00) 31%, rgba(0,0,0,0.19) 100%);
+    background-image: -moz-linear-gradient(-89deg, rgba(255,255,255,0.00) 31%, rgba(0,0,0,0.19) 100%);
+    background-image: -ms-linear-gradient(-89deg, rgba(255,255,255,0.00) 31%, rgba(0,0,0,0.19) 100%);
+    background-image: linear-gradient(-179deg, rgba(255,255,255,0.00) 31%, rgba(0,0,0,0.19) 100%);
+}
+
+header {
+    &.motw {
+        height: rem-calc(702);
+        max-height: rem-calc(702);
+        padding: 0 !important;
+        text-align: left;
+        position: relative;
+        z-index: 50;
+        margin-bottom: 0;
+        // overflow: hidden;
+
+        @media #{$small-only} {
+            height: auto;
+        }
+
+        @media #{$custom-large-banner-only} {
+            height: 37.875rem;
+        }
+
+        .inner {
+            @include gradient-bg();
+            height: 392px;
+
+            h2, h4 {
+                color: $white;
+            }
+
+            h2 {
+                font-size: rem-calc(40);
+                text-transform: none;
+
+                span {
+                    font-style: italic;
+                }
+
+                a {
+                    color: $white;
+                }
+            }
+
+            .headline {
+                padding-top: 112px;
+
+                @media #{$small-to-medium-only} {
+                    padding-top: rem-calc(90);
+                }
+
+                @media #{$small-only} {
+                    padding-top: rem-calc(72);
+                }
+            }
+
+            .blurb {
+                margin-top: rem-calc(150);
+
+                @media #{$small-to-medium-only} {
+                    text-align: center;
+                    margin-top: 0;
+                }
+
+                @media #{$small-only} {
+                    margin-top: 0;
+                }
+
+                h2 {
+                    font-family: $futura;
+                    font-size: rem-calc(28);
+                    font-weight: normal;
+                    text-transform: none;
+                    margin-bottom: rem-calc(10);
+                    color: $jet;
+                }
+            }
+        }
+
+        .banner {
+            position: absolute;
+            top: 0;
+            right: rem-calc(100);
+            z-index: 51;
+            display: block;
+
+            @media #{$small-to-medium-only} {
+                position: relative;
+                text-align: center;
+                margin: 0 auto;
+                right: 0;
+                width: 75%;
+            }
+
+            @media #{$small-only} {
+                width: 100%;
+            }
+
+            @media #{$custom-large-banner-only} {
+                width: 88%;
+            }
+        }
+    }
+}
+
+
+#motw {
+    .details {
+        margin-top: $section-top-margin/4;
+        @media #{$small-only} {
+            margin-top: $section-top-margin/6;
+        }
+        
+        @include clearfix();
+
+        img {
+            .motw {
+                @media #{$small-only} {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: rem-calc(10);
+                }
+            }
+        }
+
+        ul {
+            margin: rem-calc(20) 0 0 0;
+            display: table;
+
+            li {
+                display: table-row;
+                //font-size: rem-calc(20);
+                //line-height: rem-calc(38);
+
+                @media #{$small-only} {
+                    font-size: rem-calc(16);
+                    line-height: rem-calc(24);
+                }
+
+                p {
+                    font-size: rem-calc(18);
+                    margin: 0 0 rem-calc(12) 0;
+                    line-height: rem-calc(22);               
+                }
+
+                .device {
+                    margin-right: rem-calc(10);
+                    //font-size: rem-calc(26);
+                    vertical-align: middle;
+                }
+            }
+
+            li:before {
+                display: table-cell;
+                text-align: right;
+                content: "\e011" /*fontawesome char code */;
+                font-family: "bmbf";
+                font: normal normal normal 14px/1 bmbf;
+                font-size: inherit;
+                text-rendering: auto;
+                //display: inline-block;
+                margin-left: -1.2em; /*same as padding-left set on li*/
+                width: 1.2em; /*same as padding-left set on li*/
+                color: #6AA822;
+                padding-right: rem-calc(10);
+            }
+        }
+
+
+        .inner {
+            @include clearfix();
+            padding: rem-calc(30) 0; 
+        }
+    }
+
+    .cta {
+        margin-top: $section-top-margin/2;
+        background: $oil;
+        color: $white;
+        padding: rem-calc(80) 0;
+        @include gradient-bg();
+
+        @media #{$small-only} {
+            margin-top: $section-top-margin/3;
+        }
+
+        @media #{$small-only} {
+            padding: rem-calc(40) 0;
+        }
+
+        h3 {
+            font-size: rem-calc(40);
+            margin-bottom: rem-calc(50);
+            color: $white;
+
+            @media #{$small-only} {
+                font-size: rem-calc(28);
+                margin-bottom: rem-calc(40);
+                font-weight: normal;
+            }
+        }
+
+        p {
+            font-size: rem-calc(20);
+            @media #{$small-only} {
+                font-size: rem-calc(18);
+            }
+        }
+
+        input {
+            font-size: rem-calc(18);
+            font-family: $font-family-sans-serif;
+        }
+
+        button {
+            @include border-radius(0 4px 4px 0);
+        }
+    }
+
+    // Font Awesome Changes
+    .bmbf-check {
+        color: #6AA822;
+        padding-right: rem-calc(10);
+    }
+
+    // Modals
+    #successModal {
+        i {
+            vertical-align: middle;
+        }
+    }
+}

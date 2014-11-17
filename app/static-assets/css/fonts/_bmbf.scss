@@ -140,3 +140,15 @@ $bmbf-vert-offset:      -7%;
 .bmbf-remove:before {
   content: "\e015";
 }
+.bmbf-desktop:before {
+  content: "\e016";
+}
+.bmbf-laptop:before {
+  content: "\e017";
+}
+.bmbf-apple:before {
+  content: "\e018";
+}
+.bmbf-android:before {
+  content: "\e019";
+}

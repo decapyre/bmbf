@@ -1,0 +1,64 @@
+---
+title: 'Movie of the Week from Best Movies by Farr'
+layout: 'page.hbs'
+hero-class: 'motw'
+---
+<section id="motw" class="row page">
+    <div class="details">
+        <div class="small-12 large-8 large-centered columns">
+            <div class="row collapse">
+                <div class="lines"></div>
+                <div class="inner">
+                    <div class="small-12 medium-6 large-6 columns">
+                        <a class="motw-container" href="#emailform" title="subscribe to get 1 movie every week"><img class="motw" src="/static-assets/images/motw/movieoftheweek.jpg" width="388" height="276" alt="Get one of the world&apos;s best movies, every week!"></a>
+                    </div>
+                    <div class="small-12 medium-6 large-6 columns">
+                        <h3>Subscribe now for a new, curated, movie recommendation each week!</h3>
+                        <ul>
+                            <li><p>Get one of the world&apos;s best movies, <b>every week!</b></p></li>
+                            <li><p>Stream it online, anywhere for <b>6 full days!</b></p></li>
+                            <li class="devices"><i class="device bmbf bmbf-desktop bmbf-lg" title="Desktop Computer"></i> <i class="device bmbf bmbf-laptop bmbf-lg" title="Laptop Computer"></i> <i class="device bmbf bmbf-apple bmbf-lg" title="Apple Products - iPhone/iPad/iPod"></i> <i class="device bmbf bmbf-android bmbf-lg" title="Android Phones and Tablets"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lines"></div>
+            </div>
+        </div>  
+    </div>
+    <div class="cta">
+        <div class="small-12 small-centered medium-8 medium-centered large-5 large-centered columns">
+            <form id="motw-form" data-abide="ajax">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h3>We handpick the movie, you pop the popcorn.</h3>
+                        <p>Subscribe to have all your movie questions answered - <i>every week.</i></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 large-10 columns">
+                        <div class="row collapse">
+                            <div class="small-12 medium-9 large-9 columns">
+                                <input type="email" name="email" placeholder="Email Address" required>
+                                <small class="error">Please enter a valid email.</small>
+                            </div>
+                            <div class="small-12 medium-3 large-3 columns">
+                                <button type="submit" class="submit button postfix">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>  
+    </div>
+</section>
+<div id="successModal" class="reveal-modal tiny" data-reveal>
+    <h2>Thanks!</h2>
+    <p class="lead"><i class="fa fa-check fa-lg"></i> You have successfully subscribed.</p>
+    <a class="button" href="/movies/10-rillington-place/1971">Click here to watch the Movie of the Week trailer</a>
+    <a class="close-reveal-modal">&#215;</a>
+</div>
+<div id="errorModal" class="reveal-modal tiny" data-reveal>
+    <h2>Oops...</h2>
+    <p class="lead">We are sorry but it appears that your email is not valid. Please try one more time.</p>
+    <a class="close-reveal-modal">&#215;</a>
+</div>

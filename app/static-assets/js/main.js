@@ -1,5 +1,5 @@
 'use strict';
-/*global $, Foundation, NLForm*/
+/*global $, Foundation, NLForm, Modernizr, ga*/
 
 // FitText after fonts have loaded.
 $(window).load(function(){
@@ -390,6 +390,27 @@ $(function(){
 			.fail(function() {
 				modals.error.foundation('reveal', 'open');
 			});
+	});
+
+	// movie of the week form
+	$('#motw-form').on('valid.fndtn.abide', function () {
+		var subscription = {
+			email: $(this).find('input[type="email"]').val()
+		};
+
+		$.post('//bmbf-cms.herokuapp.com/subscribe/', subscription)
+			.done(function() {
+				$('#errorModal').foundation('reveal', 'close');
+				modals.success.foundation('reveal', 'open');
+				ga('send', 'event', 'movie-of-the-week', 'subscribe', 'success');
+			})
+			.fail(function() {
+				modals.error.foundation('reveal', 'open');
+				ga('send', 'event', 'movie-of-the-week', 'subscribe', 'input error');
+			});
+	})
+	.on('invalid.fndtn.abide', function () {
+		ga('send', 'event', 'movie-of-the-week', 'subscribe', 'input error');
 	});
 
 	// NLForm submit
