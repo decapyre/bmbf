@@ -22,9 +22,17 @@
 		margin-bottom: rem-calc(25);
 		
 		h2 {
-			font-size: rem-calc(26);
+			font-size: rem-calc(38);
 			line-height: 1.2;
 			margin: 0 0 rem-calc(2) 0;
+			text-transform: uppercase;
+			font-style: italic;
+			color: $black;
+
+			span {
+				font-style: normal;
+				color: $steel;
+			}
 
 			a {
 				text-decoration: none;
