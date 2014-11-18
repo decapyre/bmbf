@@ -20,25 +20,31 @@
 
 	.today {
 		margin-bottom: rem-calc(25);
+		
+		h2 {
+			font-size: rem-calc(26);
+			line-height: 1.2;
+			margin: 0 0 rem-calc(2) 0;
 
-		.story {
-			padding-top: rem-calc(34);
-
-			h2 {
-				line-height: 1.2;
-
-				a {
-					text-decoration: none;
-					&:hover {
-						text-decoration: underline;
-					}
+			a {
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
 				}
 			}
+		}
 
-			.authored {
-				color: $steel;
-				font-style: italic;
-				margin-bottom: rem-calc(10);
+		.authored {
+			color: $steel;
+			font-style: italic;
+			margin-bottom: rem-calc(14);
+		}
+
+		.story {
+			margin: 10px 0 0 0;
+			
+			@media #{$large-up} {
+				margin-top: -8px;
 			}
 		}
 	}
