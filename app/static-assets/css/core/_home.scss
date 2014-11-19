@@ -22,7 +22,7 @@
 		margin-bottom: rem-calc(25);
 		
 		h2 {
-			font-size: rem-calc(38);
+			font-size: rem-calc(42);
 			line-height: 1.2;
 			margin: 0 0 rem-calc(2) 0;
 			text-transform: uppercase;
@@ -37,7 +37,7 @@
 			a {
 				text-decoration: none;
 				&:hover {
-					text-decoration: underline;
+					color: $base;
 				}
 			}
 		}
@@ -45,7 +45,7 @@
 		.authored {
 			color: $steel;
 			font-style: italic;
-			margin-bottom: rem-calc(14);
+			margin-bottom: rem-calc(24);
 		}
 
 		.story {
