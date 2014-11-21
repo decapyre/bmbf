@@ -4,16 +4,6 @@ $small-to-medium-only: "#{$screen} and (min-width:#{lower-bound($small-range)}) 
 $custom-large-banner-range: (upper-bound($medium-range)+0.063, 77.813em); // 1024 - 1245
 $custom-large-banner-only: "#{$screen} and (min-width:#{lower-bound($custom-large-banner-range)}) and (max-width:#{upper-bound($custom-large-banner-range)})" !default;
 
-%green-button {
-    @include border-radius(4px);
-    background: #72B424;
-
-    &:hover {
-
-        background: scale-color(#72B424, $lightness: -20%);
-    }
-}
-
 header {
     &.motw {
         height: rem-calc(702);

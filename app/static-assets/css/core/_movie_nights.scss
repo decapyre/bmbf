@@ -1,0 +1,233 @@
+header {
+	&.movienightslp {
+		max-height: 842px;
+		background-image: url(#{$image-path}/bgMovieNightLp.jpg);
+
+		.flex-video {
+			margin-bottom: rem-calc(40);
+		}
+
+		a.button {
+			@extend %green-button;
+		}
+
+		h2 {
+			font-size: rem-calc(60);
+			//line-height: 1.2;
+			//margin: 0 0 rem-calc(2) 0;
+			text-transform: uppercase;
+			font-style: italic;
+			color: $white;
+
+			@media #{$medium-only} {
+				font-size: rem-calc(50);
+			}
+
+			@media #{$small-only} {
+				font-size: rem-calc(30);
+			}
+
+			span {
+				font-style: normal;
+				color: $base;
+			}
+		}
+	}
+}
+
+section#movienightslp {
+	h3 {
+		margin-bottom: rem-calc(25);
+	}
+
+	.content,
+	#movie-night-signup,
+	.social {
+		@include clearfix();
+	}
+
+	.social {
+		ul {
+			list-style: none;
+			margin: 0;
+
+			li {
+				margin: 0 rem-calc(24);
+				display: inline-block;
+
+				 a {
+					color: #333;
+				 }
+			}
+		}
+	}
+}
+
+.lines {
+	section#movienightslp & {
+		margin: rem-calc(75) 0;
+	}
+}
+
+
+#movie-night-signup {
+	@include gradient-bg();
+	padding: rem-calc(50 0);
+	margin: rem-calc(75 0);
+	color: $white;
+
+	p {
+		font-size: rem-calc(18);
+
+		&.terms {
+			line-height: 1;
+
+			small {
+				font-size: rem-calc(13);
+				color: $steel;
+			}
+		}
+		
+	}
+
+	h3 {
+		color: $white;
+		font-size: rem-calc(40);
+	}
+}
+
+#category-panels {
+	$panel-height: 468px; // height of image
+	$panel-small-to-medium-height-divisor: 3;
+	$panel-small-to-medium-height: $panel-height/$panel-small-to-medium-height-divisor;
+	@include clearfix();
+	//height: $panel-height;
+	background-color: $white;
+
+	// @media #{$small-to-medium-only} {
+	// 	height: $panel-small-to-medium-height;
+	// }
+
+	&:hover {
+		.panel {
+			width: 15.3%; //(100/6)/1.1111111111 * 1%;//14.285714286%;
+			@media #{$small-to-medium-only} {
+				width: 50%;
+			}
+		}
+	}
+
+	.panel {
+		-webkit-transition: width 0.25s ease;
+		-moz-transition: width 0.25s ease;
+		-o-transition: width 0.25s ease;
+		transition: width 0.25s ease;
+		position: relative;
+		float: left;
+		overflow: hidden;
+		height: $panel-height;
+		width: (100/6) * 1%;
+		// cursor: pointer;
+		background-position: bottom center;
+		background-repeat: no-repeat;
+
+		@media #{$small-to-medium-only} {
+			width: 50%;
+			height: $panel-small-to-medium-height;
+			background-position: center center;
+
+			&:hover {
+				width: 50%;
+			}
+		}		
+
+		&:hover {
+			width: (100/6)*1.4 * 1%;
+			@media #{$small-to-medium-only} {
+				width: 50%;
+			}
+
+			.content {
+				.underline {
+					width: 100px;
+					opacity: 1;
+				}
+			}
+		}
+
+		.content {
+			text-align: center;
+			-webkit-transition: all 0.25s ease;
+			-moz-transition: all 0.25s ease;
+			-o-transition: all 0.25s ease;
+			transition: all 0.25s ease;
+			position: absolute;
+			top: 10px;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 10;
+
+			h3 {
+				@extend %text-shadow;
+				margin: 0;
+				padding: 0;
+				font-family: $futura;
+				font-size: rem-calc(16);
+				font-weight: normal;
+				text-transform: uppercase;
+				text-align: center;
+				color: $white;
+			}
+
+			.underline {
+				-webkit-transition: all 0.25s ease;
+				-moz-transition: all 0.25s ease;
+				-o-transition: all 0.25s ease;
+				transition: all 0.25s ease;
+				-webkit-transition-duration: 0.25s;
+				-moz-transition-duration: 0.25s;
+				-o-transition-duration: 0.25s;
+				-ms-transition-duration: 0.25s;
+				transition-duration: 0.25s;
+				-webkit-transform: translateX(-50%);
+				-moz-transform: translateX(-50%);
+				-o-transform: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				transform: translateX(-50%);
+				position: absolute;
+				left: 50%;
+				height: 1px;
+				width: 0;
+				margin-top: 2px;
+				opacity: 0;
+				background-color: $white;
+			}
+		}
+	}
+
+	#panel-1 {
+		background-image: url(#{$image-path}/movienights/category_panels/movie.jpg);
+		//background-position: center right;
+	}
+
+	#panel-2 {
+		background-image: url(#{$image-path}/movienights/category_panels/food.jpg);
+	}
+
+	#panel-3 {
+		background-image: url(#{$image-path}/movienights/category_panels/drink.jpg);
+	}
+
+	#panel-4 {
+		background-image: url(#{$image-path}/movienights/category_panels/trivia.jpg);
+	}
+
+	#panel-5 {
+		background-image: url(#{$image-path}/movienights/category_panels/music.jpg);
+	}
+
+	#panel-6 {
+		background-image: url(#{$image-path}/movienights/category_panels/clothing.jpg);
+	}
+}

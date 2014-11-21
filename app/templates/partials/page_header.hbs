@@ -1,38 +1,38 @@
 <header class="page {{hero-class}}">
-	{{#is hero-class 'profile'}}
-	<div class="row collapse">
-		<div class="small-12 columns">
-			<h2>Your Profile</h2>
-			<p>You joined on October 31st 2014</p>
-		</div>
-	</div>
-	{{/is}}
+    {{#is hero-class 'profile'}}
+    <div class="row collapse">
+        <div class="small-12 columns">
+            <h2>Your Profile</h2>
+            <p>You joined on October 31st 2014</p>
+        </div>
+    </div>
+    {{/is}}
 
-	{{#is hero-class 'login'}}
-	<div class="row collapse">
-		<div class="small-12 columns">
-			<h2>Account Verified!</h2>
-		</div>
-	</div>
-	{{/is}}
+    {{#is hero-class 'login'}}
+    <div class="row collapse">
+        <div class="small-12 columns">
+            <h2>Account Verified!</h2>
+        </div>
+    </div>
+    {{/is}}
 
-	{{#is hero-class 'token-invalid'}}
-	<div class="row collapse">
-		<div class="small-12 columns">
-			<h2>Token Invalid...</h2>
-		</div>
-	</div>
-	{{/is}}
+    {{#is hero-class 'token-invalid'}}
+    <div class="row collapse">
+        <div class="small-12 columns">
+            <h2>Token Invalid...</h2>
+        </div>
+    </div>
+    {{/is}}
 
-	{{#is hero-class 'stories'}}
-	<div class="row collapse">
-		<div class="small-12 columns">
-			<h2>Stories</h2>
-		</div>
-	</div>
-	{{/is}}
+    {{#is hero-class 'stories'}}
+    <div class="row collapse">
+        <div class="small-12 columns">
+            <h2>Stories</h2>
+        </div>
+    </div>
+    {{/is}}
 
-	{{#is hero-class 'motw'}}
+    {{#is hero-class 'motw'}}
     <div class="row collapse">  
         <div class="inner">
             <div class="small-12 columns">
@@ -48,11 +48,28 @@
                 <div class="blurb row">
                     <div class="large-push-2 large-5 columns">
                         <h2>We can help.</h2>
-                        <a href="#motw-form" class="button">Subscribe Now!</a>
+                        <a href="#motw-form" class="button round">Subscribe Now!</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    {{/is}}
+
+    {{#is hero-class 'movienightslp'}}
+    <div class="row collapse">  
+        <div class="small-12 columns">
+            <h2><span>THROW A MOVIE NIGHT</span><br>THE RIGHT WAY!</h2>
+        </div>
+
+        <div class="row">
+            <div class="small-12 medium-9 large-6 small-centered columns">
+                <div class="flex-video widescreen">
+                    <iframe width="700" height="394" src="//www.youtube.com/embed/kqJDpezR2z4?autohide=1&showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <a class="button round large" href="#movie-night-signup">Sign up For Free</a>
+            </div>
+        </div> 
     </div>
     {{/is}}
 </header>

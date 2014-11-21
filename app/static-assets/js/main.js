@@ -21,6 +21,9 @@ $(function(){
 		$('input, textarea').placeholder();
 	}
 
+	// Fastclick for mobile
+    FastClick.attach(document.body);
+
 	// nlform init
 	var $nl_header_form = $('#nl-form-header').show();
 	if($nl_header_form.length) {

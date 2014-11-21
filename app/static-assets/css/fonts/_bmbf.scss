@@ -74,6 +74,7 @@ $bmbf-vert-offset:      -7%;
 // -----------------------------------------------------------------------------------------------------------
 /* Edit Below Only When adding fonts from fontastic.me, make sure the prefix is the same as $fa-css-prefix and you export as PUA */
 
+
 .bmbf-genre:before {
   content: "\e000";
 }
@@ -151,4 +152,31 @@ $bmbf-vert-offset:      -7%;
 }
 .bmbf-android:before {
   content: "\e019";
+}
+.bmbf-cutlery:before {
+  content: "\e01a";
+}
+.bmbf-glass:before {
+  content: "\e01b";
+}
+.bmbf-suit:before {
+  content: "\e01c";
+}
+.bmbf-trivia:before {
+  content: "\e01d";
+}
+.bmbf-music:before {
+  content: "\e01e";
+}
+.bmbf-facebook:before {
+  content: "\e01f";
+}
+.bmbf-twitter:before {
+  content: "\e020";
+}
+.bmbf-youtube:before {
+  content: "\e021";
+}
+.bmbf-google-plus:before {
+  content: "\e022";
 }
