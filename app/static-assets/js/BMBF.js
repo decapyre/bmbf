@@ -8,7 +8,7 @@ var BMBF = window.BMBF || (function($, document, window, undefined) {
 	* and properties.
 	*/
 	_private = {
-		_config: {
+		config: {
 			host: '//'+window.location.host
 		},
 		cache: function() {
