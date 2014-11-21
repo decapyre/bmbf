@@ -1,8 +1,19 @@
 ---
 title: 'Best Movies by Farr - Account Verified'
-layout: 'page.hbs'
-hero-class: 'login'
+class: 'login'
 ---
+{{#extend "master"}}
+{{#content "header"}}
+<header class="page {{class}}">
+	<div class="row collapse">
+        <div class="small-12 columns">
+            <h2>Account Verified!</h2>
+        </div>
+    </div>
+</header>
+{{/content}}
+
+{{#content "body"}}
 <section id="account-verified" class="row page">
 	<div class="small-12 medium-10 medium-centered large-9 columns">
 		<div class="row">
@@ -48,3 +59,5 @@ hero-class: 'login'
 		</div>
 	</div>
 </section>
+{{/content}}
+{{/extend}}

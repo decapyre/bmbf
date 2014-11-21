@@ -9,8 +9,12 @@
 <body>
 {{> tracking }}
 <div id="wrapper" class="row">
-{{> nav }}
-{{> body  }}
+	{{> nav }}
+	{{#block "header"}}{{/block}}
+	<div class="small-12 columns">
+		{{#block "body"}}{{> body  }}{{/block}} 
+		{{> footer }}
+	</div>
 </div>
 {{> footer_build }}
 </body>

@@ -346,10 +346,13 @@ module.exports = function (grunt) {
         assemble: {
             options: {
                 flatten: true,
-                layout: 'master.hbs',
+                layout: false,//'master.hbs',
                 layoutdir: '<%= config.app %>/templates/layouts',
                 assets: '<%=config.dist %>/static-assets',
-                partials: ['<%= config.app %>/templates/partials/{,*/}*.hbs'],
+                partials: [
+                    '<%= config.app %>/templates/partials/{,*/}*.hbs',
+                    '<%= config.app %>/templates/layouts/{,*/}*.hbs'
+                ],
                 helpers: ['helpers/{,*/}*.js']
             },
             server: {

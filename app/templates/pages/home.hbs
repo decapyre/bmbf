@@ -1,8 +1,12 @@
 ---
 title: 'Best Movies by Farr'
-layout: 'home.hbs'
 ---
+{{#extend "master"}}
+{{#content "header"}}
+	{{> home_header}}
+{{/content}}
 
+{{#content "body"}}
 <section id="nl-form-search" class="row">
 {{>	natural_lang_form }}
 </section>
@@ -74,3 +78,5 @@ layout: 'home.hbs'
 	</div>
 </section>
 {{> newsletter }}
+{{/content}}
+{{/extend}}

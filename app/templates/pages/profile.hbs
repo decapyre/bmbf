@@ -1,9 +1,14 @@
 ---
 title: 'Best Movies by Farr - User Profile'
-layout: 'page.hbs'
-hero-class: 'profile'
+class: 'profile'
 ---
-<section id="profile" class="row page">
+{{#extend "master"}}
+{{#content "header"}}
+{{> profile_header }}
+{{/content}}
+
+{{#content "body"}}
+<section id="{{class}}" class="row page">
 	<div class="small-12 medium-10 medium-centered large-9 columns">
 		<div class="row">
 			<div class="medium-3 columns">
@@ -93,3 +98,5 @@ hero-class: 'profile'
 		{{!-- <div class="lines"></div> --}}
 	</div>
 </section>
+{{/content}}
+{{/extend}}

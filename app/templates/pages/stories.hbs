@@ -1,9 +1,20 @@
 ---
 title: 'Best Movies by Farr - Articles'
-layout: 'page.hbs'
-hero-class: 'stories'
+class: 'stories'
 ---
-<section id="articles" class="row page">
+{{#extend "master"}}
+{{#content "header"}}
+<header class="page {{class}}">
+	<div class="row collapse">
+        <div class="small-12 columns">
+            <h2>Stories</h2>
+        </div>
+    </div>
+</header>
+{{/content}}
+
+{{#content "body"}}
+<section id="{{class}}" class="row page">
 	<div class="small-12 medium-10 medium-centered large-9 columns">
 		<ul class="story-list small-block-grid-1 medium-block-grid-2 large-block-grid-3">
 			{{#times 20}}
@@ -16,3 +27,5 @@ hero-class: 'stories'
 		{{> pagination }}
 	</div>
 </section>
+{{/content}}
+{{/extend}}

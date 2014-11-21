@@ -1,19 +1,22 @@
 header {
 	&.movienightslp {
 		max-height: 842px;
+		padding: rem-calc(50) 0;
+		text-align: left;
 		background-image: url(#{$image-path}/bgMovieNightLp.jpg);
 
-		.flex-video {
-			margin-bottom: rem-calc(40);
+		h2, h3, h4 {
+			color: $white;
 		}
 
 		h2 {
+			margin-bottom: rem-calc(25);
+			text-align: center;
 			font-size: rem-calc(60);
 			//line-height: 1.2;
 			//margin: 0 0 rem-calc(2) 0;
 			text-transform: uppercase;
 			font-style: italic;
-			color: $white;
 
 			@media #{$medium-only} {
 				font-size: rem-calc(50);
@@ -26,6 +29,17 @@ header {
 			span {
 				font-style: normal;
 				color: $base;
+			}
+		}
+
+		.row.content {
+			padding: rem-calc(25 0);
+			border-top: 1px solid $white;
+			border-bottom: 1px solid $white;
+
+			small {
+				color: $base;
+				font-size: rem-calc(14);
 			}
 		}
 	}

@@ -1,9 +1,20 @@
 ---
 title: 'Best Movies by Farr - Account Invalid'
-layout: 'page.hbs'
-hero-class: 'token-invalid'
+class: 'token-invalid'
 ---
-<section id="token-invalid" class="row page">
+{{#extend "master"}}
+{{#content "header"}}
+<header class="page {{class}}">
+	<div class="row collapse">
+        <div class="small-12 columns">
+            <h2>Token Invalid...</h2>
+        </div>
+    </div>
+</header>
+{{/content}}
+
+{{#content "body"}}
+<section id="{{class}}" class="row page">
 	<div class="small-12 medium-10 medium-centered large-9 columns">
 		<div class="row">
 			<div class="small-12 columns">
@@ -18,3 +29,5 @@ hero-class: 'token-invalid'
 		</div>
 	</div>
 </section>
+{{/content}}
+{{/extend}}

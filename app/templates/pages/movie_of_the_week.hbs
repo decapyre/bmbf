@@ -1,9 +1,36 @@
 ---
 title: 'Movie of the Week from Best Movies by Farr'
-layout: 'page.hbs'
-hero-class: 'motw'
+class: 'motw'
 ---
-<section id="motw" class="row page">
+{{#extend "master"}}
+{{#content "header"}}
+<header class="page {{class}}">
+    <div class="row collapse">  
+        <div class="inner">
+            <div class="small-12 columns">
+                <div class="row">
+                    <div class="headline medium-12 large-push-1 large-4 columns">
+                        <h2><a href="#motw-form">Feel like there's never anything good to watch at home?</a></h2>
+                    </div>
+                    <div class="medium-12 large-6 columns">
+                        <a href="#motw-form" title="get access to the best movies every week"><img class="banner" src="/static-assets/images/motw/banner.png" alt="Get access to hand picked great movies"></a>
+                    </div>
+                </div>
+
+                <div class="blurb row">
+                    <div class="large-push-2 large-5 columns">
+                        <h2>We can help.</h2>
+                        <a href="#motw-form" class="button round">Subscribe Now!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{{/content}}
+
+{{#content "body"}}
+<section id="{{class}}" class="row page">
     <div class="details">
         <div class="small-12 large-8 large-centered columns">
             <div class="row collapse">
@@ -62,3 +89,5 @@ hero-class: 'motw'
     <p class="lead">We are sorry but it appears that your email is not valid. Please try one more time.</p>
     <a class="close-reveal-modal">&#215;</a>
 </div>
+{{/content}}
+{{/extend}}

@@ -1,9 +1,38 @@
 ---
 title: 'Movie Nights from Best Movies by Farr'
-layout: 'page.hbs'
-hero-class: 'movienightslp'
+class: 'movienightslp'
 ---
-<section id="movienightslp" class="row page">
+{{#extend "master"}}
+{{#content "header"}}
+<header class="page {{class}}">
+    <div class="row collapse">  
+        <div class="small-12 columns">
+            <h2><span>Introducing:</span><br>The Best Movie Nights by Farr</h2>
+        </div>
+
+        <div class="row">
+            <div class="small-12 small-centered large-10 columns">
+                <div class="content row">
+                    <div class="small-12 medium-7 large-8 columns">
+                        <div class="flex-video widescreen">
+                            <iframe width="700" height="394" src="//www.youtube.com/embed/9sBGb8l9sJQ?autohide=1&showinfo=0&autoplay=1&vq=hd720&hd=1" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="small-12 medium-5 large-4 columns">
+                        <h3>Catch Line</h3>
+                        <h4>Tag Line?</h4>
+                        <button class="open-registration round green large" data-slide="signup">Sign up For Free</button>
+                        <p><small>...and receive our holiday Movie Night!</small></p>
+                    </div>    
+                </div>
+            </div>   
+        </div> 
+    </div>
+</header>
+{{/content}} 
+
+{{#content "body"}}
+<section id="{{class}}" class="row page">
     <div class="content">
         <div class="small-12 medium-10 medium-centered large-9 columns">
             <div class="row">
@@ -99,3 +128,5 @@ hero-class: 'movienightslp'
         </div>
     </div>
 </section>
+{{/content}}
+{{/extend}}

@@ -1,12 +1,13 @@
 'use strict';
-/*global $, Foundation, NLForm, Modernizr, ga, FastClick*/
+/*global $, Foundation, NLForm, Modernizr, ga, BMBF*/
 
 // FitText after fonts have loaded.
 $(window).load(function(){
 	$('#header-slider .slide h2').fitText(1, {minFontSize: '40px', maxFontSize: '80px'});
 });
 
-$(function(){
+// start jquery onready
+$(function() {
 	function noop(){}
 	var modals = {
 		success: $('#successModal'),
@@ -20,9 +21,6 @@ $(function(){
 	if(!Modernizr.input.placeholder) {
 		$('input, textarea').placeholder();
 	}
-
-	// Fastclick for mobile
-    FastClick.attach(document.body);
 
 	// nlform init
 	var $nl_header_form = $('#nl-form-header').show();
@@ -235,7 +233,20 @@ $(function(){
 					$.cookie('ticket', ticket, {expires: 15});
 					$.cookie('profile-last-modified', profileLastUpdate, {expires: 15});
 				}
-				window.location.href = '/';
+
+				// if getSignupCampaignId is set redirect to it's page
+				try {
+					var redirectURI = BMBF.user.campaignRedirects[BMBF.user.getSignupCampaignId()];
+					if(typeof redirectURI !== 'undefined') {
+						BMBF.user.clearSignupCampaignId();
+						window.location.href = redirectURI;
+					} else {
+						window.location.href = '/';
+					}
+				}
+				catch(e) {
+					window.location.href = '/';
+				}
 			},
 			error: function(jqXHR) {
 				displayError($self, jqXHR.responseJSON);
@@ -285,6 +296,11 @@ $(function(){
 			success: function() {
 				displayConfirmSlide('Email Sent','Thanks for signing up! An email has been sent to ' +
 					email + '. Please follow the instructions to activate your new account.');
+
+				// setSignupCampaignId cookie to be read in the next login state
+				if(location.href.indexOf('lps/movie-nights') !== -1) {
+					BMBF.user.setSignupCampaignId('movie-nights');
+				}
 			},
 			error: function(jqXHR) {
 				displayError($self, jqXHR.responseJSON);
