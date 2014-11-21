@@ -15,7 +15,7 @@ $(function() {
 	};
 
 	// show slides, prevents some flickering from happening
-	$('#header-slider .slide').show();
+	$('header .slide').show();
 
 	// placeholder polyfill for ie9
 	if(!Modernizr.input.placeholder) {

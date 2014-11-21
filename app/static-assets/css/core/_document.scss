@@ -107,3 +107,11 @@ button.green,
 	-o-transform: translateZ(0);
 	transform: translateZ(0);
 }
+
+// when needing to #id link to elements due to fixed header, this offset is needed
+a.anchor {
+	display: block;
+	position: relative;
+	top: -46px;
+	visibility: hidden;
+}
