@@ -89,17 +89,27 @@ $(function(){
 
 	// Open the dropdown and slider on the supplied hash, default to login (#slide=login, #slide=signup, #slide=reset, #slide=forgot)
 	var openRegistrationDropdownToSlide = function(slide) {
+		var $tb = $('.top-bar');
 		// turn animations off
 		$.fx.off = true;
 
 		// go to hashed slide
 		$('#registration').trigger('goto.fndtn.orbit', [slide]);
 
+		// show menu to see our dropdown in the menu
+		Foundation.libs.topbar.toggle($tb);
+
 		// Force open dropdown (dropdown content, dropdown trigger (button))
 		Foundation.libs.dropdown.open($('#reg-dropdown'), $('#reg-btn-dropdown'));
+
+		// hide menu
+		Foundation.libs.topbar.toggle($tb);
 		
 		// turn animations back on
 		$.fx.off = false;
+
+		// reflow
+		$('#reg-dropdown').foundation('orbit', 'reflow');
 	};
 
 	// check hashes on load
