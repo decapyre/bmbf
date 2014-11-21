@@ -7,10 +7,6 @@ header {
 			margin-bottom: rem-calc(40);
 		}
 
-		a.button {
-			@extend %green-button;
-		}
-
 		h2 {
 			font-size: rem-calc(60);
 			//line-height: 1.2;
@@ -72,7 +68,7 @@ section#movienightslp {
 
 #movie-night-signup {
 	@include gradient-bg();
-	padding: rem-calc(50 0);
+	padding: rem-calc(50 15);
 	margin: rem-calc(75 0);
 	color: $white;
 
@@ -207,27 +203,27 @@ section#movienightslp {
 	}
 
 	#panel-1 {
-		background-image: url(#{$image-path}/movienights/category_panels/movie.jpg);
+		background-image: url(#{$image-path}/movienights/panels/movie.jpg);
 		//background-position: center right;
 	}
 
 	#panel-2 {
-		background-image: url(#{$image-path}/movienights/category_panels/food.jpg);
+		background-image: url(#{$image-path}/movienights/panels/food.jpg);
 	}
 
 	#panel-3 {
-		background-image: url(#{$image-path}/movienights/category_panels/drink.jpg);
+		background-image: url(#{$image-path}/movienights/panels/drink.jpg);
 	}
 
 	#panel-4 {
-		background-image: url(#{$image-path}/movienights/category_panels/trivia.jpg);
+		background-image: url(#{$image-path}/movienights/panels/trivia.jpg);
 	}
 
 	#panel-5 {
-		background-image: url(#{$image-path}/movienights/category_panels/music.jpg);
+		background-image: url(#{$image-path}/movienights/panels/music.jpg);
 	}
 
 	#panel-6 {
-		background-image: url(#{$image-path}/movienights/category_panels/clothing.jpg);
+		background-image: url(#{$image-path}/movienights/panels/clothing.jpg);
 	}
 }

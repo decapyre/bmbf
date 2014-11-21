@@ -217,7 +217,7 @@ module.exports = function (grunt) {
                     src: [
                         '<%= config.dist %>/static-assets/js/**/*.js',
                         '<%= config.dist %>/static-assets/css/{,*/}*.css',
-                        '<%= config.dist %>/static-assets/images/{,*/}*.*',
+                        '<%= config.dist %>/static-assets/images/**/*.*',
                         '<%= config.dist %>/static-assets/css/fonts/{,*/}*.*',
                         '<%= config.dist %>/*.{ico,png}'
                     ]
@@ -232,7 +232,8 @@ module.exports = function (grunt) {
             options: {
                 dest: '<%= config.dist %>'
             },
-            html: '.tmp/{,*/}*.html'
+            html: '.tmp/home.html'
+            //html: '.tmp/{,*/}*.html'
            // html: '.tmp/index.html'
         },
 
@@ -251,7 +252,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= config.app %>/static-assets/images',
-                    src: '{,*/}*.{gif,jpeg,jpg,png}',
+                    src: '**/*.{gif,jpeg,jpg,png}',
                     dest: '<%= config.dist %>/static-assets/images'
                 }]
             }

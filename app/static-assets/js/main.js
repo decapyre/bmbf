@@ -1,5 +1,5 @@
 'use strict';
-/*global $, Foundation, NLForm, Modernizr, ga*/
+/*global $, Foundation, NLForm, Modernizr, ga, FastClick*/
 
 // FitText after fonts have loaded.
 $(window).load(function(){
@@ -87,7 +87,6 @@ $(function(){
 		Foundation.libs.topbar.toggle($('.top-bar'));
 	});
 
-
 	// Open the dropdown and slider on the supplied hash, default to login (#slide=login, #slide=signup, #slide=reset, #slide=forgot)
 	var openRegistrationDropdownToSlide = function(slide) {
 		// turn animations off
@@ -102,9 +101,17 @@ $(function(){
 		// turn animations back on
 		$.fx.off = false;
 	};
+
+	// check hashes on load
 	if(location.hash.indexOf('#slide=') !== -1) {
 		openRegistrationDropdownToSlide(location.hash.substr(7));
 	}
+	// listen to hashchange events universally 
+	$(window).on('hashchange', function() {
+		if(location.hash.indexOf('#slide=') !== -1) {
+			openRegistrationDropdownToSlide(location.hash.substr(7));
+		}
+	});
 
 	// fix for dynamic height change on the 'orbit' container, yesh a ton of listeners :/
 	$('#reg-dropdown form')
