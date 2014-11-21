@@ -97,8 +97,10 @@ $(function(){
 		$('#registration').trigger('goto.fndtn.orbit', [slide]);
 
 		// show menu to see our dropdown in the menu
-		Foundation.libs.topbar.toggle($tb);
-
+		if(!$tb.hasClass('expanded')) {
+			Foundation.libs.topbar.toggle($tb);
+		}
+		
 		// Force open dropdown (dropdown content, dropdown trigger (button))
 		Foundation.libs.dropdown.open($('#reg-dropdown'), $('#reg-btn-dropdown'));
 
