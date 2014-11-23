@@ -1,10 +1,6 @@
 header {
-	&.movienightslp {
-		max-height: 842px;
-		padding: rem-calc(50 0);
-		text-align: left;
-		background-image: url(#{$image-path}/bgMovieNightLp.jpg);
-
+	&.movienightslp,
+	&.movienight {
 		h2, h3, h4 {
 			color: $white;
 		}
@@ -13,22 +9,29 @@ header {
 			margin-bottom: rem-calc(25);
 			text-align: center;
 			font-size: rem-calc(55);
-			//line-height: 1.2;
-			//margin: 0 0 rem-calc(2) 0;
 			text-transform: uppercase;
 			font-style: italic;
 
+			span {
+				font-style: normal;
+				color: $base;
+			}
+		}
+	}
+
+	&.movienightslp {
+		max-height: 842px;
+		padding: rem-calc(50 0);
+		text-align: left;
+		background-image: url(#{$image-path}/bgMovieNightLp.jpg);
+
+		h2 {
 			@media #{$medium-only} {
 				font-size: rem-calc(50);
 			}
 
 			@media #{$small-only} {
 				font-size: rem-calc(30);
-			}
-
-			span {
-				font-style: normal;
-				color: $base;
 			}
 		}
 
@@ -78,9 +81,37 @@ header {
 		}
 	}
 
-
 	&.movienight {
-		background-image: url(http://beta.bestmoviesbyfarr.com/static-assets/images/movies/background/1947/zbxrgnEF3LQDKm6DT6poDMFWriM.jpg)
+		.slide {
+			padding: rem-calc(0 15);
+			height: 420px;
+			max-height: 420px;
+			background-position: center 20%;
+			@include box-shadow(inset 0 0 94px 30px $black);
+
+			@media #{$small-only} {
+				@include box-shadow(inset 0 0 70px 20px $black);
+			}
+		}
+
+		h2 {
+			font-size: rem-calc(72);
+			margin-top: 180px;
+			line-height: 1.2;
+			@extend %text-shadow;
+
+			@media #{$medium-only} {
+				font-size: rem-calc(60);
+			}
+
+			@media #{$small-only} {
+				font-size: rem-calc(40);
+			}
+
+			span {
+				color: $white;
+			}
+		}
 	}
 }
 
@@ -117,6 +148,10 @@ section#movienightslp {
 }
 
 section#movienight {
+	section {
+		margin-bottom: 2rem;
+	}
+
 	.side-nav {
 		li {
 			font-size: 1rem;
@@ -149,7 +184,17 @@ section#movienight {
 			dd {
 				margin-bottom: 2rem;
 			}
-		}		
+		}	
+
+		ul.trivia {
+			li {
+				margin-bottom: 1rem;
+			}
+		}	
+
+		.th {
+			width: 100%;
+		}
 	}
 }
 
