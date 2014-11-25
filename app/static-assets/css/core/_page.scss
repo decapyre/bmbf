@@ -36,3 +36,17 @@ header {
 		margin: rem-calc(14 0 36 0);
 	}
 }
+
+.reveal-modal {
+	h2 {
+		margin-bottom: rem-calc(30);
+	}
+	
+	a {
+		@extend %standard-link;
+
+		&.close-reveal-modal {
+			text-decoration: none;
+		}
+	}
+}

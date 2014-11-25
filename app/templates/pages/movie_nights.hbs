@@ -4,19 +4,14 @@ class: 'movienight'
 ---
 {{#extend "master"}}
 {{#content "header"}}
-<header class="{{class}}">
-		<div class="slide" style="background-image:url(http://beta.bestmoviesbyfarr.com/static-assets/images/movies/background/1947/zbxrgnEF3LQDKm6DT6poDMFWriM.jpg)">
-			<div class="row collapse">
-				<div class="content small-12 columns">
-					<h2><span>Movie Night:</span><br>The Bishop's Wife</h2>
-				</div>
+<header data-magellan-destination="header" class="{{class}}">
+	<div class="slide" style="background-image:url(/static-assets/images/movies/background/1947/zbxrgnEF3LQDKm6DT6poDMFWriM.jpg)">
+		<div class="row collapse">
+			<div class="content small-12 columns">
+				<h2><span>Holiday Movie Night:</span><br>The Bishop's Wife</h2>
 			</div>
 		</div>
-	{{!-- <div class="row collapse">  
-		<div class="content small-12 columns">
-			<h2><span>Movie Night:</span><br>The Bishop's Wife</h2>
-		</div>
-	</div> --}}
+	</div>
 </header>
 {{/content}}
 
@@ -25,28 +20,32 @@ class: 'movienight'
 	<div class="small-12 medium-8 medium-centered large-9 columns">
 		<div class="row">
 			<div class="small-12 large-3 columns">
-				<h3>Table of Contents</h3>
-				<div class="lines"></div>
-				<ul id="options" class="side-nav" role="navigation" title="Link List">
-					<li class="active" role="menuitem"><a href="#therundown"><i class="bmbf bmbf-filmstrip"></i> The Rundown</a></li>
-					<li class="divider"></li>
-					<li role="menuitem"><a href="#trivia"><i class="bmbf bmbf-trivia"></i> Farr Notes</a></li>
-					<li class="divider"></li>
-					<li role="menuitem"><a href="#recipes"><i class="bmbf bmbf-cutlery"></i> Recipes</a></li>
-					<li class="divider"></li>
-					<li role="menuitem"><a href="#drinks"><i class="bmbf bmbf-glass"></i> Drinks &amp; Cocktails</a></li>
-					<li class="divider"></li>
-					<li role="menuitem"><a href="#music"><i class="bmbf bmbf-music"></i> Music Soundtrack</a></li>
-					<li class="divider"></li>
-					<li role="menuitem"><a href="#clothing"><i class="bmbf bmbf-suit"></i> What to Wear?</a></li>
-					<li class="divider"></li>
-					<li role="menuitem"><a href="#">Print Everything</a></li>
-				</ul>
+				<div id="toc" data-magellan-expedition="fixed" data-options="throttle_delay:0; fixed_top:66; destination_threshold:66; threshold:-66;">		
+					<h3>Table of Contents</h3>
+					<div class="lines"></div>
+					<ul class="side-nav" role="navigation" title="Link List">
+						<li role="menuitem" data-magellan-arrival="therundown"><a href="#therundown"><i class="bmbf bmbf-filmstrip"></i> The Rundown</a></li>
+						<li class="divider"></li>
+						<li role="menuitem" data-magellan-arrival="movie"><a href="#movie"><i class="bmbf bmbf-search"></i> Where can I find the movie?</a></li>
+						<li class="divider"></li>
+						<li role="menuitem" data-magellan-arrival="trivia"><a href="#trivia"><i class="bmbf bmbf-trivia"></i> Farr Notes</a></li>
+						<li class="divider"></li>
+						<li role="menuitem" data-magellan-arrival="recipes"><a href="#recipes"><i class="bmbf bmbf-cutlery"></i> Recipes</a></li>
+						<li class="divider"></li>
+						<li role="menuitem" data-magellan-arrival="drinks"><a href="#drinks"><i class="bmbf bmbf-glass"></i> Drinks &amp; Cocktails</a></li>
+						<li class="divider"></li>
+						<li role="menuitem" data-magellan-arrival="music"><a href="#music"><i class="bmbf bmbf-music"></i> Music Soundtrack</a></li>
+						<li class="divider"></li>
+						<li role="menuitem" data-magellan-arrival="clothing"><a href="#clothing"><i class="bmbf bmbf-suit bmbf-lg"></i> What to Wear?</a></li>
+						<li class="divider"></li>
+						<li role="menuitem"><button class="print expand round"><i class="bmbf bmbf-print bmbf-lg"></i> Print Everything</button></li>
+					</ul>
+				</div>
 			</div>
 			<div class="movie-night-content small-12 large-8 columns">
+			<a class="anchor" name="therundown" data-magellan-destination="therundown"></a>
 				<section class="row">
 					<div class="small-12 columns">
-						<a id="therundown" class="anchor"></a>
 						<h3>The Rundown: "The Bishop's Wife"</h3>
 						<div class="lines"></div>
 						<dl>
@@ -64,7 +63,29 @@ class: 'movienight'
 
 				<section class="row">
 					<div class="small-12 columns">
-						<a id="trivia" class="anchor"></a>
+						<a class="anchor" name="movie" data-magellan-destination="movie"></a>
+						<h3>Where can I find the movie?</h3>
+						<div class="lines"></div>
+						<div class="row">
+							<div class="small-12 columns">
+								<dl>
+									<dt>Available on Amazon</dt>
+									<dd><a href="http://www.amazon.com/Bishops-Wife-WB/dp/B00AGE20ZI/ref=sr_1_1?s=instant-video&ie=UTF8&qid=1416867452&sr=1-1&keywords=bishops+wife&pebp=1416867456229" target="_blank"><img src="/static-assets/images/movienights/amazoninstantvideo.png"></a></dd>
+
+									<dt>Runtime</dt>
+									<dd>1 hour 50 minutes</dd>
+
+									<dt>Formats</dt>
+									<dd>DVD, Blu-ray, Digital Download</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="row">
+					<div class="small-12 columns">
+						<a class="anchor" name="trivia" data-magellan-destination="trivia"></a>
 						<h3>FarrNotes: Secret Behind the Scenes Trivia to Wow Your Guests!</h3>
 						<div class="lines"></div>
 						<p><img class="th" src="/static-assets/images/movienights/bishopswife/insidescoop.jpg"></p>
@@ -84,21 +105,34 @@ class: 'movienight'
 
 				<section class="row">
 					<div class="small-12 columns">
-						<a id="recipes" class="anchor"></a>
+						<a class="anchor" name="recipes" data-magellan-destination="recipes"></a>
 						<h3>Recipes</h3>
 						<div class="lines"></div>
-
-						<div class="row">
-							<div class="large-6 columns">
-								<dl>
-									<dt>Entree</dt>
-									<dd>recipe 1</dd>
+						<div class="row" data-equalizer>
+							<div class="medium-6 columns">
+								<dl class="equalizer-watch">
+									<dt><a href="#" data-reveal-id="entreeModal"><img class="th" src="/static-assets/images/movienights/bishopswife/cranberry-pot-roast.jpg"></a></dt>
+									<dd data-equalizer-watch>
+										<h4>Holiday Cranberry Pot Roast</h4>
+										<ul>
+											<li>Courtesy of: <a href="http://www.feastingathome.com/2014/11/cranberry-pot-roast.html">Feasting at Home</a></li>
+											<li>Angels will surely join you when you serve their favorite treat, cupcakes made from light, fluffy cake, topped with a heavenly rich buttercream icing.</li>
+										</ul>
+										<button class="floor round expand" data-reveal-id="entreeModal">View Ingredients &amp; Instructions</button>
+									</dd>
 								</dl>
 							</div>
-							<div class="large-6 columns">
-								<dl>
-									<dt>Desert</dt>
-									<dd>recipe 2</dd>
+							<div class="medium-6 columns">
+								<dl class="equalizer-watch">
+									<dt><a href="#" data-reveal-id="dessertModal"><img class="th" src="/static-assets/images/movienights/bishopswife/cupcake.jpg"></a></dt>
+									<dd data-equalizer-watch>
+										<h4>Angel Food Cupcakes with White Chocolate Buttercream</h4>
+										<ul>
+											<li>Courtesy of: <a href="http://www.naturalcomfortkitchen.com/angel-food-cupcakes-and-white-chocolate-buttercream/">Natural Comfort Kitchen</a></li>
+											<li>We recommend serving alongside mashed potatoes for a warm and hearty festive meal!</li>
+										</ul>
+										<button class="floor round expand" data-reveal-id="dessertModal">View Ingredients &amp; Instructions</button>
+									</dd>
 								</dl>
 							</div>
 						</div>
@@ -107,10 +141,9 @@ class: 'movienight'
 
 				<section class="row">
 					<div class="small-12 columns">
-						<a id="drinks" class="anchor"></a>
+						<a class="anchor" name="drinks" data-magellan-destination="drinks"></a>
 						<h3>Drinks &amp; Cocktails</h3>
 						<div class="lines"></div>
-
 						<div class="row">
 							<div class="small-12 columns">
 								<h4>Heavenly Cocktail: The Stinger</h4>
@@ -135,9 +168,199 @@ class: 'movienight'
 					</div>
 				</section>
 
+				<section class="row">
+					<div class="small-12 columns">
+						<a class="anchor" name="music" data-magellan-destination="music"></a>
+						<h3>What's The Score?</h3>
+						<div class="lines"></div>
+
+						<div class="row">
+							<div class="small-12 columns">
+								<h4>The perfect soundtrack for your movie night!</h4>
+								<p><img class="th" src="/static-assets/images/movienights/bishopswife/music.jpg"></p>
+
+								<ul class="remove-list-style">
+									<li class="row">
+										<div class="medium-9 columns">
+											<b>The Robert Mitchell Boy's Choir:</b> The Mitchell Boy's Choir appeared in twenty films between 1938 and 1958, including "The Bishop's Wife." Check out their newly re-mastered classics on iTunes.
+										</div>
+										<div class="medium-3 columns">
+											<a class="button small expand round" href="https://itunes.apple.com/ca/album/mitchell-boys-choir-sings/id331356471" target="_blank">iTunes</a>
+										</div>
+									</li>
+									<li class="row">
+										<div class="medium-9 columns">
+											<b>Radio Hits of 1947:</b> From Ted Weems' "Heartaches" to Perry Como's "Chi-Baba," 1947 was a great year for music. Set the radio dial for retro classics, available on iTunes.
+										</div>
+										<div class="medium-3 columns">
+											<a class="button small expand round" href="https://itunes.apple.com/us/album/radio-hits-of-the-40s-1947/id412882726" target="_blank">iTunes</a>
+										</div>
+									</li>
+									<li class="row">
+										<div class="medium-9 columns">
+											<b>A Merry Christmas with Bing Crosby and the Andrews Sisters:</b> Get the yuletide party hopping with some of the most popular Christmas songs of all time, sung by America's beloved voices of the era, the Andrews Sisters and Bing Crosby. Buy it now on iTunes.
+										</div>
+										<div class="medium-3 columns">
+											<a class="button small expand round" href="https://itunes.apple.com/us/album/merry-christmas-bing-crosby/id514831" target="_blank">iTunes</a>
+										</div>
+									</li>
+								</ul>
+
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="row" data-magellan-destination>
+					<div class="small-12 columns">
+						<a class="anchor" name="clothing" data-magellan-destination="clothing"></a>
+						<h3>What to Wear?</h3>
+						<div class="lines"></div>
+
+						<div class="row">
+							<div class="small-12 columns">
+								<h4>The Best Movies by Farr Wardrobe Department</h4>
+								<p><img class="th" src="/static-assets/images/movienights/bishopswife/whattowear.jpg"></p>
+								<p>In the years following WWII, the sense of austerity that had governed fashion trends was beginning to dissipate and give way to the renaissance of haute couture. Dior's "New Look" was now ushering in the round shoulders and sweeping skirts that would later evolve to define the silhouette of the 1950s. Women's looks, reacting to the "uniform" styles of the war years, began to soften. Men's suits were broad-shouldered, often featuring broad lapels and fuller trousers — a response to the end of wartime fabric restrictions.</p>
+
+								<dl>
+									<dt>Shop the Look</dt>
+									<dd>
+										Try this angelic dress in silver lace. By Vera Wang. All that's missing is a pair of wings to take you anywhere you want to go!
+									</dd>
+
+									<dt>Hats</dt>
+									<dd>Hats were essential for men and women in the 1940s, and nothing speaks to the era like a felt fedora. Get into character with "The Bishop's Wife," and channel your inner Loretta Young by putting on this smart hat.</dd>
+								</dl>
+
+							</div>
+						</div>
+					</div>
+				</section>
+
 			</div><!-- END movie-night-content -->
 		</div>
 	</div>
+<button class="scrollToTop"><i class="bmbf bmbf-caret-down bmbf-flip-vertical bmbf-2x"></i></button>
+
+<div id="entreeModal" class="reveal-modal medium" data-reveal>
+	<h2>Holiday Cranberry Pot Roast</h2>
+	<a class="close-reveal-modal">&#215;</a>
+	<div class="row">
+		<div class="medium-6 columns">
+			<dl>
+				<dt>Ingredients</dt>
+				<dd>
+					<ul>
+						<li>1-2 Tablespoons olive oil</li>
+						<li>2 ¼-2 ½ pounds chuck roast</li>
+						<li>1 teaspoon salt</li>
+						<li>1 teaspoon pepper</li>
+						<li>1 large red onion</li>
+						<li>1 carrot</li>
+						<li>1 celery</li>
+						<li>12 oz bag fresh cranberries (or 4 cups)</li>
+						<li>2 Tablespoons fresh thyme</li>
+						<li>1 Cup ruby port (any inexpensive kind-found at most grocery stores)</li>
+						<li>2 Cups beef stock</li>
+						<li>4 Tablespoons sugar</li>
+						<li>2 T Whole Mustard seeds (optional)</li>
+					</ul>
+				</dd>
+			</dl>
+		</div>
+		<div class="medium-6 columns">
+			<dl>
+				<dt>Instructions</dt>
+				<dd>
+					<ol>
+						<li>Pre heat oven to 350F</li>
+						<li>Heat oil in an oven proof dutch oven, over medium high heat. Rub chuck roast with salt and pepper on all sides, and brown all sides very well.</li>
+						<li>While meat is browning, dice the onion, celery and carrots.</li>
+						<li>Once meat is nicely browned on all sides, set it aside on a plate.</li>
+						<li>Add onion, celery and carrot, to the same pan, turn heat to medium and sauté until they soften, about 5-6 minutes.</li>
+						<li>Add cranberries, port, beef stock, sugar, thyme, and mustard seeds (optional) and give a stir.</li>
+						<li>Nestle meat into the middle, bring to a simmer, cover tightly and place in the oven.</li>
+						<li>Bake for 3 hours (or longer if a bigger cut of meat) Meat should be fork tender, and cranberry port sauce, reduced.</li>
+						<li>Serve over horseradish mash potatoes with a little cranberry sauce over top.</li>
+					</ol>
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			<a href="http://www.feastingathome.com/2014/11/cranberry-pot-roast.html">Click here for the full recipe</a>
+		</div>
+	</div>
+</div>
+
+<div id="dessertModal" class="reveal-modal large" data-reveal>
+	<h2>Angel Food Cupcakes with White Chocolate Buttercream</h2>
+	<a class="close-reveal-modal">&#215;</a>
+	<div class="row">
+		<div class="medium-6 columns">
+			<dl>
+				<dt>Cupcake Ingredients</dt>
+				<dd>
+					<ul>
+						<li>¾ C egg whites (from 6 large eggs)</li>
+						<li>3 oz. sifted powdered sugar</li>
+						<li>2.5 oz. sifted cake flour (I used King Arthur unbleached cake flour blend)</li>
+						<li>⅛ t salt (preferably table salt)</li>
+						<li>¾ t cream of tartar</li>
+						<li>6 T granulated sugar (1/4 C + 2 T; fine granules--it's best not to use organic here)</li>
+						<li>1 t vanilla extract</li>
+					</ul>
+				</dd>
+				<dt>Icing Ingredients</dt>
+				<dd>
+					<ul>
+						<li>½ C (1 stick) unsalted butter, softened</li>
+						<li>2½ C sifted powdered sugar</li>
+						<li>1 t vanilla extract</li>
+						<li>4 oz. good white chocolate, finely chopped (such as Ghirardelli baking bars)</li>
+						<li>2 t whole milk or heavy cream</li>
+					</ul>
+				</dd>
+			</dl>
+		</div>
+		<div class="medium-6 columns">
+			<dl>
+				<dt>Cupcake Instructions</dt>
+				<dd>
+					<ol>
+						<li>While the eggs are cold, separate and reserve the egg whites. Adjust the quantity of eggs slightly if needed to reach ¾ C whites. It's very important that the whites are completely free of yolk and shell, or they may not "fluff" when beating them later. Cover the egg whites and bring to room temperature (around 70 degrees F) for 1½ to 2 hours.</li>
+						<li>While the egg temperature rises, measure the flour and powdered sugar, then sift them together with the salt. Measure cream of tartar, sugar, and vanilla each into separate bowls so they're ready to add to the mixer while it's running.</li>
+						<li>Have a nonstick cupcake pan ready (see notes).</li>
+						<li>When the eggs are ready, preheat the oven to 350 degrees (F), and add eggs to a completely clean metal or glass bowl of a stand mixer fitted with the whisk attachment. Whisk on medium low speed (4 of 10) until frothy, about 2 minutes. With the mixer running, add cream of tartar, increase speed 1 "notch" (6 of 10) and beat until soft peaks form, about 3 minutes. You should turn off the mixer to check this when the eggs look close, to make sure you don't overbeat them into stiff peaks. After confirming, resume beating at medium low speed (a 4, again), adding a tablespoon of sugar about every 30 seconds. Beat another minute after adding the last of the sugar, then check for only slightly stiffer peaks. They should not be completely stiff. The process of adding sugar and beating for an additional minute took me 4 minutes. Egg temperature will impact mixing times, so watch for the signs indicated, even if it takes a minute or two longer to get there.</li>
+						<li>Gently drizzle vanilla over surface of the egg mixture and beat on low speed until just incorporated.</li>
+						<li>In four batches, sprinkle the dry ingredient mixture over the surface of the batter and use a rubber spatula to gently fold by hand until incorporated smoothly. Be patient with the folding--it's necessary to keep the air pockets, the only leavening agent in angel food, in the batter.</li>
+						<li>Use a spring ice cream scoop or one third cup measure to evenly distribute all the batter amongst 12 cupcake wells. Bake for 18 to 20 minutes, until tops are golden and spring back slightly when touched. Don't open the oven until you suspect the cakes are close to being done.</li>
+						<li>If using an unlined nonstick pan, cool the cupcakes upside down, with the pan carefully propped at each corner on a can or other level items. Remove cupcakes from pan once cooled. If not using liners, slide a small paring knife around the outside of each cupcake to loosen it. I also used a large spoon to sort of scoop the cupcake out of the well gently.</li>
+						<li>Once cooled completely, frost or wrap individually in plastic wrap (see notes).</li>
+					</ol>
+				</dd>
+
+				<dt>Icing Instructions</dt>
+				<dd>
+					<ol>
+						<li>Place white chocolate in a completely dry glass bowl set over a saucepan of water (water shouldn't touch bottom of bowl). Heat over medium (to eventually simmer the water), stirring more frequently with a rubber or silicone heat-safe spatula as the chocolate begins to melt. When almost completely melted, remove bowl to a towel or potholder, careful not to get any water in the chocolate. Continue stirring until fully melted, then allow to cool while you start the icing.</li>
+						<li>In an electric mixer fitted with a paddle attachment, or in a bowl using a hand mixer, beat butter at medium high speed until lightened and creamy, a minute or two. Scrape down sides of bowl as needed. Beat in vanilla until incorporated.</li>
+						<li>Add powdered sugar a little at a time, reducing mixer speed to low when initially adding the sugar, so it doesn't fly everywhere. Increase speed to fully incorporate, then repeat the process until all the sugar is added. Scrape down sides of bowl as needed.</li>
+						<li>With the mixer running on low speed, constantly drizzle in the melted, cooled white chocolate until fully incorporated. Don't turn up the speed on the mixer; the goal is to stir in the chocolate. Add milk or cream and beat on low speed, to soften the frosting slightly. If you prefer a more liquid consistency, add more milk a teaspoon at a time.</li>
+						<li>Work with the frosting immediately, frosting the cupcakes by hand or using a bag and frosting/decorating tip as I did (you can see in the photo, my setup is nothing fancy--a heavy duty resealable plastic bag with icing tip inserted). Alternately, refrigerate icing in airtight container, then bring almost to room temperature before using, to soften the frosting.</li>
+					</ol>
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			<a href="http://www.naturalcomfortkitchen.com/angel-food-cupcakes-and-white-chocolate-buttercream/">Click here for the full recipe</a>
+		</div>
+	</div>
+</div>
 </section>
 {{/content}}
 {{/extend}}

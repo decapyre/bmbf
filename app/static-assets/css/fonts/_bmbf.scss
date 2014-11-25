@@ -44,7 +44,7 @@ $bmbf-vert-offset:      -7%;
 .#{$bmbf-css-prefix}-lg {
   font-size: (4em / 3);
   //line-height: (3em / 4);
-  vertical-align: -15%;
+  vertical-align: -16%;
 }
 
 .#{$bmbf-css-prefix}-2x { font-size: 2em; }
@@ -68,11 +68,44 @@ $bmbf-vert-offset:      -7%;
   vertical-align: middle;
 }
 
+// Rotating icons
+// Rotated & Flipped Icons
+// -------------------------
+@mixin bmbf-icon-rotate($degrees, $rotation) {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
+  -webkit-transform: rotate($degrees);
+      -ms-transform: rotate($degrees);
+          transform: rotate($degrees);
+}
+
+@mixin bmbf-icon-flip($horiz, $vert, $rotation) {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
+  -webkit-transform: scale($horiz, $vert);
+      -ms-transform: scale($horiz, $vert);
+          transform: scale($horiz, $vert);
+}
+
+.#{$bmbf-css-prefix}-rotate-90  { @include bmbf-icon-rotate(90deg, 1);  }
+.#{$bmbf-css-prefix}-rotate-180 { @include bmbf-icon-rotate(180deg, 2); }
+.#{$bmbf-css-prefix}-rotate-270 { @include bmbf-icon-rotate(270deg, 3); }
+
+.#{$bmbf-css-prefix}-flip-horizontal { @include bmbf-icon-flip(-1, 1, 0); }
+.#{$bmbf-css-prefix}-flip-vertical   { @include bmbf-icon-flip(1, -1, 2); }
+
+// Hook for IE8-9
+:root .#{$bmbf-css-prefix}-rotate-90,
+:root .#{$bmbf-css-prefix}-rotate-180,
+:root .#{$bmbf-css-prefix}-rotate-270,
+:root .#{$bmbf-css-prefix}-flip-horizontal,
+:root .#{$bmbf-css-prefix}-flip-vertical {
+  filter: none;
+}
 
 
 // Content
 // -----------------------------------------------------------------------------------------------------------
 /* Edit Below Only When adding fonts from fontastic.me, make sure the prefix is the same as $fa-css-prefix and you export as PUA */
+
 
 
 .bmbf-genre:before {
@@ -179,4 +212,7 @@ $bmbf-vert-offset:      -7%;
 }
 .bmbf-google-plus:before {
   content: "\e022";
+}
+.bmbf-print:before {
+  content: "\e023";
 }

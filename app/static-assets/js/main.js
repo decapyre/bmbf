@@ -76,6 +76,9 @@ $(function() {
 			is_hover: false,
 			mobile_show_parent_link: false, // will copy parent links into dropdowns for mobile navigation
 			scrolltop: true // jump to top when sticky nav menu toggle is clicked
+		},
+		equalizer: {
+			equalize_on_stack: false
 		}
 	});
 

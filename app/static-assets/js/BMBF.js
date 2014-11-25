@@ -29,6 +29,8 @@ var BMBF = window.BMBF || (function($, document, window, undefined) {
 			_private.bind();
 		},
 
+		libs: {},
+
 		user: {
 			campaignRedirects: {
 				'movie-nights': _private.config.host + '/movie-nights'

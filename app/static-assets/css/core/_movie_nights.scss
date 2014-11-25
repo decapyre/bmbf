@@ -82,7 +82,10 @@ header {
 	}
 
 	&.movienight {
+		//z-index: 51; // above magellan
+
 		.slide {
+			display: block;
 			padding: rem-calc(0 15);
 			height: 420px;
 			max-height: 420px;
@@ -149,7 +152,7 @@ section#movienightslp {
 
 section#movienight {
 	section {
-		margin-bottom: 2rem;
+		margin-bottom: 3rem;
 	}
 
 	.side-nav {
@@ -163,16 +166,24 @@ section#movienight {
 			}
 
 			a {
-				padding: 1rem 0;
+				padding: 0.75rem 0;
 			}
 			
 			i {
 				padding-right: rem-calc(10);
 			}
+
+			button {
+				margin-top: 0.75rem;
+			}
 		}
 	}
 
 	.movie-night-content {
+		a {
+			@extend standard-link;
+		}
+
 		dl {
 			dt {
 				font-family: $futura;
@@ -184,9 +195,35 @@ section#movienight {
 			dd {
 				margin-bottom: 2rem;
 			}
+
+			&.equalizer-watch {
+				dd {
+					padding-bottom: rem-calc(60);
+					position: relative;
+
+					h4 {
+						margin-top: 1rem;
+					}
+
+					button {
+						&.floor {
+							margin: 0;
+							position: absolute;
+							bottom: 0;
+						}
+					}
+				}
+			}
 		}	
 
-		ul.trivia {
+		ul {
+			margin-left: 0;
+			list-style-position: inside;
+			
+			&.remove-list-style {
+				list-style: none;
+			}
+
 			li {
 				margin-bottom: 1rem;
 			}
@@ -194,6 +231,11 @@ section#movienight {
 
 		.th {
 			width: 100%;
+		}
+
+		.album-art {
+			width: auto;
+			max-height: 300px;
 		}
 	}
 }
