@@ -117,10 +117,10 @@ button.green,
 
 // when needing to #id link to elements due to fixed header, this offset is needed
 a.anchor {
-	// display: block;
-	// position: relative;
-	// top: -(($topbar-height+1) + 20);
-	// visibility: hidden;
+	display: block;
+	position: relative;
+	top: -(($topbar-height+1) + 20);
+	visibility: hidden;
 }
 
 .scrollToTop {

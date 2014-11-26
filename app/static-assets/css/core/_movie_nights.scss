@@ -181,7 +181,7 @@ section#movienight {
 
 	.movie-night-content {
 		a {
-			@extend standard-link;
+			@extend %standard-link;
 		}
 
 		dl {
@@ -228,6 +228,10 @@ section#movienight {
 				margin-bottom: 1rem;
 			}
 		}	
+
+		[class*="block-grid-"] {
+			margin: 0 -0.625rem;
+		}
 
 		.th {
 			width: 100%;
