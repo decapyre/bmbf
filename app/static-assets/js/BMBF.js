@@ -40,7 +40,7 @@ var BMBF = window.BMBF || (function($, document, window, undefined) {
 			},
 
 			setSignupCampaignId: function(value) {
-				$.cookie('BMBF.user.signupCampaignId', value);
+				$.cookie('BMBF.user.signupCampaignId', value, {path: '/' });
 				return value;
 			},
 
