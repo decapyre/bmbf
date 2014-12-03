@@ -10,6 +10,7 @@
 			topButtons = $('.scrollToTop');
 			printButtons = $('.print');
 		},
+
 		bind: function() {
 			_private.bindToTop();
 			printButtons.click(function() {
@@ -17,6 +18,7 @@
 				return false;
 			});
 		},
+
 		bindToTop: function() {
 			//Check to see if the window is top if not then display button
 			var thresholdHeight = $(document).height() / 10;
@@ -47,8 +49,3 @@
 
 	return BMBF.libs.movienight;
 })(jQuery, document, window);
-
-$(function() {
-	BMBF.libs.movienight.init();
-});
-

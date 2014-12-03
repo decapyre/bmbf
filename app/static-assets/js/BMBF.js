@@ -1,5 +1,5 @@
 'use strict';
-/*global jQuery*/
+/*global jQuery, Modernizr*/
 var BMBF = window.BMBF || (function($, document, window, undefined) {
 	var app, _private;
 
@@ -11,11 +11,34 @@ var BMBF = window.BMBF || (function($, document, window, undefined) {
 		config: {
 			host: '//'+window.location.host
 		},
-		cache: function() {
-			// cache things like jquery selectors
-		},
+
 		bind: function() {
-			// bind events
+			// FitText after fonts have loaded.
+			$(window).load(function(){
+				$('#header-slider .slide h2').fitText(1, {minFontSize: '40px', maxFontSize: '80px'});
+			});
+
+			$(function() {
+				// on document ready
+				_private.boot();
+			});
+		},
+
+		boot: function() {
+			// init all libraries
+			for (var property in BMBF.libs) {
+				if (BMBF.libs.hasOwnProperty(property)) {
+					BMBF.libs[property].init();
+				}
+			}
+
+			this.polyfills();
+		},
+
+		polyfills: function() {
+			if(!Modernizr.input.placeholder) {
+				$('input, textarea').placeholder();
+			}
 		}
 	};
 
@@ -25,9 +48,10 @@ var BMBF = window.BMBF || (function($, document, window, undefined) {
 	*/
 	app = {
 		init: function() {
-			_private.cache();
 			_private.bind();
 		},
+
+		config: _private.config,
 
 		libs: {},
 
@@ -35,6 +59,7 @@ var BMBF = window.BMBF || (function($, document, window, undefined) {
 			campaignRedirects: {
 				'movie-nights': _private.config.host + '/movie-nights'
 			},
+
 			getSignupCampaignId: function() {
 				return $.cookie('BMBF.user.signupCampaignId') || null;
 			},
