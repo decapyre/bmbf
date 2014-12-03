@@ -182,6 +182,10 @@ section#movienight {
 	.movie-night-content {
 		a {
 			@extend %standard-link;
+
+			&.button {
+				text-decoration: none;
+			}
 		}
 
 		dl {
