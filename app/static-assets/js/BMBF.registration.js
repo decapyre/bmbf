@@ -172,8 +172,14 @@
 				url: '/crafter-security-rest-logout',
 				cache: false,
 				complete: function() {
-					window.location.href = '/';
+					// clear any old campaign cookies
+					BMBF.user.clearSignupCampaignId();
+
+					// track
 					BMBF.libs.tracking.track('registration', 'logout', 'success');
+
+					// redirect
+					window.location.href = '/';
 				}
 			});
 		},
@@ -198,13 +204,13 @@
 						var redirectURI = BMBF.user.campaignRedirects[campaignId];
 						if(typeof redirectURI !== 'undefined') {
 							BMBF.user.clearSignupCampaignId();
-							window.location.href = redirectURI;
-
+							
 							// log login event for getSignupCampaignId
 							BMBF.libs.tracking.track('registration', 'login', 'Campaign Login', campaignId);
+							window.location.href = redirectURI;
 						} else {
-							window.location.href = '/';
 							BMBF.libs.tracking.track('registration', 'login', 'Normal Login');
+							window.location.href = '/';
 						}
 					}
 					catch(e) {
