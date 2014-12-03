@@ -1,10 +1,11 @@
 'use strict';
-/*global jQuery, BMBF*/
+/*global jQuery, BMBF, Foundation*/
 (function($, document, window, undefined) {
 	var _private;
 
 	_private = {
 		$regDropdown: $('#reg-dropdown'),
+		$headerSlider: $('#header-slider'),
 
 		setup: function() {
 			// show slides, prevents some orbit flickering from happening
@@ -70,6 +71,14 @@
 					var self = $(e.target);
 					_private.resetAbideErrorsWhileTyping(self);
 				});
+
+			// stop header orbit after a full cycle, but still allow circular:true
+			this.$headerSlider.on('after-slide-change.fndtn.orbit', function(event, orbit) {
+				if(orbit.slide_number === orbit.total_slides-1) {
+					// stop manually
+					Foundation.libs.orbit.stop(_private.$headerSlider);
+				}
+			});
 		},
 
 		resetAbideErrorsWhileTyping: function($el) {

@@ -472,6 +472,22 @@
           instance.compute_dimensions();
         });
       }
+    },
+    stop: function () {
+      var self = this;
+
+      if (self.S(self.scope).is('[data-orbit]')) {
+        var $el = self.S(self.scope);
+        var instance = $el.data(self.name + '-instance');
+        instance.stop_timer();
+      } else {
+        self.S('[data-orbit]', self.scope).each(function(idx, el) {
+          var $el = self.S(el);
+          var opts = self.data_options($el);
+          var instance = $el.data(self.name + '-instance');
+          instance.stop_timer();
+        });
+      }
     }
   };
 
