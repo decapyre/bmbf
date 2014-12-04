@@ -51,7 +51,20 @@ var BMBF = window.BMBF || (function($, document, window, undefined) {
 			_private.bind();
 		},
 
+		inherit: function (scope, methods) {
+			var methods_arr = methods.split(' '),
+			i = methods_arr.length;
+
+			while (i--) {
+				if (this.utils.hasOwnProperty(methods_arr[i])) {
+					scope[methods_arr[i]] = this.utils[methods_arr[i]];
+				}
+			}
+		},
+
 		config: _private.config,
+
+		utils: {},
 
 		libs: {},
 

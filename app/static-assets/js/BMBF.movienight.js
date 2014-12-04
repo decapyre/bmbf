@@ -32,7 +32,16 @@
 			}, 250));
 
 			topButtons.click(function() {
-				$('html, body').animate({scrollTop : 0},0);
+				if(! (matchMedia(Foundation.media_queries.large).matches ||
+					matchMedia(Foundation.media_queries.xlarge).matches ||
+					matchMedia(Foundation.media_queries.xxlarge).matches)) {
+
+					// HACK: fix for Safari on iOS (window.scrollTo(0,0) seems to auto hide the dropdown)
+					$('body, html').animate({scrollTop: 0}, 500);
+				} else {
+					window.scrollTo(0,0);
+				}
+
 				$(document).foundation('magellan-expedition','set_expedition_position');
 				
 				return false;

@@ -41,7 +41,8 @@
 					});
 
 			// reset error messages when dropdown is closed
-			this.$regDropdown.on('closed.fndtn.dropdown', function() {
+			this.$regDropdown.on('closed.fndtn.dropdown', Foundation.utils.debounce(function() {
+				console.log('closing dropdown');
 				var abideForms = $(this).find('form');
 
 				$(abideForms).children('div').removeClass('error');
@@ -60,7 +61,7 @@
 				$.fx.off = true;
 				_private.$reg.trigger('goto.fndtn.orbit', ['login']);
 				$.fx.off = false;
-			});
+			}, 300, true));
 
 			// close registration dropdown and go back to login
 			this.$close.click(function() {
@@ -130,11 +131,13 @@
 
 		// Open the dropdown and slider on the supplied hash, default to login (#slide=login, #slide=signup, #slide=reset, #slide=forgot)
 		openRegistrationDropdownToSlide: function(slide) {
+
+			console.log('openRegistrationDropdownToSlide', slide);
 			// turn animations off
 			$.fx.off = true;
-
 			// go to hashed slide
 			_private.$reg.trigger('goto.fndtn.orbit', [slide]);
+			$.fx.off = false;
 
 			// hide menu if its open
 			if(_private.$topBar.hasClass('expanded')) {
@@ -148,13 +151,12 @@
 			if(! (matchMedia(Foundation.media_queries.large).matches ||
 				matchMedia(Foundation.media_queries.xlarge).matches ||
 				matchMedia(Foundation.media_queries.xxlarge).matches)) {
-				$('html, body').animate({scrollTop : 0},0);
-			}
-			
-			// turn animations back on
-			$.fx.off = false;
 
-			// reflow
+				// HACK: fix for Safari on iOS (window.scrollTo(0,0) seems to auto hide the dropdown)
+				$('body, html')
+					.animate({scrollTop: 0}, 500);
+			}
+
 			_private.$regDropdown.foundation('orbit', 'reflow');
 		},
 
