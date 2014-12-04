@@ -15,8 +15,8 @@
 				var query = $('#search').val();
 
 				if(query) {
-					window.location.href = BMBF.config.host + '/search?q=' + encodeURIComponent(query);
 					BMBF.libs.tracking.track('search', 'header search', query);
+					window.location.href = BMBF.config.host + '/search?q=' + encodeURIComponent(query);
 				}
 				
 				return false;
