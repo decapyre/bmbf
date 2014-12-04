@@ -242,7 +242,24 @@
 					// setSignupCampaignId cookie to be read in the next login state
 					if(location.href.indexOf('lps/movie-nights') !== -1) {
 						BMBF.user.setSignupCampaignId('movie-nights');
+						
+						// track raw event
 						BMBF.libs.tracking.track('registration', 'signup', 'Campaign Signup', 'movie-nights');
+
+						// track conversion, load google async script
+						$.getScript('//www.googleadservices.com/pagead/conversion_async.js')
+							// script loaded
+							.done(function() {
+								// call global google async track method
+								window.google_trackConversion({
+									google_conversion_id: 969517115,
+									google_conversion_language: 'en',
+									google_conversion_format: '3',
+									google_conversion_color: 'ffffff',
+									google_conversion_label: 'Gli5CKDZiVgQu9CmzgM',
+									google_remarketing_only: false
+								});
+							});
 					} else {
 						BMBF.libs.tracking.track('registration', 'signup', 'Normal Signup');
 					}
