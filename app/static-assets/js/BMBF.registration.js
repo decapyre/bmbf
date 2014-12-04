@@ -210,7 +210,7 @@
 							BMBF.user.clearSignupCampaignId();
 							
 							// log login event for getSignupCampaignId
-							BMBF.libs.tracking.track('registration', 'login', 'Campaign Login', campaignId);
+							BMBF.libs.tracking.track('registration', 'login', 'Campaign Login - ' + campaignId);
 							window.location.href = redirectURI;
 						} else {
 							BMBF.libs.tracking.track('registration', 'login', 'Normal Login');
@@ -244,7 +244,7 @@
 						BMBF.user.setSignupCampaignId('movie-nights');
 						
 						// track raw event
-						BMBF.libs.tracking.track('registration', 'signup', 'Campaign Signup', 'movie-nights');
+						BMBF.libs.tracking.track('registration', 'signup', 'Campaign Signup - movie-nights');
 
 						// track conversion, load google async script
 						$.getScript('//www.googleadservices.com/pagead/conversion_async.js')

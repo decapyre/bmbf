@@ -14,7 +14,7 @@
 		track: function(category, action, label, value) {
 			// call GA tracking if available
 			if (typeof ga === 'function') {
-				return ga('send', 'event', category, action, label, (value)?value:'' );
+				return ga('send', 'event', category, action, label, (value)?value:null );
 			}
 		}
 	};
