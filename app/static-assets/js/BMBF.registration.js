@@ -136,16 +136,20 @@
 			// go to hashed slide
 			_private.$reg.trigger('goto.fndtn.orbit', [slide]);
 
-			// show menu to see our dropdown in the menu
-			if(!_private.$topBar.hasClass('expanded')) {
+			// hide menu if its open
+			if(_private.$topBar.hasClass('expanded')) {
 				Foundation.libs.topbar.toggle(_private.$topBar);
 			}
 			
 			// Force open dropdown (dropdown content, dropdown trigger (button))
 			Foundation.libs.dropdown.open(_private.$regDropdown, _private.$regBtn);
 
-			// hide menu
-			Foundation.libs.topbar.toggle(_private.$topBar);
+			// go to top on mobile/tablet
+			if(! (matchMedia(Foundation.media_queries.large).matches ||
+				matchMedia(Foundation.media_queries.xlarge).matches ||
+				matchMedia(Foundation.media_queries.xxlarge).matches)) {
+				$('html, body').animate({scrollTop : 0},0);
+			}
 			
 			// turn animations back on
 			$.fx.off = false;
