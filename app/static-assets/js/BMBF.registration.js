@@ -253,14 +253,7 @@
 							// script loaded
 							.done(function() {
 								// call global google async track method
-								window.google_trackConversion({
-									google_conversion_id: 969517115,
-									google_conversion_language: 'en',
-									google_conversion_format: '3',
-									google_conversion_color: 'ffffff',
-									google_conversion_label: 'Gli5CKDZiVgQu9CmzgM',
-									google_remarketing_only: false
-								});
+								BMBF.libs.tracking.trackConversion(969517115, 'Gli5CKDZiVgQu9CmzgM');
 							});
 					} else {
 						BMBF.libs.tracking.track('registration', 'signup', 'Normal Signup');

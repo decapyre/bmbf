@@ -11,7 +11,7 @@ header {
 
 		background-size: cover;
 		background-repeat: no-repeat;
-		background-position: top center;
+		background-position: center top;
 
 		// CSS3 Effects
 		@include box-shadow(inset 0 0 190px 80px $black);

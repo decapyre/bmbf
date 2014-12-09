@@ -1,3 +1,6 @@
+$icons-height: rem-calc(163);
+$icons-size: rem-calc(40);
+
 header {
 	&.page {
 		padding: rem-calc(82 0);
@@ -30,6 +33,13 @@ header {
 		}
 	}
 }
+
+%movie-article-lines {
+	border-top: 1px solid $steel;
+	margin: rem-calc(0 0 15 0);
+	position: static;
+}
+
 
 .lines {
 	section.page & {
@@ -95,5 +105,65 @@ $shotform-content-padding: rem-calc(25);
 
 	h3 {
 		@extend %h3;
+	}
+}
+
+.social.icons {
+	position: relative;
+	width: rem-calc(40);
+	float: left;
+	background: url(#{$image-path}/pattern.jpg);
+	height: $icons-height;
+
+	@media #{$small-to-medium-only} {
+		border-top: 1px solid $steel;
+		float: none;
+		width: 100%;
+		height: 55px;
+		margin-bottom: rem-calc(15);
+	}
+
+	.bmbf {
+		width: $icons-size;
+		height: $icons-size;
+		line-height: $icons-size;
+		margin-bottom: 1px;
+		text-align: center;
+		float: left;
+		cursor: pointer;
+		background-color: $base;
+		color: #fff;
+		transition: background-color 0.2s ease-in-out;
+
+		@media #{$small-to-medium-only} {
+			width: $icons-size + rem-calc(15);
+			height: $icons-size + rem-calc(15);
+			line-height: $icons-size + rem-calc(15);
+
+			margin-bottom: 0px;
+			margin-right: 1px;
+		}
+
+		&:first-child {
+			background-color: $steel;
+			cursor: auto;
+
+			&:hover {
+				background-color: $oil;
+			}
+		}
+
+		&:hover {
+			background-color: $charcoal;
+		}
+	}
+}
+
+.ad_rotator {
+	margin-top: rem-calc(40);
+
+	h2 {
+		text-align: center;
+		font-size: rem-calc(28);
 	}
 }

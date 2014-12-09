@@ -2,12 +2,19 @@
 <html class="no-js">
     <head>
         <meta charset="utf-8">
+        <meta property="og:title" content="">
+		<meta property="og:type" content="">
+		<meta property="og:url" content="">
+		<meta property="og:image" content="">
+		<meta property="og:site_name" content="">
+		<meta property="og:description" content="">
         <title>{{ title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         {{> header_build }}
     </head>
 <body>
 {{> tracking }}
+{{> social }}
 <div id="wrapper" class="row">
 	{{> nav }}
 	{{#block "header"}}{{/block}}

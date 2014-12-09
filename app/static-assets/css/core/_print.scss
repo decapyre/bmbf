@@ -25,7 +25,8 @@
 	footer,
 	a img,
 	.print,
-	#toc {
+	#toc,
+	.social {
 		@extend .hide-on-print;
 	}
 

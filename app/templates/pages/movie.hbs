@@ -4,7 +4,7 @@ class: 'movie'
 ---
 {{#extend "master"}}
 {{#content "header"}}
-<header class="{{class}}">
+<header class="{{class}}" style="background-image: url(http://www.bestmoviesbyfarr.com/static-assets/images/movies/background/2012/i1gBtPIKJtWs5ZxZXZZOHR5MaVY.jpg);">
 </header>
 {{/content}}
 
@@ -12,14 +12,14 @@ class: 'movie'
 <section id="{{class}}" class="row page" data-id="tt1843287" data-gwi-id="265529" itemscope="itemscope" itemtype="http://schema.org/Movie">
 	<div class="small-10 small-centered large-8 columns">
 		<div class="post row">
-			<div class="icons">
+			<div class="social icons">
 				<div class="bmbf bmbf-filmstrip bmbf-lg"></div>
 				<div class="bmbf bmbf-facebook bmbf-lg"></div>
 				<div class="bmbf bmbf-twitter bmbf-lg"></div>
 				<div class="bmbf bmbf-google-plus bmbf-lg"></div>
 			</div>
 
-			<div class="lines"></div>
+			<div class="lines show-for-large-up"></div>
 
 			<div class="meta medium-5 columns">
 				<div class="row">
@@ -83,12 +83,13 @@ class: 'movie'
 			</div>
 			<hr class="show-for-small-only">
 			<div class="content medium-6 columns">
-				<h2>Like Someone in Love</h2>
+				<h2 class="title">Like Someone in Love</h2>
 				<dl>
 					<dt class="gowatchit-dt">Watch it on:</dt>
 					<dd class="gowatchit-dd">
 						<ul class="gowatchit">
 						</ul>
+						<hr>
 					</dd>
 
 					<dt>What's it About</dt>
@@ -107,5 +108,6 @@ class: 'movie'
 		<h2><a href="">A Cottage on Dartmouth</a></h2>
 	</div>
 </div>
+{{> ad_rotator }}
 {{/content}}
 {{/extend}}

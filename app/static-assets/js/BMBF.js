@@ -9,7 +9,9 @@ var BMBF = window.BMBF || (function($, document, window, undefined) {
 	*/
 	_private = {
 		config: {
-			host: '//'+window.location.host
+			host: '//'+window.location.host,
+			url: window.location.href,
+			title: $(document).find('title').text(),
 		},
 
 		bind: function() {
@@ -69,6 +71,8 @@ var BMBF = window.BMBF || (function($, document, window, undefined) {
 		libs: {},
 
 		user: {
+			isLoggedIn: false, // set from freemarker
+
 			campaignRedirects: {
 				'movie-nights': _private.config.host + '/movie-nights'
 			},

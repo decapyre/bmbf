@@ -13,9 +13,10 @@
 			},
 			{
 				'id': 'movie-nights',
-				'title':'MOVIE NIGHTS',
-				'href':'/lps/movie-nights',
-				'src':'/static-assets/images/lps/movie_nights_ad.jpg'
+				'title':'INTRODUCING: BEST MOVIE NIGHTS BY FARR',
+				'href':'/movie-nights',
+				'href_guest':'/lps/movie-nights',
+				'src':'/static-assets/images/lps/movienights_ad_banner.jpg'
 			}
 		],
 
@@ -24,25 +25,30 @@
 		},
 
 		setBannerAd: function() {
-			var anchor = $('.promo_container a');
+			var anchor = $('.ad_rotator a');
 			var img = anchor.find('img');
 			var title = anchor.find('h2');
 			var ad = _private.getRandomAdObj();
 
-			anchor.attr('href', ad.href);
+			if(BMBF.user.isLoggedIn || typeof ad.href_guest === 'undefined') {
+				anchor.attr('href', ad.href);
+			} else {
+				anchor.attr('href', ad.href_guest);
+			}
+			
 			img.attr('src', ad.src);
-			title.val(ad.title);
+			title.text(ad.title);
 
 			// bind click event for tracking
 			anchor.click(function() {
-				BMBF.libs.tracking.track('advertising', 'click', 'banner ad', ad.id);
+				BMBF.libs.tracking.track('advertising', 'click', 'banner ad - ' + ad.id);
 			});
 		}
 	};
 
 	BMBF.libs.advertising = {
 		init: function() {
-			// _private.setBannerAd();
+			_private.setBannerAd();
 		}
 	};
 
