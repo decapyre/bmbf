@@ -37,8 +37,8 @@ header {
 		.th-wrap {
 			position: relative;
 			margin-bottom: rem-calc(15);
-			// padding-bottom: rem-calc(20);
-			// background-image: url(#{$image-path}/pattern.jpg);
+			padding-bottom: rem-calc(10);
+			background-image: url(#{$image-path}/pattern.jpg);
 		}
 
 		table {
