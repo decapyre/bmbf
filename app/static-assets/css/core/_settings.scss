@@ -119,7 +119,7 @@ $aluminum    : #999999;
 $jumbo       : #888888;
 // $monsoon     : #777777;
 $steel       : #666666;
-// $charcoal    : #555555;
+$charcoal    : #555555;
 // $tuatara     : #444444;
 $oil         : #333333;
 $jet         : #222222;
@@ -1337,10 +1337,10 @@ $thumb-border-width: 0px;
 
 // $include-html-tooltip-classes: $include-html-classes;
 
-// $has-tip-border-bottom: dotted 1px $iron;
+$has-tip-border-bottom: none;
 // $has-tip-font-weight: $font-weight-bold;
 // $has-tip-font-color: $oil;
-// $has-tip-border-bottom-hover: dotted 1px scale-color($primary-color, $lightness: -55%);
+$has-tip-border-bottom-hover: none; //dotted 1px scale-color($primary-color, $lightness: -55%);
 // $has-tip-font-color-hover: $primary-color;
 // $has-tip-cursor-type: help;
 
@@ -1354,10 +1354,10 @@ $thumb-border-width: 0px;
 // $tooltip-close-font-weight: $font-weight-normal;
 // $tooltip-close-font-color: $monsoon;
 // $tooltip-font-size-sml: rem-calc(14);
-// $tooltip-radius: $global-radius;
-// $tooltip-rounded: $global-rounded;
+$tooltip-radius: $global-radius;
+$tooltip-rounded: $global-rounded;
 // $tooltip-pip-size: 5px;
-// $tooltip-max-width: 300px;
+$tooltip-max-width: 200px;//300px;
 
 // 34. Top Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -

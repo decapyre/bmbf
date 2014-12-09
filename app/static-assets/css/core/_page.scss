@@ -50,3 +50,50 @@ header {
 		}
 	}
 }
+
+%h3 {
+	font-family: $futura;
+	font-size: rem-calc(14);
+	text-transform: uppercase;
+	color: $steel;
+}
+
+dl {
+	dt {
+		@extend %h3;
+	}
+
+	dd {
+		margin-bottom: 2rem;
+	}
+}
+
+$shotform-content-padding: rem-calc(25);
+.shortform-content {
+	background-color: $white;
+	text-align: center;
+	margin-top: $shotform-content-padding*2;
+
+	&:before {
+		content: '';
+		display: block;
+		position: relative;
+		margin-bottom: $shotform-content-padding;
+		height: rem-calc(10);
+		background-image: url(#{$image-path}/pattern.jpg);
+		background-repeat: repeat;
+		border-top: 1px solid $steel;
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: relative;
+		margin-top: $shotform-content-padding;
+		border-top: 1px solid $gainsboro;
+	}
+
+	h3 {
+		@extend %h3;
+	}
+}

@@ -8,9 +8,17 @@
 
 		bind: function() {
 			this.$watchListItems.click(function() {
-				var movieId = $(this).closest('li').data('id');
+				var movieId = $(this).closest('li').data('id'); // new code will probably be a div
 				_private.removeWatchListItem(movieId);
+				return false;
+			});
 
+			$(document).on('click', '.add-watch-overlay, .add-watch-overlay-fixed', function() {
+				var movieId = $(this).data('id');
+				if(!movieId) {
+					movieId = $(this).closest('div').data('id');
+				}
+				_private.addWatchListItem($(this), movieId);
 				return false;
 			});
 
@@ -25,14 +33,39 @@
 			});
 		},
 
-		removeWatchListItem: function(movieId) {
+		addWatchListItem: function($self, movieId) {
+			if($(this).hasClass('active')) {
+				_private.removeWatchListItem(movieId, function() {
+					$self.removeClass('active').find('span').remove();
+				});
+			} else {
+				$.ajax({
+					type: 'POST',
+					url: '/api/1/services/profile/profile.json?action=addMovie',
+					data: {movieId: movieId}
+				})
+				.done(function() {
+					$self.addClass('active').append(' <span>Added to Watch List</span>');
+					BMBF.libs.tracking.track('profile', 'Added Watchlist item', movieId);
+				});
+			}
+		},
+
+		removeWatchListItem: function(movieId, cb) {
 			$.ajax({
 				type: 'POST',
 				url: '/api/1/services/profile/profile.json?action=removeMovie',
 				data: {movieId: movieId}
 			}).complete(function() {
-				// reload page to get updated list and pagination
-				window.location.reload();
+				BMBF.libs.tracking.track('profile', 'Removed Watchlist item', movieId);
+				
+				if(cb) {
+					// fire call back if defined
+					cb();
+				} else {
+					// else reload page to get updated list and pagination
+					window.location.reload();
+				}
 			});
 		},
 

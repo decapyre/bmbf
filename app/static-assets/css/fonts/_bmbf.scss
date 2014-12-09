@@ -106,8 +106,6 @@ $bmbf-vert-offset:      -7%;
 // -----------------------------------------------------------------------------------------------------------
 /* Edit Below Only When adding fonts from fontastic.me, make sure the prefix is the same as $fa-css-prefix and you export as PUA */
 
-
-
 .bmbf-genre:before {
   content: "\e000";
 }
@@ -215,4 +213,46 @@ $bmbf-vert-offset:      -7%;
 }
 .bmbf-print:before {
   content: "\e023";
+}
+.bmbf-gw-youtube:before {
+  content: "\e024";
+}
+.bmbf-gw-sundancenow:before {
+  content: "\e025";
+}
+.bmbf-gw-xboxvideo:before {
+  content: "\e026";
+}
+.bmbf-gw-hulu:before {
+  content: "\e027";
+}
+.bmbf-gw-googleplay:before {
+  content: "\e028";
+}
+.bmbf-gw-fandango:before {
+  content: "\e029";
+}
+.bmbf-gw-amazon:before {
+  content: "\e02a";
+}
+.bmbf-gw-vudu:before {
+  content: "\e02b";
+}
+.bmbf-gw-itunes:before {
+  content: "\e02c";
+}
+.bmbf-gw-redbox:before {
+  content: "\e02d";
+}
+.bmbf-gw-netflix:before {
+  content: "\e02e";
+}
+.bmbf-gw-fandor:before {
+  content: "\e02f";
+}
+.bmbf-gw-moviesondemand:before {
+  content: "\e030";
+}
+.bmbf-gw-snagfilms:before {
+  content: "\e031";
 }

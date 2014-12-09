@@ -12,7 +12,8 @@ h1, h2, h3, h4 {
     font-weight: bold;	
 }
 
-small {
+small,
+.tooltip {
 	font-family: $font-family-sans-serif !important;
 }
 
@@ -24,7 +25,7 @@ small {
 	display: block;
 	position: relative;
 	margin: rem-calc(50) 0;
-	height: rem-calc(7);
+	height: rem-calc(10);
 	background-image: url(#{$image-path}/pattern.jpg);
 	background-repeat: repeat;
 	//border-top: 1px solid $steel;
@@ -54,6 +55,27 @@ small {
 		}
 	}
 }
+
+%movie-article-lines {
+	border-top: 1px solid $steel;
+	margin: rem-calc(0 0 30 0);
+	position: static;
+}
+
+a {
+	color: $steel;
+
+	&:hover {
+		color: $base;
+	}
+}
+
+// #movie,
+// #article {
+// 	a:hover {
+// 		color: $base;
+// 	}
+// }
 
 button,
 .button {

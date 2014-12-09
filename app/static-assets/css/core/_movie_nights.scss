@@ -189,17 +189,6 @@ section#movienight {
 		}
 
 		dl {
-			dt {
-				font-family: $futura;
-				font-size: rem-calc(15);
-				text-transform: uppercase;
-				color: $aluminum;
-			}
-
-			dd {
-				margin-bottom: 2rem;
-			}
-
 			&.equalizer-watch {
 				dd {
 					padding-bottom: rem-calc(60);
