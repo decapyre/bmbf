@@ -7,7 +7,7 @@
 		msgPrefix: 'Check out ',
 
 		bind: function() {
-			$(document).on('click', '.social.icons [class^="bmbf-"], [class*="bmbf-"]', function() {
+			$(document).on('click', '.social.icons [class^="bmbf-"], .social.icons [class*="bmbf-"]', function() {
 				var service = this.className.split('bmbf-')[1].trim();
 
 				BMBF.libs.tracking.track('link', 'click', 'Social-' + service);

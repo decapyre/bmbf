@@ -1,5 +1,5 @@
 'use strict';
-/*global jQuery, Modernizr*/
+/*global jQuery, Modernizr, Foundation*/
 var BMBF = window.BMBF || (function($, document, window, undefined) {
 	var app, _private;
 
@@ -66,12 +66,31 @@ var BMBF = window.BMBF || (function($, document, window, undefined) {
 
 		config: _private.config,
 
-		utils: {},
+		utils: {
+			updateTooltip: function(element, title) {
+				var tooltip = Foundation.libs.tooltip.getTip(element);
+
+				if (tooltip && tooltip.length > 0) {
+					tooltip.remove();
+					element.attr('title', title);
+					element.removeAttr('data-selector');
+					element.removeAttr('aria-describedby');
+				}
+
+				var newTooltip = Foundation.libs.tooltip.create(element);
+
+				// re init
+				$(document).foundation('tooltip');
+
+				return newTooltip;
+			}
+		},
 
 		libs: {},
 
 		user: {
-			isLoggedIn: false, // set from freemarker
+			isLoggedIn: window.bmbfIsLoggedIn || false, // set from freemarker
+			watchList: window.bmbfWatchList || [],
 
 			campaignRedirects: {
 				'movie-nights': _private.config.host + '/movie-nights'

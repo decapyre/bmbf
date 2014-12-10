@@ -27,14 +27,19 @@
 			if(movie && gwiid) {
 				//var gwiUrl = "https://api.gowatchit.com/api/v2/movies/"+gwiid+"/availabilities?api_key=" + "c053d5c31fcc562e8106f35d&callback=?"
 				var gwiUrl = '//bmbf-cms.herokuapp.com/gwi?gwiid=' + gwiid;
-				//var items = {};
+				var usedServiceNames = []; // avoid duplicate services
+
 				$.get(gwiUrl, function(data) {
 					if(typeof data.movie !== 'undefined' || data.movie !== null && data.movie.available) {
 						// if movie is available
 						if(data.movie.onlines !== null) {
 							$.each(data.movie.onlines, function(key, value) {
 								var serviceName = value.name.toLowerCase().replace(/\s+/g, '');
-								markup += '<li><a href="'+value.watch_now+'" title="'+value.name+'" class="gw-service" data-service="'+serviceName+'"><i class="bmbf bmbf-gw-'+serviceName+'"></i></a></li>';
+
+								if(usedServiceNames.length >= 0 && $.inArray(serviceName, usedServiceNames) === -1) {
+									markup += '<li><a href="'+value.watch_now+'" title="'+value.name+'" class="gw-service" data-service="'+serviceName+'"><i class="bmbf bmbf-gw-'+serviceName+'"></i></a></li>';
+									usedServiceNames.push(serviceName);
+								}
 							});
 
 							// render list
@@ -68,12 +73,24 @@
 			if(render) {
 				gowatchit.html(markup);
 			}
+		},
+
+		setupLoggedInDOM: function() {
+			if(BMBF.user.isLoggedIn) {
+				movie.find('.th-wrap').prepend('<div class="add-watch-overlay-fixed has-tip round" data-tooltip aria-haspopup="true" title="Click to add this movie to your Watch List."><i class="bmbf bmbf-plus bmbf-2x"></i></div>');
+				$(document).foundation('tooltip');
+
+				if(BMBF.user.watchList.indexOf(movie.data('id')) > -1) {
+					movie.find('.add-watch-overlay-fixed').addClass('.active');
+				}
+			}
 		}
 	};
 
 	BMBF.libs.movie = {
 		init: function() {
 			_private.bind();
+			_private.setupLoggedInDOM();
 			_private.setupGoWatchIt();
 		}
 	};

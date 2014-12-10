@@ -39,6 +39,10 @@ header {
 			margin-bottom: rem-calc(15);
 			padding-bottom: rem-calc(10);
 			background-image: url(#{$image-path}/pattern.jpg);
+
+			img {
+				width: 100%;
+			}
 		}
 
 		table {

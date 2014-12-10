@@ -151,3 +151,7 @@ a.anchor {
 	
 	display: none;
 }
+
+.has-tip:focus, .has-tip:hover {
+	color: $vapor;
+}

@@ -15,9 +15,11 @@
 
 			$(document).on('click', '.add-watch-overlay, .add-watch-overlay-fixed', function() {
 				var movieId = $(this).data('id');
-				if(!movieId) {
-					movieId = $(this).closest('div').data('id');
+
+				if(typeof movieId === 'undefined') {
+					movieId = $('#movie').data('id');
 				}
+
 				_private.addWatchListItem($(this), movieId);
 				return false;
 			});
@@ -34,9 +36,12 @@
 		},
 
 		addWatchListItem: function($self, movieId) {
-			if($(this).hasClass('active')) {
+			if(typeof movieId === 'undefined') { return; }
+
+			if($self.hasClass('active')) {
 				_private.removeWatchListItem(movieId, function() {
 					$self.removeClass('active').find('span').remove();
+					BMBF.utils.updateTooltip($self, 'Click to add this movie to your Watch List.');
 				});
 			} else {
 				$.ajax({
@@ -46,6 +51,7 @@
 				})
 				.done(function() {
 					$self.addClass('active').append(' <span>Added to Watch List</span>');
+					BMBF.utils.updateTooltip($self, 'Click to remove this movie from your Watch List.');
 					BMBF.libs.tracking.track('profile', 'Added Watchlist item', movieId);
 				});
 			}
