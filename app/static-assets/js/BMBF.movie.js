@@ -30,9 +30,9 @@
 				var usedServiceNames = []; // avoid duplicate services
 
 				$.get(gwiUrl, function(data) {
-					if(typeof data.movie !== 'undefined' || data.movie !== null && data.movie.available) {
+					if((typeof data.movie !== 'undefined' || data.movie !== null) && data.movie.available) {
 						// if movie is available
-						if(data.movie.onlines !== null) {
+						if(typeof data.movie.onlines !== 'undefined') {
 							$.each(data.movie.onlines, function(key, value) {
 								var serviceName = value.name.toLowerCase().replace(/\s+/g, '');
 
