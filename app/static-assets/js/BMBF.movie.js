@@ -8,13 +8,13 @@
 	var movieTitle = $('.title').text();//$('meta[property="og\\:title"]').attr('content');
 	var markup = '';
 	var amazonId = 'bemobyfa09-20';
+	var usedServiceNames = [];
 
 	_private = {
 		bind: function() {
 			$(document).on('click', '.gw-service', function() {
 				var service = $(this).data('service');
 				BMBF.libs.tracking.track('link', 'click', 'GoWatchIt-' + service);
-				return false;
 			});
 		},
 
@@ -27,25 +27,35 @@
 			if(movie && gwiid) {
 				//var gwiUrl = "https://api.gowatchit.com/api/v2/movies/"+gwiid+"/availabilities?api_key=" + "c053d5c31fcc562e8106f35d&callback=?"
 				var gwiUrl = '//bmbf-cms.herokuapp.com/gwi?gwiid=' + gwiid;
-				var usedServiceNames = []; // avoid duplicate services
 
 				$.get(gwiUrl, function(data) {
-					if((typeof data.movie !== 'undefined' || data.movie !== null) && data.movie.available) {
-						// if movie is available
+					if((typeof data.movie !== 'undefined' || data.movie !== null)) {
+						if(!data.movie.available) {
+							_private.goWatchItNotFound();
+							return;
+						}
+						
 						if(typeof data.movie.onlines !== 'undefined') {
-							$.each(data.movie.onlines, function(key, value) {
-								var serviceName = value.name.toLowerCase().replace(/\s+/g, '');
+							if(data.movie.onlines !== null) {
+								$.each(data.movie.onlines, function(key, value) {
+									_private.addGoWatchItItem(value);
+								});
+							}
+						}
 
-								if(usedServiceNames.length >= 0 && $.inArray(serviceName, usedServiceNames) === -1) {
-									markup += '<li><a href="'+value.watch_now+'" title="'+value.name+'" class="gw-service" data-service="'+serviceName+'"><i class="bmbf bmbf-gw-'+serviceName+'"></i></a></li>';
-									usedServiceNames.push(serviceName);
-								}
-							});
+						if(typeof data.movie.dvds !== 'undefined') {
+							if(data.movie.dvds !== null) {
+								$.each(data.movie.dvds, function(key, value) {
+									_private.addGoWatchItItem(value);
+								});
+							}
+						}
 
+						if(markup !== '') {
 							// render list
 							gowatchit.html(markup);
 						} else {
-							// no online versions available
+							// no online or dvd versions available
 							_private.goWatchItNotFound();
 						}
 					} else {
@@ -59,6 +69,15 @@
 			} else {
 				// no gwiid found
 				_private.goWatchItNotFound();
+			}
+		},
+
+		addGoWatchItItem: function(value) {
+			var serviceName = value.name.toLowerCase().replace(/\s+/g, '');
+
+			if(usedServiceNames.length >= 0 && $.inArray(serviceName, usedServiceNames) === -1) {
+				markup += '<li><a href="'+value.watch_now+'" title="'+value.name+'" class="gw-service" data-service="'+serviceName+'"><i class="bmbf bmbf-gw-'+serviceName+'"></i></a></li>';
+				usedServiceNames.push(serviceName);
 			}
 		},
 
