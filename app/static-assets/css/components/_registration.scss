@@ -16,6 +16,12 @@
 	}
 
 	&.content {
+		outline: none;
+	}
+}
+
+#reg-dropdown.f-dropdown {
+	&.content {
 		top: $topbar-height - 1 !important;
 
 		@media #{$topbar-media-query-up} {
