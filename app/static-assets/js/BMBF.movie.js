@@ -100,7 +100,8 @@
 				$(document).foundation('tooltip');
 
 				if(BMBF.user.watchList.indexOf(movie.data('id')) > -1) {
-					movie.find('.add-watch-overlay-fixed').addClass('.active');
+					var overlay = movie.find('.add-watch-overlay-fixed');
+					overlay.addClass('active').append(' <span>Added to Watch List</span>');
 				}
 			}
 		}
