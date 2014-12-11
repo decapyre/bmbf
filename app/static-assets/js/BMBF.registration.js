@@ -42,7 +42,6 @@
 
 			// reset error messages when dropdown is closed
 			this.$regDropdown.on('closed.fndtn.dropdown', Foundation.utils.debounce(function() {
-				console.log('closing dropdown');
 				var abideForms = $(this).find('form');
 
 				$(abideForms).children('div').removeClass('error');
