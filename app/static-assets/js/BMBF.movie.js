@@ -107,6 +107,7 @@
 			if(serviceNames.length > numServicesToShow) {
 				moreMarkup += '</ul></li>';
 				gowatchit.append(moreMarkup);
+				$(document).foundation('dropdown', 'reflow');
 				moreMarkup = null;
 			}
 		},
