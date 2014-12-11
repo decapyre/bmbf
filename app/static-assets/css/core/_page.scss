@@ -131,8 +131,8 @@ $shotform-content-padding: rem-calc(25);
 		text-align: center;
 		float: left;
 		cursor: pointer;
-		background-color: $base;
-		color: #fff;
+		background-color: $steel;
+		color: $white;
 		transition: background-color 0.2s ease-in-out;
 
 		@media #{$small-to-medium-only} {
@@ -145,7 +145,7 @@ $shotform-content-padding: rem-calc(25);
 		}
 
 		&:first-child {
-			background-color: $steel;
+			background-color: $oil;
 			cursor: auto;
 
 			&:hover {

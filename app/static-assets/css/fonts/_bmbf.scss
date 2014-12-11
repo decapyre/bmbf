@@ -214,48 +214,75 @@ $bmbf-vert-offset:      -7%;
 .bmbf-print:before {
   content: "\e023";
 }
-.bmbf-gw-youtube:before {
+.bmbf-gw-amazon:before {
   content: "\e024";
 }
-.bmbf-gw-sundancenow:before {
+.bmbf-gw-crackle:before {
   content: "\e025";
 }
-.bmbf-gw-xboxvideo:before {
+.bmbf-gw-snagfilms:before {
   content: "\e026";
 }
-.bmbf-gw-hulu:before {
+.bmbf-gw-sonyentertainmentnetwork:before {
   content: "\e027";
 }
-.bmbf-gw-googleplay:before {
+.bmbf-gw-sundancenow:before {
   content: "\e028";
 }
-.bmbf-gw-fandango:before {
+.bmbf-gw-disneymoviesanywhere:before {
   content: "\e029";
 }
-.bmbf-gw-amazon:before {
+.bmbf-gw-fandango:before {
   content: "\e02a";
 }
-.bmbf-gw-vudu:before {
+.bmbf-gw-vhx:before {
   content: "\e02b";
 }
-.bmbf-gw-itunes:before {
+.bmbf-gw-vudu:before {
   content: "\e02c";
 }
-.bmbf-gw-redbox:before {
+.bmbf-gw-fandor:before {
   content: "\e02d";
 }
-.bmbf-gw-netflix:before {
+.bmbf-gw-wolfe:before {
   content: "\e02e";
 }
-.bmbf-gw-fandor:before {
-  content: "\e02f";
-}
-.bmbf-gw-moviesondemand:before {
+.bmbf-gw-googleplay:before {
   content: "\e030";
 }
-.bmbf-gw-snagfilms:before {
+.bmbf-gw-hulu:before {
   content: "\e031";
 }
-.bmbf-gw-targetticket:before {
+.bmbf-gw-youtube:before {
   content: "\e032";
+}
+.bmbf-gw-moviesondemand:before {
+  content: "\e033";
+}
+.bmbf-gw-itunes:before {
+  content: "\e034";
+}
+.bmbf-gw-redbox:before {
+  content: "\e035";
+}
+.bmbf-gw-showtimeanytime:before {
+  content: "\e036";
+}
+.bmbf-gw-netflix:before {
+  content: "\e037";
+}
+.bmbf-gw-targetticket:before {
+  content: "\e039";
+}
+.bmbf-gw-xboxvideo:before {
+  content: "\e03a";
+}
+.bmbf-gw-bestbuy:before {
+  content: "\e03b";
+}
+.bmbf-gw-walmart:before {
+  content: "\e02f";
+}
+.bmbf-gw-flixster:before {
+  content: "\e03c";
 }
