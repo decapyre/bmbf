@@ -60,11 +60,24 @@ footer {
     }
 
     .copyright-terms {
-        padding-top: rem-calc(30);
         font-family: $font-family-serif;
         font-style: italic;
         font-size: rem-calc(11);
         text-align: right;
         color: $steel;
+    }
+
+    .vendors {
+        padding-top: rem-calc(20);
+        padding-bottom: rem-calc(5);
+        text-align: right;
+        font-size: rem-calc(13);
+        font-family: $futura;
+        font-weight: normal;
+        text-transform: none;
+
+        @media #{$small-to-medium-only} {
+            text-align: center;
+        }
     }
 }
