@@ -9,7 +9,7 @@
 	var amazonId = 'bemobyfa09-20';
 	var services = {};
 	var serviceNames = [];
-	var preferredServices = ['amazon', 'googleplay', 'netflix', 'hulu', 'redbox', 'itunes', 'youtube'];
+	var preferredServices = ['netflix', 'youtube', 'redbox', 'googleplay', 'itunes', 'amazon', 'hulu'];
 	var numServicesToShow = 3;
 
 	_private = {
