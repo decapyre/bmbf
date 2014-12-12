@@ -5,7 +5,7 @@
 	var movie = $('section#movie');
 	var gwiid = movie.data('gwi-id');
 	var gowatchit = $('.gowatchit');
-	var movieTitle = $('.title').text();//$('meta[property="og\\:title"]').attr('content');
+	var movieTitle = movie.data('title');
 	var amazonId = 'bemobyfa09-20';
 	var services = {};
 	var serviceNames = [];
