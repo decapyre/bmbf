@@ -13,12 +13,6 @@
 		text-decoration: none;
 	}
 
-	header {
-		&.movie {
-			@extend .hide-on-print;
-		}
-	}
-
 	.flex-video,
 	video,
 	audio,
@@ -38,7 +32,8 @@
 	.gowatchit-dd,
 	.shortform-content,
 	.ad_rotator,
-	.newsletter
+	#newsletter,
+	header.movie
 	{
 		@extend .hide-on-print;
 	}

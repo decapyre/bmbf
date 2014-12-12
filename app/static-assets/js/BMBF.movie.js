@@ -21,12 +21,12 @@
 		},
 
 		setupGoWatchIt: function() {
-			if(!movie) {
+			if(movie.length === 0) {
 				// not on a movie page hack
 				return;
 			}
 
-			if(movie && gwiid) {
+			if(movie.length > 0 && gwiid) {
 				//var gwiUrl = "https://api.gowatchit.com/api/v2/movies/"+gwiid+"/availabilities?api_key=" + "c053d5c31fcc562e8106f35d&callback=?"
 				var gwiUrl = '//bmbf-cms.herokuapp.com/gwi?gwiid=' + gwiid;
 
