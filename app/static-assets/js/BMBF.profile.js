@@ -2,6 +2,7 @@
 /*global jQuery, BMBF*/
 (function($, document, window, undefined) {
 	var _private;
+	var movie = $('#movie');
 
 	_private = {
 		$watchListItems: $('.remove-watch-list-item'),
@@ -14,13 +15,16 @@
 			});
 
 			$(document).on('click', '.add-watch-overlay, .add-watch-overlay-fixed', function() {
-				var movieId = $(this).data('id');
+				var target = $(this);
+				var movieId = target.data('id');
+				var movieTitle = target.data('title');
 
 				if(typeof movieId === 'undefined') {
-					movieId = $('#movie').data('id');
+					movieId = movie.data('id');
+					movieTitle = movie.data('title');
 				}
-
-				_private.addWatchListItem($(this), movieId);
+				
+				_private.addWatchListItem(target, movieId, movieTitle);
 				return false;
 			});
 
@@ -35,7 +39,7 @@
 			});
 		},
 
-		addWatchListItem: function($self, movieId) {
+		addWatchListItem: function($self, movieId, movieTitle) {
 			if(typeof movieId === 'undefined') { return; }
 
 			if($self.hasClass('active')) {
@@ -52,7 +56,7 @@
 				.done(function() {
 					$self.addClass('active').append(' <span>Added to Watch List</span>');
 					BMBF.utils.updateTooltip($self, 'Click to remove this movie from your Watch List.');
-					BMBF.libs.tracking.track('profile', 'Added Watchlist item', movieId);
+					BMBF.libs.tracking.track('profile', 'Added Watchlist item', movieTitle);
 				});
 			}
 		},
@@ -100,11 +104,11 @@
 				data: $self.serialize(),
 				success: function() {
 					_private.handleOnSuccess($self, msg);
-					BMBF.libs.tracking.track('postUpdateToProfileService', eventName, 'success');
+					BMBF.libs.tracking.track('profile', eventName, 'success');
 				},
 				error: function(jqXHR) {
 					BMBF.libs.foundation.handleAbideError($self, jqXHR.responseJSON);
-					BMBF.libs.tracking.track('postUpdateToProfileService', eventName, 'error');
+					BMBF.libs.tracking.track('profile', eventName, 'error');
 				}
 			});
 		},
