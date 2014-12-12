@@ -139,6 +139,7 @@
 				if(BMBF.user.watchList.indexOf(movie.data('id')) > -1) {
 					var overlay = movie.find('.add-watch-overlay-fixed');
 					overlay.addClass('active').append(' <span>Added to Watch List</span>');
+					BMBF.utils.updateTooltip(overlay, 'Click to remove this movie from your Watch List.');
 				}
 			}
 		}
