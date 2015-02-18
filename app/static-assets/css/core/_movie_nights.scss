@@ -129,25 +129,25 @@ section#movienightslp {
 		@include clearfix();
 	}
 
-	.social {
-		ul {
-			list-style: none;
-			margin: 0;
+	// .social {
+	// 	ul {
+	// 		list-style: none;
+	// 		margin: 0;
 
-			li {
-				margin: 0 rem-calc(24);
-				display: inline-block;
+	// 		li {
+	// 			margin: 0 rem-calc(24);
+	// 			display: inline-block;
 
-				@media #{$small-only} {
-					margin: 0 rem-calc(15);
-				}
+	// 			@media #{$small-only} {
+	// 				margin: 0 rem-calc(15);
+	// 			}
 
-				 a {
-					color: #333;
-				 }
-			}
-		}
-	}
+	// 			 a {
+	// 				color: #333;
+	// 			 }
+	// 		}
+	// 	}
+	// }
 }
 
 section#movienight {
@@ -243,43 +243,6 @@ section#movienight {
 
 		@media #{$small-only} {
 			margin: rem-calc(25 0);
-		}
-	}
-}
-
-#movie-night-signup {
-	@include gradient-bg();
-	padding: rem-calc(50 15);
-	margin: rem-calc(75 0);
-	color: $white;
-	@media #{$small-only} {
-		margin: rem-calc(25 0 50 0);
-	}
-
-	p {
-		font-size: rem-calc(18);
-
-		@media #{$small-only} {
-			font-size: rem-calc(15);
-		}
-
-		&.terms {
-			line-height: 1;
-
-			small {
-				font-size: rem-calc(13);
-				color: $steel;
-			}
-		}
-		
-	}
-
-	h3 {
-		color: $white;
-		font-size: rem-calc(40);
-
-		@media #{$small-only} {
-			font-size: rem-calc(32);
 		}
 	}
 }

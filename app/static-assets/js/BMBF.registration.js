@@ -254,6 +254,9 @@
 								// call global google async track method
 								BMBF.libs.tracking.trackConversion(969517115, 'Gli5CKDZiVgQu9CmzgM');
 							});
+					} else if(location.href.indexOf('lps/membership') !== -1) {
+						BMBF.user.setSignupCampaignId('membership');
+						BMBF.libs.tracking.track('registration', 'signup', 'Campaign Signup - membership page');
 					} else {
 						BMBF.libs.tracking.track('registration', 'signup', 'Normal Signup');
 					}

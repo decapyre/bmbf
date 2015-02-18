@@ -1,0 +1,135 @@
+header {
+	&.becomeamember {
+		h2 {
+			padding: rem-calc(100 0);
+			text-align: center;
+			font-size: rem-calc(55);
+			text-transform: uppercase;
+			font-style: italic;
+			color: $white;
+
+			span {
+				font-style: normal;
+				color: $base;
+				font-size: rem-calc(40);
+			}
+		}
+	}
+
+	&.becomeamember {
+		max-height: 546px;
+		height: 546px;
+		text-align: left;
+		background-image: url(#{$image-path}/bgBecomeAMember.jpg);
+
+		h2 {
+			@media #{$medium-only} {
+				font-size: rem-calc(50);
+			}
+
+			@media #{$small-only} {
+				font-size: rem-calc(30);
+			}
+		}
+	}
+}
+
+#becomeamember {
+
+	.feature {
+		padding: rem-calc(80) 0;
+
+		@media #{$small-to-medium-only} {
+			padding: rem-calc(30) 0;
+		}
+	}
+
+	.tagline {
+		font-size: rem-calc(36);
+		text-align: center;
+		line-height: rem-calc(58);
+
+		span {
+			font-size: rem-calc(86);
+			
+			span {
+				color: $green-button-color;
+			}
+		}
+	}
+
+	.comparison-table {
+		// background: #f4f4f4;
+		button {
+			margin-top: 30px;
+			width: 100%;
+		}
+
+		h3 {
+			margin-bottom: 0;
+			font-family: $futura;
+			font-size: rem-calc(18);
+			text-transform: uppercase;
+			text-align: center;
+			padding: rem-calc(20);
+		}
+
+		.bmbf-check {
+			text-align: center;
+			color: $green-button-color;
+		}
+
+		.member {
+			h3 {
+				background: $oil;
+				color: #ffda0c;
+			}
+
+			.list-group {
+				background: $oil;
+				li {
+					border-color: #434343;
+				}
+			}
+		}
+
+		.visitor {
+			h3 {
+				background: #404040;
+				color: #fff;
+			}
+
+			.list-group {
+				background: #404040;
+				li {
+					border-color: #4e4e4e;
+				}
+			}
+		}
+
+		.list-group {
+			border: none;
+			margin: 0;
+			text-align: center;
+			background: #f4f4f4;
+
+			li {
+				position: relative;
+				// display: block;
+				padding: 10px 15px;
+				margin-bottom: -1px;
+				border-bottom: 1px solid #e0e0e0;
+				border-top: 1px solid #e0e0e0;
+				list-style: none;
+
+				span.hide-for-large-up {
+					color: $white;
+				}
+			}
+
+			&.definitions {
+				text-align: right;
+			}
+		}		
+	}
+}

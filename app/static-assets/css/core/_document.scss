@@ -152,6 +152,19 @@ a.anchor {
 	display: none;
 }
 
+
+.no-padding-right {
+	@media #{$medium-up} {
+		padding-right: 0 !important;
+	}
+}
+
+.no-padding-left {
+	@media #{$medium-up} {
+		padding-left: 0 !important;
+	}
+}
+
 .has-tip:focus, .has-tip:hover {
 	color: $vapor;
 }

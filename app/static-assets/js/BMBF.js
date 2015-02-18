@@ -93,7 +93,8 @@ var BMBF = window.BMBF || (function($, document, window, undefined) {
 			watchList: window.bmbfWatchList || [],
 
 			campaignRedirects: {
-				'movie-nights': _private.config.host + '/movie-nights'
+				'movie-nights': _private.config.host + '/movie-nights',
+				'membership': _private.config.host + '/profile'
 			},
 
 			getSignupCampaignId: function() {
