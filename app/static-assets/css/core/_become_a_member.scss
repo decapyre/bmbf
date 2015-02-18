@@ -7,10 +7,10 @@ header {
 			text-transform: uppercase;
 			font-style: italic;
 			color: $white;
+			text-shadow: -4px 5px 10px rgba(0, 0, 0, 0.75);
 
 			span {
 				font-style: normal;
-				color: $base;
 				font-size: rem-calc(40);
 			}
 		}
@@ -25,10 +25,12 @@ header {
 		h2 {
 			@media #{$medium-only} {
 				font-size: rem-calc(50);
+				padding: 0;
 			}
 
 			@media #{$small-only} {
 				font-size: rem-calc(30);
+				padding: rem-calc(25 0);
 			}
 		}
 	}
