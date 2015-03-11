@@ -113,6 +113,15 @@ button.green,
 	@extend %green-button;
 }
 
+.link-green {
+	@extend %standard-link;
+	color: $green-button-color;
+
+	&:hover {
+		color: scale-color($green-button-color, $lightness: -20%);
+	}
+}
+
 .gpu {
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;

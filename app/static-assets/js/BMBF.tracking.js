@@ -8,6 +8,16 @@
 
 	BMBF.libs.tracking = {
 		init: function() {
+			$(document).on('click', '.track', function() {
+				var data = $(this).data();
+
+				BMBF.libs.tracking.track(
+					data.trackCat?data.trackCat:null,
+					data.trackAction?data.trackAction:null,
+					data.trackLabel?data.trackLabel:null,
+					data.trackValue?data.trackValue:null
+				);
+			});
 		},
 
 		// GA events | category, action, label, value(int)
