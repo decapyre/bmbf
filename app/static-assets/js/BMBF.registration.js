@@ -70,8 +70,13 @@
 
 			// open registration dropdown to any slide
 			this.$openReg.click(function() {
-				var slide = $(this).data('slide');
+				var $target = $(this);
+				var slide = $target.data('slide');
 				_private.openRegistrationDropdownToSlide(slide);
+
+				// if this signup button contains proper data-track attributes, track it
+				BMBF.libs.tracking.trackClick($target);
+
 				return false;
 			});
 		},

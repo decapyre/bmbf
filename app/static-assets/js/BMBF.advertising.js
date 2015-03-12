@@ -17,6 +17,13 @@
 				'href':'/movie-nights',
 				'href_guest':'/lps/movie-nights',
 				'src':'/static-assets/images/lps/movienights_ad_banner.jpg'
+			},
+			{
+				'id': 'watch-list-membership',
+				'title':'BECOME A MEMBER, IT\'S FREE (for now)!',
+				'href':'/profile',
+				'href_guest':'/lps/membership',
+				'src':'/static-assets/images/lps/watchlist_membership_ad_banner.jpg'
 			}
 		],
 
