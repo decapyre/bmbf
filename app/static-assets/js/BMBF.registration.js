@@ -194,6 +194,7 @@
 				type: 'POST',
 				url: '/crafter-security-rest-login',
 				data: $self.serialize(),
+                cache:false,
 				success: function() {
 					if($self.find('input.remember').get(0).checked) {
 						var ticket = $.cookie('ticket');
@@ -215,7 +216,7 @@
 							window.location.href = redirectURI;
 						} else {
 							BMBF.libs.tracking.track('registration', 'login', 'Normal Login');
-							window.location.href = '/';
+							window.location.reload();
 						}
 					}
 					catch(e) {
