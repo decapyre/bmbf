@@ -221,7 +221,12 @@
 							window.location.href = redirectURI;
 						} else {
 							BMBF.libs.tracking.track('registration', 'login', 'Normal Login');
-							window.location.reload();
+                            var goTo=$self.find('input.redirectTo').val();
+                            if(goTo===undefined){
+                                window.location.reload();
+                            }else{
+                                window.location.href = goTo;
+                            }
 						}
 					}
 					catch(e) {
