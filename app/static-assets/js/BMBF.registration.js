@@ -220,15 +220,11 @@
 							BMBF.libs.tracking.track('registration', 'login', 'Campaign Login - ' + campaignId);
 							window.location.href = redirectURI;
 						} else {
-                            debugger;
 							BMBF.libs.tracking.track('registration', 'login', 'Normal Login');
                             var goTo=$self.find('input.redirectTo').val();
-                            console.log("go to Is "+goTo);
                             if(goTo===undefined){
-                                console.log("Going To Reload");
                                 window.location.reload();
                             }else{
-                                console.log("Going To "+goTo);
                                 window.location.href = goTo;
                             }
 						}
