@@ -339,7 +339,9 @@
 			_private.setup();
 			_private.bind();
 			_private.bindServices();
-		}
+		},
+
+		openRegistrationDropdownToSlide: _private.openRegistrationDropdownToSlide
 	};
 
 	return BMBF.libs.registration;
