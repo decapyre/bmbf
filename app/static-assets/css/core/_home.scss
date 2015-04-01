@@ -1,9 +1,11 @@
-#slogan {
+#tagline {
 	text-align: center;
 
 	h2 {
-		margin: 0;
-		font-size: rem-calc(32);
+		margin: 0 0 rem-calc(10) 0;
+		font-size: rem-calc(34);
+		font-family: $font-family-serif;
+		font-weight: normal;
 	}
 
 	.lines {
